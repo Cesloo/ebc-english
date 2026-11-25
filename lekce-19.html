@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 19 · AI tools in a design office</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 19,
+ "module": 5,
+ "title": "AI tools in a design office",
+ "cz": "Nástroje umělé inteligence v projekční kanceláři",
+ "grammar": "future: will and going to",
+ "goals": [
+  "talk about how we use AI tools at work",
+  "describe plans and predictions",
+  "give simple instructions to an AI tool in English",
+  "discuss risks and rules"
+ ],
+ "week": [
+  "Which AI tool did you use this week and what for?",
+  "What are you going to try next?",
+  "What will be easier with AI?"
+ ],
+ "frames": [
+  "I used … to summarise / check / translate …",
+  "I'm going to try …",
+  "I think AI will help with …",
+  "It saved me about … hours.",
+  "I always check the result because …"
+ ],
+ "vocab": [
+  [
+   "artificial intelligence",
+   "umělá inteligence (AI)",
+   "We use artificial intelligence for checking documents."
+  ],
+  [
+   "tool",
+   "nástroj",
+   "Which AI tools does your company use?"
+  ],
+  [
+   "prompt",
+   "zadání pro AI, prompt",
+   "A good prompt gives the context and the goal."
+  ],
+  [
+   "to summarise",
+   "shrnout",
+   "The tool summarises long tender documents."
+  ],
+  [
+   "to translate",
+   "přeložit",
+   "I used it to translate the technical report."
+  ],
+  [
+   "to check",
+   "zkontrolovat",
+   "AI can check the documentation for mistakes."
+  ],
+  [
+   "to generate",
+   "vygenerovat",
+   "It generates the first draft of an email."
+  ],
+  [
+   "draft",
+   "koncept, první verze",
+   "This is only a draft. Please check it."
+  ],
+  [
+   "mistake",
+   "chyba",
+   "The tool found three mistakes in the bill of quantities."
+  ],
+  [
+   "reliable",
+   "spolehlivý",
+   "The results are not always reliable."
+  ],
+  [
+   "confidential",
+   "důvěrný",
+   "Don't upload confidential documents."
+  ],
+  [
+   "guideline",
+   "směrnice, pravidla",
+   "The company has a guideline for using AI."
+  ],
+  [
+   "to save time",
+   "ušetřit čas",
+   "It saves a lot of time."
+  ],
+  [
+   "to verify",
+   "ověřit",
+   "You must verify every number."
+  ]
+ ],
+ "notes": [
+  "<b>AI<\/b> čteme po písmenech: <i>ej-aj<\/i>.",
+  "<b>prompt<\/b> = zadání, které AI napíšete. Sloveso: <i>to prompt<\/i>.",
+  "<b>will<\/b> = předpověď, rozhodnutí teď. <b>going to<\/b> = plán, který už máme."
+ ],
+ "match": [
+  [
+   "the instruction you write for an AI tool",
+   "prompt"
+  ],
+  [
+   "to make a long text short",
+   "to summarise"
+  ],
+  [
+   "a first version that is not final",
+   "draft"
+  ],
+  [
+   "secret, not for everybody",
+   "confidential"
+  ],
+  [
+   "to check that something is true",
+   "to verify"
+  ],
+  [
+   "a company document with rules",
+   "guideline"
+  ]
+ ],
+ "distract": [
+  "tool",
+  "mistake"
+ ],
+ "voc": [
+  "A good {prompt} gives the context, the task and the format.",
+  "The tool {summarises} a hundred pages in one minute.",
+  "This is only a {draft}, please check it carefully.",
+  "Don't upload {confidential} documents to public tools.",
+  "You must {verify} every number in the result.",
+  "The company {guideline} says which tools we can use."
+ ],
+ "gbox": [
+  [
+   "Going to — plans",
+   "Plán, o kterém už je rozhodnuto.",
+   [
+    "I<b>'m going to<\/b> test the tool next week.",
+    "We<b>'re going to<\/b> use it for tender documents.",
+    "She <b>isn't going to<\/b> upload the contract.",
+    "<b>Are<\/b> you <b>going to<\/b> try it?"
+   ],
+   "am / is / are + going to + sloveso"
+  ],
+  [
+   "Will — predictions and quick decisions",
+   "Předpověď, slib, rozhodnutí v tu chvíli.",
+   [
+    "AI <b>will<\/b> save us a lot of time.",
+    "It <b>won't<\/b> replace the engineer.",
+    "I<b>'ll<\/b> send you the prompt.",
+    "<b>Will<\/b> it understand Czech standards?"
+   ],
+   "I think … will · probably · maybe"
+  ]
+ ],
+ "gtask": "Doplňte will / won't nebo správný tvar going to.",
+ "gram": [
+  "I {am going to|'m going to} test the new tool next week. It is in my plan.",
+  "I think AI {will} save us a lot of time.",
+  "It {won't|will not} replace the responsible engineer.",
+  "We {are going to|'re going to} train all employees in March.",
+  "Wait, I {will|'ll} send you my prompt right now.",
+  "{Are} you {going to} use it for the tender documentation?",
+  "The tool probably {won't|will not} understand hand-written notes."
+ ],
+ "reading": {
+  "title": "How we use AI",
+  "cz": "Článek do firemního newsletteru.",
+  "paras": [
+   "<b>AI in our office — first experience<\/b>",
+   "This year our company started to use AI tools in daily work. Every employee has an assistant in the office software, and some teams are testing other tools.",
+   "What do we use them for? Designers use AI to summarise tender documents, to translate reports and to prepare drafts of emails. One team is testing a tool that checks design documentation and finds conflicts between drawings and reports.",
+   "The company guideline is clear. We don't upload confidential documents to public tools, and the engineer must verify every result. AI will not sign the drawing. The authorised engineer will.",
+   "Next year we are going to collect the best examples from all branches and share them. We think AI will save time on routine work, so we will have more time for design."
+  ]
+ },
+ "tf": [
+  [
+   "Every employee has an AI assistant.",
+   true
+  ],
+  [
+   "Designers use AI to sign drawings.",
+   false
+  ],
+  [
+   "One team tests a tool for checking documentation.",
+   true
+  ],
+  [
+   "Confidential documents can be uploaded to public tools.",
+   false
+  ],
+  [
+   "The company is going to share the best examples.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "A good prompt",
+  "cz": "Stavba dobrého zadání. Zkuste podle ní napsat anglický prompt ke své práci.",
+  "steps": [
+   [
+    "Role",
+    "You are a …"
+   ],
+   [
+    "Context",
+    "The project is …"
+   ],
+   [
+    "Task",
+    "Summarise / check / translate …"
+   ],
+   [
+    "Format",
+    "Give me a table / five points"
+   ],
+   [
+    "Check",
+    "Verify the result"
+   ]
+  ],
+  "q": "What are you going to ask the tool? What will you verify yourself?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Do you use AI {tools} in your design work?"
+  ],
+  [
+   "Martin",
+   "Yes, mostly to summarise documents and to {check} the documentation."
+  ],
+  [
+   "Mark",
+   "Is it {reliable}?"
+  ],
+  [
+   "Martin",
+   "Not always. The engineer must {verify} every result."
+  ],
+  [
+   "Mark",
+   "And what about our {confidential} data?"
+  ],
+  [
+   "Martin",
+   "We have a guideline. We {won't} upload your documents to public tools."
+  ],
+  [
+   "Mark",
+   "Good. Are you {going} to use it on our project?"
+  ],
+  [
+   "Martin",
+   "Yes. We're going to use it for checking the bill of {quantities}."
+  ]
+ ],
+ "speak": {
+  "title": "plans and predictions",
+  "cz": "Diskuse ve dvojicích: jak budeme AI používat za rok a co určitě dělat nebude. Pak každá dvojice řekne dva plány a dvě předpovědi.",
+  "phrases": [
+   "We're going to use it for …",
+   "I think it will …",
+   "It won't … because …",
+   "The risk is that …"
+  ],
+  "questions": [
+   "What are you going to try first?",
+   "Will it save time?",
+   "What won't it be able to do?",
+   "Who will check the results?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Ask how the designers use AI and how they protect your data."
+   ],
+   [
+    "AI coordinator",
+    "Explain the guideline and the plan for next year."
+   ],
+   [
+    "Optimist",
+    "AI will do all routine work. Give three examples."
+   ],
+   [
+    "Sceptic",
+    "AI will make mistakes. Give three risks."
+   ],
+   [
+    "Designer",
+    "Describe one task you are going to try with AI next week."
+   ],
+   [
+    "Lead designer",
+    "Explain who will be responsible for the result."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "I ___ test it next week. (plán)",
+   [
+    "am going to",
+    "will to",
+    "going"
+   ],
+   0
+  ],
+  [
+   "I think AI ___ save time.",
+   [
+    "is going",
+    "will",
+    "wills"
+   ],
+   1
+  ],
+  [
+   "„Koncept, první verze“ je:",
+   [
+    "draft",
+    "concept paper",
+    "raw"
+   ],
+   0
+  ],
+  [
+   "„Důvěrný“ je:",
+   [
+    "confident",
+    "confidential",
+    "trustful"
+   ],
+   1
+  ],
+  [
+   "It ___ replace the engineer.",
+   [
+    "won't",
+    "willn't",
+    "isn't will"
+   ],
+   0
+  ],
+  [
+   "„Ověřit“ je:",
+   [
+    "to verify",
+    "to overlook",
+    "to proof on"
+   ],
+   0
+  ]
+ ],
+ "hw": "an English prompt for an AI tool for a task from your work (role, context, task, format) and two sentences about what you are going to verify.",
+ "tnote": "<i>Confident<\/i> (sebejistý) × <i>confidential<\/i> (důvěrný). Domácí prompty si v další hodině nechte přečíst; je to zároveň procvičení rozkazovacího způsobu.",
+ "basics": [
+  [
+   "fast",
+   "rychlý"
+  ],
+  [
+   "slow",
+   "pomalý"
+  ],
+  [
+   "easy",
+   "snadný"
+  ],
+  [
+   "difficult",
+   "obtížný"
+  ],
+  [
+   "right",
+   "správně"
+  ],
+  [
+   "wrong",
+   "špatně"
+  ]
+ ],
+ "comic": {
+  "prop": "laptop",
+  "a": [
+   "C",
+   "Will AI replace the engineers?"
+  ],
+  "b": [
+   "B",
+   "No. Somebody has to sign the drawing."
+  ]
+ },
+ "next": "Review 5: costs, tenders and bids",
+ "videos": [
+  [
+   "YouTube – hledat: AI in architecture and construction explained",
+   "https://www.youtube.com/results?search_query=AI+in+architecture+and+construction+explained"
+  ],
+  [
+   "YouTube – hledat: will vs going to English lesson",
+   "https://www.youtube.com/results?search_query=will+vs+going+to+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

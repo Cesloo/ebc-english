@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 07 · Numbers, dimensions and units</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 7,
+ "module": 2,
+ "title": "Numbers, dimensions and units",
+ "cz": "Čísla, rozměry a jednotky",
+ "grammar": "saying numbers and measurements; how + adjective",
+ "goals": [
+  "say large numbers, decimals and units correctly",
+  "give the dimensions of a room or element",
+  "ask about size, area and capacity",
+  "understand numbers on the phone"
+ ],
+ "week": [
+  "What numbers did you calculate this week?",
+  "How big is your current project?",
+  "How many drawings did you finish?"
+ ],
+ "frames": [
+  "The building is … metres long and … metres wide.",
+  "The floor area is … square metres.",
+  "The capacity is … people.",
+  "The output of the boiler is … kilowatts.",
+  "That's about … per cent more."
+ ],
+ "vocab": [
+  [
+   "length",
+   "délka",
+   "The length of the stand is 105 metres."
+  ],
+  [
+   "width",
+   "šířka",
+   "The width of the corridor is 2.4 metres."
+  ],
+  [
+   "height",
+   "výška",
+   "The clear height is three metres."
+  ],
+  [
+   "depth",
+   "hloubka",
+   "The depth of the foundation is 1.2 metres."
+  ],
+  [
+   "thickness",
+   "tloušťka",
+   "The thickness of the insulation is 200 millimetres."
+  ],
+  [
+   "area",
+   "plocha",
+   "The floor area is 850 square metres."
+  ],
+  [
+   "volume",
+   "objem",
+   "The volume of the hall is 12,000 cubic metres."
+  ],
+  [
+   "capacity",
+   "kapacita",
+   "The capacity of the stadium is 15,000 spectators."
+  ],
+  [
+   "diameter",
+   "průměr",
+   "The diameter of the pipe is 50 millimetres."
+  ],
+  [
+   "output",
+   "výkon",
+   "The heat output of the boiler is 300 kilowatts."
+  ],
+  [
+   "flow rate",
+   "průtok",
+   "The air flow rate is 5,000 cubic metres per hour."
+  ],
+  [
+   "approximately",
+   "přibližně",
+   "The area is approximately 900 square metres."
+  ],
+  [
+   "to measure",
+   "měřit",
+   "We measured the room on site."
+  ],
+  [
+   "tolerance",
+   "tolerance, odchylka",
+   "The tolerance is plus or minus five millimetres."
+  ]
+ ],
+ "notes": [
+  "Desetinná <b>tečka<\/b>: 2.5 = <i>two point five<\/i>. Čárka odděluje tisíce: 12,000 = <i>twelve thousand<\/i>. Je to opačně než v češtině.",
+  "m² = <i>square metres<\/i>, m³ = <i>cubic metres<\/i>, m³/h = <i>cubic metres per hour<\/i>.",
+  "6 × 4 m = <i>six <b>by<\/b> four metres<\/i>.",
+  "Podstatné jméno × přídavné: length – long, width – wide, height – high, depth – deep."
+ ],
+ "match": [
+  [
+   "how long something is",
+   "length"
+  ],
+  [
+   "how thick something is",
+   "thickness"
+  ],
+  [
+   "the distance across a pipe",
+   "diameter"
+  ],
+  [
+   "how many people fit in",
+   "capacity"
+  ],
+  [
+   "the size of a surface in square metres",
+   "area"
+  ],
+  [
+   "the power of a boiler or a unit",
+   "output"
+  ]
+ ],
+ "distract": [
+  "volume",
+  "depth"
+ ],
+ "voc": [
+  "The {capacity} of the stadium is fifteen thousand spectators.",
+  "The {thickness} of the wall is 300 millimetres.",
+  "The heat {output} of the heat pump is 80 kilowatts.",
+  "The room is {approximately} five by six metres.",
+  "The {diameter} of the duct is 400 millimetres.",
+  "The floor {area} of the changing room is 45 square metres."
+ ],
+ "gbox": [
+  [
+   "Numbers",
+   "Jak čísla čteme.",
+   [
+    "3.75 = three <b>point<\/b> seven five",
+    "12,500 = twelve thousand five hundred",
+    "1/2 = a half · 1/4 = a quarter",
+    "45 % = forty-five <b>per cent<\/b>"
+   ],
+   "0.5 = zero point five / nought point five"
+  ],
+  [
+   "Dimensions",
+   "Rozměry a otázky na ně.",
+   [
+    "The room <b>is<\/b> 6 metres <b>long<\/b> and 4 metres <b>wide<\/b>.",
+    "It is 6 <b>by<\/b> 4 metres.",
+    "<b>How high<\/b> is the ceiling?",
+    "<b>What is<\/b> the area of the roof?"
+   ],
+   "How long / wide / high / deep / thick …?"
+  ]
+ ],
+ "gtask": "Doplňte jedno slovo: long, wide, high, thick, by, point, per.",
+ "gram": [
+  "The stand is 105 metres {long}.",
+  "The corridor is 2.4 metres {wide}.",
+  "How {high} is the ceiling in the hall?",
+  "The room is six {by} four metres.",
+  "2.5 is read as two {point} five.",
+  "The air flow is 5,000 cubic metres {per} hour.",
+  "The insulation is 200 millimetres {thick}."
+ ],
+ "reading": {
+  "title": "The building in numbers",
+  "cz": "Základní údaje o stavbě v průvodní zprávě.",
+  "paras": [
+   "<b>Sports hall — basic data<\/b>",
+   "The sports hall is 68 metres long, 42 metres wide and 12.5 metres high. The total floor area is 3,450 square metres and the volume is approximately 38,000 cubic metres.",
+   "The capacity of the hall is 1,200 spectators. There are six changing rooms, each with an area of 32 square metres.",
+   "The external walls have insulation 200 millimetres thick. The heat output of the two heat pumps is 2 × 90 kilowatts. The ventilation system supplies 24,000 cubic metres of fresh air per hour.",
+   "The roof has photovoltaic panels with an area of 600 square metres. They cover about 35 per cent of the electricity demand."
+  ]
+ },
+ "tf": [
+  [
+   "The hall is 68 metres long.",
+   true
+  ],
+  [
+   "The floor area is 38,000 square metres.",
+   false
+  ],
+  [
+   "There are six changing rooms.",
+   true
+  ],
+  [
+   "The total heat output is 90 kilowatts.",
+   false
+  ],
+  [
+   "The panels cover about 35 per cent of the electricity demand.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "From length to volume",
+  "cz": "Veličiny a jednotky. Ke každé řekněte příklad ze své profese.",
+  "steps": [
+   [
+    "Length (m)",
+    "délka"
+   ],
+   [
+    "Area (m²)",
+    "plocha"
+   ],
+   [
+    "Volume (m³)",
+    "objem"
+   ],
+   [
+    "Flow rate (m³/h)",
+    "průtok"
+   ],
+   [
+    "Output (kW)",
+    "výkon"
+   ],
+   [
+    "Energy (kWh)",
+    "energie"
+   ]
+  ],
+  "q": "What is the heat output of the source in your project? What is the floor area?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "How big is the VIP area?"
+  ],
+  [
+   "Tomáš",
+   "It is 24 {by} 12 metres, so the {area} is 288 square metres."
+  ],
+  [
+   "Mark",
+   "And how {high} is the ceiling?"
+  ],
+  [
+   "Tomáš",
+   "Three {point} two metres."
+  ],
+  [
+   "Mark",
+   "What is the {capacity}?"
+  ],
+  [
+   "Tomáš",
+   "{Approximately} 150 people."
+  ],
+  [
+   "Mark",
+   "Is the ventilation strong enough?"
+  ],
+  [
+   "Petr",
+   "Yes. The air flow rate is 7,500 cubic metres {per} hour, that is 50 per {person}."
+  ]
+ ],
+ "speak": {
+  "title": "numbers on the phone",
+  "cz": "Diktování čísel. Jeden diktuje údaje ze své karty, druhý zapisuje a opakuje pro kontrolu. Pak si karty vymění.",
+  "phrases": [
+   "The room is … by … metres.",
+   "Sorry, could you repeat the number?",
+   "Did you say fifteen or fifty?",
+   "So that is … Correct?"
+  ],
+  "questions": [
+   "How long is it?",
+   "What is the floor area?",
+   "What is the output of the unit?",
+   "How thick is the insulation?"
+  ],
+  "cards": [
+   [
+    "Card A",
+    "Hall: 54.5 × 31.2 m, height 9.75 m, capacity 850 people, area 1,700 m²."
+   ],
+   [
+    "Card B",
+    "Boiler room: 2 boilers × 150 kW, pipe diameter 80 mm, room 6.4 × 4.8 m."
+   ],
+   [
+    "Card C",
+    "Air handling unit: 12,500 m³/h, duct 800 × 400 mm, heat recovery 82 %."
+   ],
+   [
+    "Card D",
+    "Roof: area 2,340 m², insulation 260 mm, slope 3 %, 420 PV panels."
+   ],
+   [
+    "Card E",
+    "Foundations: depth 1.35 m, width 0.9 m, concrete 186 m³."
+   ],
+   [
+    "Card F",
+    "Stand: length 105 m, 18 rows, 4,250 seats, step height 0.42 m."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "2.5 čteme:",
+   [
+    "two comma five",
+    "two point five",
+    "two dot five"
+   ],
+   1
+  ],
+  [
+   "12,000 je anglicky:",
+   [
+    "dvanáct tisíc",
+    "dvanáct celých nula",
+    "sto dvacet tisíc"
+   ],
+   0
+  ],
+  [
+   "m² je:",
+   [
+    "square metres",
+    "quadrat metres",
+    "metres two"
+   ],
+   0
+  ],
+  [
+   "The wall is 300 mm ___.",
+   [
+    "thickness",
+    "thick",
+    "thicken"
+   ],
+   1
+  ],
+  [
+   "How ___ is the ceiling?",
+   [
+    "height",
+    "high",
+    "tall is"
+   ],
+   1
+  ],
+  [
+   "6 × 4 m řekneme:",
+   [
+    "six times four metres",
+    "six by four metres",
+    "six on four metres"
+   ],
+   1
+  ]
+ ],
+ "hw": "basic data of one of your projects in 6 sentences with at least 8 numbers. Read it aloud at home.",
+ "tnote": "Nejčastější problém je desetinná čárka a záměna -teen / -ty (fifteen × fifty). Diktování čísel dělejte svižně, je to dril.",
+ "basics": [
+  [
+   "long",
+   "dlouhý"
+  ],
+  [
+   "wide",
+   "široký"
+  ],
+  [
+   "high",
+   "vysoký"
+  ],
+  [
+   "big",
+   "velký"
+  ],
+  [
+   "small",
+   "malý"
+  ],
+  [
+   "heavy",
+   "těžký"
+  ]
+ ],
+ "comic": {
+  "prop": "ruler",
+  "a": [
+   "E",
+   "I said fifteen millimetres."
+  ],
+  "b": [
+   "C",
+   "Oh. I ordered fifty."
+  ]
+ },
+ "next": "Review 2: permits, authorities and standards",
+ "videos": [
+  [
+   "YouTube – hledat: how to say numbers in English decimals large numbers",
+   "https://www.youtube.com/results?search_query=how+to+say+numbers+in+English+decimals+large+numbers"
+  ],
+  [
+   "YouTube – hledat: dimensions length width height English lesson",
+   "https://www.youtube.com/results?search_query=dimensions+length+width+height+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

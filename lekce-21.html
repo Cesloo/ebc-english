@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 21 · Emails to a client</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 21,
+ "module": 6,
+ "title": "Emails to a client",
+ "cz": "E-maily klientovi a partnerům",
+ "grammar": "polite requests: could you, would you mind, I would like to",
+ "goals": [
+  "write a clear professional email",
+  "ask for something politely",
+  "send documents and refer to attachments",
+  "answer a client's request"
+ ],
+ "week": [
+  "Who did you write to this week?",
+  "What did you ask for?",
+  "What are you waiting for?"
+ ],
+ "frames": [
+  "I wrote to … about …",
+  "I asked them to …",
+  "I'm still waiting for …",
+  "I sent them …",
+  "They asked me to …"
+ ],
+ "vocab": [
+  [
+   "subject",
+   "předmět (e-mailu)",
+   "Write a clear subject."
+  ],
+  [
+   "recipient",
+   "příjemce",
+   "Check the recipients before you send it."
+  ],
+  [
+   "to attach",
+   "přiložit",
+   "I have attached the drawing."
+  ],
+  [
+   "enclosed / attached",
+   "v příloze",
+   "Please find attached the minutes."
+  ],
+  [
+   "to forward",
+   "přeposlat",
+   "Could you forward the email to Petr?"
+  ],
+  [
+   "to reply",
+   "odpovědět",
+   "Please reply by Friday."
+  ],
+  [
+   "regarding",
+   "ohledně, k věci",
+   "I am writing regarding the schedule."
+  ],
+  [
+   "to let know",
+   "dát vědět",
+   "Please let me know if you agree."
+  ],
+  [
+   "to apologise",
+   "omluvit se",
+   "We apologise for the delay."
+  ],
+  [
+   "delay",
+   "zpoždění",
+   "There is a delay of one week."
+  ],
+  [
+   "as agreed",
+   "jak bylo dohodnuto",
+   "As agreed, I am sending the layout."
+  ],
+  [
+   "at your earliest convenience",
+   "co nejdříve vám to bude vyhovovat",
+   "Please reply at your earliest convenience."
+  ],
+  [
+   "kind regards",
+   "s pozdravem",
+   "Kind regards, Jana"
+  ],
+  [
+   "to look forward to",
+   "těšit se na",
+   "I look forward to your reply."
+  ]
+ ],
+ "notes": [
+  "Oslovení: <b>Dear Mr Collins,<\/b> (formální) · <b>Hello Mark,<\/b> / <b>Hi Mark,<\/b> (po dohodě). Za oslovením čárka, text začíná velkým písmenem.",
+  "<b>look forward to<\/b> + -ing: <i>I look forward to hearing from you.<\/i>",
+  "V příloze = <b>attached<\/b> (e-mail), <b>enclosed<\/b> (dopis). <i>In the attachment you can find<\/i> je v pořádku, <i>in attachment<\/i> bez členu ne."
+ ],
+ "match": [
+  [
+   "the person who gets the email",
+   "recipient"
+  ],
+  [
+   "to send a received email to another person",
+   "to forward"
+  ],
+  [
+   "the short title line of an email",
+   "subject"
+  ],
+  [
+   "to say sorry",
+   "to apologise"
+  ],
+  [
+   "about, on the topic of",
+   "regarding"
+  ],
+  [
+   "to answer an email",
+   "to reply"
+  ]
+ ],
+ "distract": [
+  "delay",
+  "to attach"
+ ],
+ "voc": [
+  "Please find {attached} the minutes of the meeting.",
+  "I am writing {regarding} the deadline for the concept design.",
+  "We {apologise} for the delay.",
+  "Please {let} me know if the date is fine for you.",
+  "Could you {forward} this email to your architect?",
+  "I look {forward} to hearing from you."
+ ],
+ "gbox": [
+  [
+   "Polite requests",
+   "Zdvořilá žádost.",
+   [
+    "<b>Could you<\/b> send me the survey, please?",
+    "<b>Would you mind<\/b> send<b>ing<\/b> the drawings in DWG?",
+    "<b>Would it be possible to<\/b> move the meeting?",
+    "<b>Please<\/b> confirm the date by Friday."
+   ],
+   "Would you mind + -ing"
+  ],
+  [
+   "Saying what you want and offering",
+   "Co potřebuji a co nabízím.",
+   [
+    "<b>I would like to<\/b> ask about the schedule.",
+    "<b>We would need<\/b> the data by Monday.",
+    "<b>I will<\/b> send it tomorrow.",
+    "<b>Shall I<\/b> prepare the agenda?"
+   ],
+   "I'd like = I would like (ne I want)"
+  ]
+ ],
+ "gtask": "Doplňte jedno slovo: could, would, mind, like, possible, shall, please.",
+ "gram": [
+  "{Could} you send me the latest survey, please?",
+  "Would you {mind} sending the model in IFC?",
+  "I would {like} to ask about the building permit.",
+  "Would it be {possible} to move the meeting to Thursday?",
+  "{Shall} I prepare the agenda for the meeting?",
+  "{Please} confirm the date by Friday.",
+  "We {would} need your approval by the end of the week."
+ ],
+ "reading": {
+  "title": "Three short emails",
+  "cz": "Tři typické e-maily: žádost, odeslání dokumentů, omluva za zpoždění.",
+  "paras": [
+   "<b>1 — Request.<\/b> Dear Mr Collins, I am writing regarding the survey of the existing stand. Could you send us the report from 2018, please? We would need it by Friday. Thank you in advance. Kind regards, Jana Nováková",
+   "<b>2 — Sending documents.<\/b> Dear Mr Collins, As agreed at the meeting, please find attached the layout of the first floor (revision C) and the updated schedule. Would you mind sending your comments by 15 April? Kind regards, Jana Nováková",
+   "<b>3 — Delay.<\/b> Dear Mr Collins, We apologise for the delay of the fire safety report. The fire brigade asked for a change of the escape routes last week. We will send the report on Wednesday. Please let me know if you have any questions. Kind regards, Jana Nováková"
+  ]
+ },
+ "tf": [
+  [
+   "In email 1 Jana asks for a report from 2018.",
+   true
+  ],
+  [
+   "She needs it by Monday.",
+   false
+  ],
+  [
+   "Email 2 has two attachments.",
+   true
+  ],
+  [
+   "The fire safety report is late because of the client.",
+   false
+  ],
+  [
+   "The report will be sent on Wednesday.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Structure of an email",
+  "cz": "Stavba e-mailu. Podle ní napište krátký e-mail ke své zakázce.",
+  "steps": [
+   [
+    "Subject",
+    "předmět"
+   ],
+   [
+    "Greeting",
+    "oslovení"
+   ],
+   [
+    "Reason for writing",
+    "důvod"
+   ],
+   [
+    "Details / request",
+    "podrobnosti / žádost"
+   ],
+   [
+    "Next step and date",
+    "další krok a termín"
+   ],
+   [
+    "Closing",
+    "rozloučení"
+   ]
+  ],
+  "q": "What is the reason for writing? What do you ask for? By when?"
+ },
+ "dialogue": [
+  [
+   "Jana",
+   "I need the old survey from the client. How should I ask?"
+  ],
+  [
+   "Teacher",
+   "Start with: I am writing {regarding} the survey."
+  ],
+  [
+   "Jana",
+   "And then: {Could} you send us the report, please?"
+  ],
+  [
+   "Teacher",
+   "Good. Add the date: We would {need} it by Friday."
+  ],
+  [
+   "Jana",
+   "How do I send the drawings?"
+  ],
+  [
+   "Teacher",
+   "Please find {attached} the layout of the first floor."
+  ],
+  [
+   "Jana",
+   "And the end?"
+  ],
+  [
+   "Teacher",
+   "I look forward to your {reply}. Kind {regards}, Jana."
+  ]
+ ],
+ "speak": {
+  "title": "dictate an email",
+  "cz": "Ve dvojici: jeden řekne česky, co potřebuje napsat, společně e-mail složíte anglicky nahlas a jeden ho zapíše. Pak ho přečtěte skupině.",
+  "phrases": [
+   "I am writing regarding …",
+   "Could you …, please?",
+   "Please find attached …",
+   "We apologise for …"
+  ],
+  "questions": [
+   "Who is the recipient?",
+   "What is the subject?",
+   "What do we ask for?",
+   "What is the deadline?"
+  ],
+  "cards": [
+   [
+    "Request",
+    "Ask the client for the old drawings of the stadium in DWG by Monday."
+   ],
+   [
+    "Sending documents",
+    "Send the concept design and ask for comments within two weeks."
+   ],
+   [
+    "Delay",
+    "Apologise: the heat loss calculation will be three days late. Explain why."
+   ],
+   [
+    "Meeting",
+    "Ask to move the meeting from Tuesday to Thursday and offer two times."
+   ],
+   [
+    "Question",
+    "Ask the foreign architect about the height of the suspended ceiling."
+   ],
+   [
+    "Reminder",
+    "Politely remind the client that you still wait for his approval."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "Would you mind ___ the model?",
+   [
+    "send",
+    "sending",
+    "to send"
+   ],
+   1
+  ],
+  [
+   "I look forward to ___ from you.",
+   [
+    "hear",
+    "hearing",
+    "heard"
+   ],
+   1
+  ],
+  [
+   "„V příloze posílám…“ je:",
+   [
+    "Please find attached …",
+    "In attachment I send …",
+    "I send in add …"
+   ],
+   0
+  ],
+  [
+   "Nejzdvořilejší je:",
+   [
+    "Send me the survey.",
+    "I want the survey.",
+    "Could you send me the survey, please?"
+   ],
+   2
+  ],
+  [
+   "„Ohledně“ je:",
+   [
+    "regarding",
+    "regard of",
+    "looking at"
+   ],
+   0
+  ],
+  [
+   "„Omlouváme se za zpoždění“ je:",
+   [
+    "We sorry for late.",
+    "We apologise for the delay.",
+    "We excuse the delay."
+   ],
+   1
+  ]
+ ],
+ "hw": "two emails to a client: a request for information and an apology for a delay with a new date.",
+ "tnote": "<i>I want<\/i> v e-mailu působí hrubě, nahraďte <i>I would like<\/i>. Použijte RFI z lekce 18 jako materiál k přepsání do zdvořilé podoby.",
+ "basics": [
+  [
+   "letter",
+   "dopis"
+  ],
+  [
+   "to write",
+   "psát"
+  ],
+  [
+   "to read",
+   "číst"
+  ],
+  [
+   "to send",
+   "poslat"
+  ],
+  [
+   "today",
+   "dnes"
+  ],
+  [
+   "tomorrow",
+   "zítra"
+  ]
+ ],
+ "comic": {
+  "prop": "mail",
+  "a": [
+   "E",
+   "Please find attached the drawing."
+  ],
+  "b": [
+   "C",
+   "There is no attachment."
+  ]
+ },
+ "next": "Meetings and minutes",
+ "videos": [
+  [
+   "YouTube – hledat: how to write a professional email in English",
+   "https://www.youtube.com/results?search_query=how+to+write+a+professional+email+in+English"
+  ],
+  [
+   "YouTube – hledat: polite requests could you would you mind English lesson",
+   "https://www.youtube.com/results?search_query=polite+requests+could+you+would+you+mind+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

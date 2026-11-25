@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 17 · CAD and BIM</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 17,
+ "module": 5,
+ "title": "CAD and BIM",
+ "cz": "Projekční software: CAD a BIM",
+ "grammar": "present perfect (have done) with already, yet, just",
+ "goals": [
+  "talk about design software and models",
+  "say what has and hasn't been done yet",
+  "ask about the status of work",
+  "explain BIM to a client in simple words"
+ ],
+ "week": [
+  "What have you finished this week?",
+  "What haven't you done yet?",
+  "Have you updated your model?"
+ ],
+ "frames": [
+  "I have finished …",
+  "I haven't … yet.",
+  "I have just sent …",
+  "We have already updated …",
+  "Have you received …?"
+ ],
+ "vocab": [
+  [
+   "model",
+   "model (BIM)",
+   "Each discipline has its own model."
+  ],
+  [
+   "to update",
+   "aktualizovat",
+   "I have updated the model."
+  ],
+  [
+   "to share",
+   "sdílet",
+   "We share the models every Friday."
+  ],
+  [
+   "to export",
+   "exportovat",
+   "Please export the model to IFC."
+  ],
+  [
+   "file format",
+   "formát souboru",
+   "IFC is an open file format."
+  ],
+  [
+   "layer",
+   "hladina (vrstva)",
+   "The pipes are on a separate layer."
+  ],
+  [
+   "template",
+   "šablona",
+   "We use the company template for drawings."
+  ],
+  [
+   "clash",
+   "kolize",
+   "The model shows a clash between a duct and a beam."
+  ],
+  [
+   "clash detection",
+   "detekce kolizí",
+   "Clash detection is done every two weeks."
+  ],
+  [
+   "level of detail",
+   "úroveň podrobnosti",
+   "The level of detail is agreed in the BIM plan."
+  ],
+  [
+   "common data environment",
+   "společné datové prostředí (CDE)",
+   "All files are stored in the common data environment."
+  ],
+  [
+   "version",
+   "verze",
+   "Which version of the software do you use?"
+  ],
+  [
+   "to link",
+   "připojit (referenci)",
+   "I have linked the structural model."
+  ],
+  [
+   "to save",
+   "uložit",
+   "Don't forget to save the file."
+  ]
+ ],
+ "notes": [
+  "<b>BIM<\/b> = building information modelling. Čteme jako slovo: <i>bim<\/i>. <b>CDE<\/b> čteme po písmenech.",
+  "Kolize = <b>clash<\/b>. <i>Collision<\/i> se používá pro srážku aut.",
+  "<b>yet<\/b> stojí na konci otázky a záporu, <b>already<\/b> a <b>just<\/b> před příčestím: <i>I have already sent it.<\/i>"
+ ],
+ "match": [
+  [
+   "a place where two elements are in the same space",
+   "clash"
+  ],
+  [
+   "an open file format for BIM models",
+   "IFC"
+  ],
+  [
+   "the shared online place for all project files",
+   "common data environment"
+  ],
+  [
+   "how detailed the model is",
+   "level of detail"
+  ],
+  [
+   "a prepared file with settings for new drawings",
+   "template"
+  ],
+  [
+   "to make the model current",
+   "to update"
+  ]
+ ],
+ "distract": [
+  "layer",
+  "version"
+ ],
+ "voc": [
+  "I have {updated} the model with the new layout.",
+  "We {share} the models every Friday.",
+  "The model shows a {clash} between a pipe and a beam.",
+  "Please {export} the model to IFC.",
+  "All files are stored in the common data {environment}.",
+  "We use the company {template} for all drawings."
+ ],
+ "gbox": [
+  [
+   "Present perfect — form",
+   "have / has + třetí tvar. Výsledek je důležitý teď.",
+   [
+    "I <b>have updated<\/b> the model.",
+    "She <b>has sent<\/b> the drawings.",
+    "We <b>haven't finished<\/b> the sections.",
+    "<b>Have<\/b> you <b>checked<\/b> the clashes?"
+   ],
+   "I've = I have · she's = she has"
+  ],
+  [
+   "Already, yet, just",
+   "Už, ještě ne, právě.",
+   [
+    "I have <b>already<\/b> exported the file.",
+    "We haven't received it <b>yet<\/b>.",
+    "Have you finished <b>yet<\/b>?",
+    "He has <b>just<\/b> uploaded the model."
+   ],
+   "Nepoužívat s yesterday, last week, in 2020 (tam minulý čas)."
+  ]
+ ],
+ "gtask": "Doplňte předpřítomný čas slovesa v závorce.",
+ "gram": [
+  "I {have updated|'ve updated} the model. (update)",
+  "She {has sent|'s sent} the new revision to the client. (send)",
+  "We {haven't finished|have not finished} the detailed design yet. (not / finish)",
+  "{Have} you {checked} the clashes yet? (check)",
+  "The architect {has changed|'s changed} the layout again. (change)",
+  "I {have just uploaded|'ve just uploaded} the files. (just / upload)",
+  "They {haven't received|have not received} the survey yet. (not / receive)"
+ ],
+ "reading": {
+  "title": "Weekly BIM report",
+  "cz": "Týdenní zpráva BIM koordinátora.",
+  "paras": [
+   "<b>Subject: BIM status — week 12<\/b>",
+   "Hi all,",
+   "Here is the status of the models. The architect has updated the model with the new layout of the first floor. The structural engineer has added the roof trusses, but he hasn't finished the foundations yet.",
+   "The HVAC and heating models have been linked to the new architecture. The plumbing model has not been updated yet, so please do not use it for coordination.",
+   "I have just run the clash detection. There are 46 clashes, most of them between ducts and beams on grid line C. I have already sent the list to the engineers.",
+   "Please upload your models to the common data environment by Friday noon and export them to IFC. Use the company template.",
+   "Thanks, Ondra"
+  ]
+ },
+ "tf": [
+  [
+   "The architect has updated the first floor.",
+   true
+  ],
+  [
+   "The structural engineer has finished the foundations.",
+   false
+  ],
+  [
+   "The plumbing model is ready for coordination.",
+   false
+  ],
+  [
+   "There are 46 clashes.",
+   true
+  ],
+  [
+   "The models must be uploaded by Friday noon.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Weekly BIM cycle",
+  "cz": "Týdenní cyklus práce s modelem. Řekněte, co jste už tento týden udělali a co ještě ne.",
+  "steps": [
+   [
+    "Update the model",
+    "aktualizace"
+   ],
+   [
+    "Upload and share",
+    "nahrání a sdílení"
+   ],
+   [
+    "Link other models",
+    "připojení referencí"
+   ],
+   [
+    "Clash detection",
+    "detekce kolizí"
+   ],
+   [
+    "Coordination meeting",
+    "koordinační porada"
+   ],
+   [
+    "Fix the clashes",
+    "oprava kolizí"
+   ]
+  ],
+  "q": "Have you uploaded your model yet? Who has run the clash detection? What haven't you fixed yet?"
+ },
+ "dialogue": [
+  [
+   "Ondra",
+   "Have you {updated} your model, Pavel?"
+  ],
+  [
+   "Pavel",
+   "Yes, I have. I've {just} uploaded it."
+  ],
+  [
+   "Ondra",
+   "Great. Have you linked the new structural {model}?"
+  ],
+  [
+   "Pavel",
+   "Not {yet}. I haven't received it."
+  ],
+  [
+   "Ondra",
+   "Petr has {already} shared it. It's in the common data environment."
+  ],
+  [
+   "Pavel",
+   "OK, I'll check. How many {clashes} are there?"
+  ],
+  [
+   "Ondra",
+   "Forty-six. I've sent you the {list}."
+  ],
+  [
+   "Pavel",
+   "Thanks. Should I {export} the model to IFC?"
+  ]
+ ],
+ "speak": {
+  "title": "status meeting",
+  "cz": "Krátká stavová porada. BIM koordinátor se ptá každého, co už udělal a co ještě ne. Odpovídejte předpřítomným časem.",
+  "phrases": [
+   "I've already …",
+   "I haven't … yet.",
+   "I've just …",
+   "I'll do it by …"
+  ],
+  "questions": [
+   "Have you updated the model?",
+   "Have you fixed the clashes yet?",
+   "Has the client approved the layout?",
+   "What haven't you done yet?"
+  ],
+  "cards": [
+   [
+    "BIM coordinator",
+    "Ask everyone about model, clashes and export. Write the status."
+   ],
+   [
+    "Architect",
+    "Done: new layout. Not yet: facade details."
+   ],
+   [
+    "Structural engineer",
+    "Done: roof trusses. Not yet: foundations, openings."
+   ],
+   [
+    "HVAC engineer",
+    "Done: main ducts. Not yet: diffusers, clashes on grid line C."
+   ],
+   [
+    "Electrical engineer",
+    "Done: cable trays. Not yet: lighting model."
+   ],
+   [
+    "Lead designer",
+    "Ask what has changed since last week and what the client has approved."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "I ___ the model. (už hotovo)",
+   [
+    "have updated",
+    "have update",
+    "am updated"
+   ],
+   0
+  ],
+  [
+   "We haven't finished ___.",
+   [
+    "already",
+    "yet",
+    "just"
+   ],
+   1
+  ],
+  [
+   "„Kolize“ v modelu je:",
+   [
+    "collision",
+    "clash",
+    "crash"
+   ],
+   1
+  ],
+  [
+   "She ___ the drawings.",
+   [
+    "have sent",
+    "has sent",
+    "has send"
+   ],
+   1
+  ],
+  [
+   "Kterou větu nelze říct?",
+   [
+    "I have sent it yesterday.",
+    "I sent it yesterday.",
+    "I have just sent it."
+   ],
+   0
+  ],
+  [
+   "„Šablona“ je:",
+   [
+    "template",
+    "pattern file",
+    "stencil"
+   ],
+   0
+  ]
+ ],
+ "hw": "a short status report for your discipline: three things you have already done, two things you haven't done yet.",
+ "tnote": "Předpřítomný čas jen ve významu výsledku (už / ještě ne). Kontrast s minulým časem přijde v lekci 18. Názvy programů (Revit, Archicad, AutoCAD) čtěte anglicky.",
+ "basics": [
+  [
+   "computer",
+   "počítač"
+  ],
+  [
+   "screen",
+   "obrazovka"
+  ],
+  [
+   "file",
+   "soubor"
+  ],
+  [
+   "folder",
+   "složka"
+  ],
+  [
+   "to open",
+   "otevřít"
+  ],
+  [
+   "to draw",
+   "kreslit"
+  ]
+ ],
+ "comic": {
+  "prop": "laptop",
+  "a": [
+   "E",
+   "Have you updated the model?"
+  ],
+  "b": [
+   "A",
+   "Yes! ... Which model?"
+  ]
+ },
+ "next": "Coordination between disciplines",
+ "videos": [
+  [
+   "YouTube – hledat: what is BIM explained simply",
+   "https://www.youtube.com/results?search_query=what+is+BIM+explained+simply"
+  ],
+  [
+   "YouTube – hledat: present perfect already yet just English lesson",
+   "https://www.youtube.com/results?search_query=present+perfect+already+yet+just+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

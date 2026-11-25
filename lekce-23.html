@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 23 · Calls and presenting the design</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 23,
+ "module": 6,
+ "title": "Calls and presenting the design",
+ "cz": "Telefonáty, videohovory a prezentace návrhu",
+ "grammar": "indirect questions and signposting phrases",
+ "goals": [
+  "handle a phone or video call in English",
+  "ask questions politely and check understanding",
+  "present a design step by step",
+  "deal with technical problems during a call"
+ ],
+ "week": [
+  "Who did you speak to on the phone this week?",
+  "What did you present or explain?",
+  "What was not clear?"
+ ],
+ "frames": [
+  "I spoke to … about …",
+  "I explained how …",
+  "I wasn't sure if …",
+  "I asked him to repeat …",
+  "Next time I will …"
+ ],
+ "vocab": [
+  [
+   "to share the screen",
+   "sdílet obrazovku",
+   "Let me share my screen."
+  ],
+  [
+   "to mute",
+   "ztlumit (mikrofon)",
+   "You are on mute."
+  ],
+  [
+   "connection",
+   "spojení",
+   "The connection is bad."
+  ],
+  [
+   "to hold on",
+   "počkat chvíli",
+   "Could you hold on a moment?"
+  ],
+  [
+   "to call back",
+   "zavolat zpět",
+   "I will call you back in ten minutes."
+  ],
+  [
+   "to speak up",
+   "mluvit hlasitěji",
+   "Could you speak up, please?"
+  ],
+  [
+   "to spell",
+   "hláskovat",
+   "Could you spell the name?"
+  ],
+  [
+   "to clarify",
+   "upřesnit, objasnit",
+   "Could you clarify the last point?"
+  ],
+  [
+   "slide",
+   "snímek prezentace",
+   "The next slide shows the layout."
+  ],
+  [
+   "overview",
+   "přehled",
+   "First, I will give you an overview."
+  ],
+  [
+   "to move on",
+   "přejít dál",
+   "Let's move on to the building services."
+  ],
+  [
+   "to go back",
+   "vrátit se",
+   "Could we go back to the section?"
+  ],
+  [
+   "as you can see",
+   "jak vidíte",
+   "As you can see, the hall is two floors high."
+  ],
+  [
+   "to sum up",
+   "shrnout",
+   "To sum up, we recommend option A."
+  ]
+ ],
+ "notes": [
+  "<b>Could you repeat that, please?<\/b> je vždy v pořádku. Nikdo nečeká, že rozumíte všemu napoprvé.",
+  "Nepřímá otázka má slovosled věty: <i>Could you tell me where the plant room <b>is<\/b>?<\/i> (ne <i>where is the plant room<\/i>).",
+  "Hláskování e-mailu: @ = <i>at<\/i>, tečka = <i>dot<\/i>, pomlčka = <i>dash<\/i>, podtržítko = <i>underscore<\/i>."
+ ],
+ "match": [
+  [
+   "to turn off your microphone",
+   "to mute"
+  ],
+  [
+   "to say a word letter by letter",
+   "to spell"
+  ],
+  [
+   "to make something clear",
+   "to clarify"
+  ],
+  [
+   "to phone someone again later",
+   "to call back"
+  ],
+  [
+   "one page of a presentation",
+   "slide"
+  ],
+  [
+   "to go to the next topic",
+   "to move on"
+  ]
+ ],
+ "distract": [
+  "overview",
+  "connection"
+ ],
+ "voc": [
+  "Let me {share} my screen.",
+  "Sorry, you are on {mute}.",
+  "Could you {spell} your surname, please?",
+  "First, I will give you a short {overview} of the project.",
+  "Let's {move} on to the building services.",
+  "To {sum} up, we recommend option A."
+ ],
+ "gbox": [
+  [
+   "Indirect questions",
+   "Zdvořilá otázka: úvod + slovosled věty.",
+   [
+    "<b>Could you tell me<\/b> when the permit <b>will be<\/b> ready?",
+    "<b>Do you know<\/b> where the survey <b>is<\/b>?",
+    "<b>I'd like to know<\/b> how much it <b>costs<\/b>.",
+    "<b>Could you tell me if<\/b> the price <b>includes<\/b> VAT?"
+   ],
+   "Po úvodu už žádná inverze ani do/does."
+  ],
+  [
+   "Signposting — presenting",
+   "Věty, které posluchače vedou.",
+   [
+    "<b>First,<\/b> I will give you an overview.",
+    "<b>Let's move on to<\/b> the structure.",
+    "<b>As you can see<\/b> on the section, …",
+    "<b>To sum up,<\/b> … <b>Are there any questions?<\/b>"
+   ],
+   ""
+  ]
+ ],
+ "gtask": "Doplňte nepřímou otázku správným tvarem (slovosled věty).",
+ "gram": [
+  "Could you tell me where the plant room {is}? (is / the plant room)",
+  "Do you know when the meeting {starts}? (start)",
+  "I'd like to know how much the survey {costs}. (cost)",
+  "Could you tell me {if} the price includes VAT?",
+  "Do you know who {is} responsible for the roof? (be)",
+  "Let's {move} on to the next slide.",
+  "To {sum} up, the design is on time and on budget."
+ ],
+ "reading": {
+  "title": "Presentation script",
+  "cz": "Úvod prezentace konceptu klientovi.",
+  "paras": [
+   "Good morning, everyone, and thank you for joining the call. Can you all see my screen?",
+   "Today I would like to present the concept design of the stadium. First, I will give you an overview of the layout. Then my colleagues will explain the structure and the building services. Finally, we will look at the schedule and the budget. The presentation takes about thirty minutes, and there will be time for questions at the end.",
+   "Let's start with the site plan. As you can see, the main entrance is on the south side, next to the car park.",
+   "Let's move on to the ground floor. This slide shows the changing rooms and the plant rooms.",
+   "To sum up, the design meets all your requirements and the budget. Are there any questions? Could you tell me if you would like to see the sections again?"
+  ]
+ },
+ "tf": [
+  [
+   "The presentation is about the concept design.",
+   true
+  ],
+  [
+   "The schedule is the first topic.",
+   false
+  ],
+  [
+   "The presentation takes about thirty minutes.",
+   true
+  ],
+  [
+   "The main entrance is on the north side.",
+   false
+  ],
+  [
+   "Questions are at the end.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Structure of a presentation",
+  "cz": "Stavba prezentace. Podle ní si připravte dvouminutovou prezentaci své části.",
+  "steps": [
+   [
+    "Welcome",
+    "přivítání"
+   ],
+   [
+    "Overview",
+    "přehled"
+   ],
+   [
+    "Main points",
+    "hlavní části"
+   ],
+   [
+    "Summary",
+    "shrnutí"
+   ],
+   [
+    "Questions",
+    "dotazy"
+   ],
+   [
+    "Next steps",
+    "další kroky"
+   ]
+  ],
+  "q": "What will you present first? How will you move on? How will you sum up?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Hello, can you {hear} me?"
+  ],
+  [
+   "Jana",
+   "Hello Mark. Not very well, the {connection} is bad. Could you speak up?"
+  ],
+  [
+   "Mark",
+   "Is it better now?"
+  ],
+  [
+   "Jana",
+   "Yes, thanks. Let me {share} my screen."
+  ],
+  [
+   "Mark",
+   "Could you tell me {where} the plant room is?"
+  ],
+  [
+   "Jana",
+   "Sure. As you can {see}, it is in the basement."
+  ],
+  [
+   "Mark",
+   "Sorry, could you {repeat} the name of the engineer?"
+  ],
+  [
+   "Jana",
+   "Dvořák. I'll {spell} it: D-V-O-R-A-K."
+  ]
+ ],
+ "speak": {
+  "title": "two-minute presentation",
+  "cz": "Každý představí svou část návrhu za dvě minuty podle schématu 4.2 (stačí nad jedním výkresem). Ostatní položí jednu nepřímou otázku.",
+  "phrases": [
+   "Today I'd like to present …",
+   "As you can see on this drawing, …",
+   "Let's move on to …",
+   "To sum up, … Are there any questions?"
+  ],
+  "questions": [
+   "Could you tell me why …?",
+   "Do you know how much …?",
+   "Could you go back to …?",
+   "Could you clarify …?"
+  ],
+  "cards": [
+   [
+    "Architect",
+    "Present the layout of one floor."
+   ],
+   [
+    "Structural engineer",
+    "Present the roof structure and the loads."
+   ],
+   [
+    "Heating engineer",
+    "Present the heat source and the main circuits."
+   ],
+   [
+    "HVAC engineer",
+    "Present the ventilation of the changing rooms."
+   ],
+   [
+    "Permitting engineer",
+    "Present the permit schedule and the risks."
+   ],
+   [
+    "Client",
+    "Listen to all and ask each presenter one polite question."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "Could you tell me where the plant room ___?",
+   [
+    "is",
+    "is it",
+    "does be"
+   ],
+   0
+  ],
+  [
+   "Do you know when ___?",
+   [
+    "does the meeting start",
+    "the meeting starts",
+    "starts the meeting"
+   ],
+   1
+  ],
+  [
+   "„Jste ztlumený“ je:",
+   [
+    "You are on mute.",
+    "You are silent off.",
+    "Your sound is dead."
+   ],
+   0
+  ],
+  [
+   "Přechod k dalšímu tématu:",
+   [
+    "Let's move on to …",
+    "Let's go away to …",
+    "Now is next …"
+   ],
+   0
+  ],
+  [
+   "@ v e-mailové adrese čteme:",
+   [
+    "at",
+    "et",
+    "monkey"
+   ],
+   0
+  ],
+  [
+   "„Shrnuto“ je:",
+   [
+    "To sum up,",
+    "At the sum,",
+    "In final,"
+   ],
+   0
+  ]
+ ],
+ "hw": "a script for a two-minute presentation of your part of a project: welcome, overview, two main points, summary.",
+ "tnote": "Prezentace hlídejte stopkami, dvě minuty na osobu. Zpětnou vazbu dejte jen ke dvěma věcem: struktura a srozumitelnost.",
+ "basics": [
+  [
+   "to call",
+   "volat"
+  ],
+  [
+   "to show",
+   "ukázat"
+  ],
+  [
+   "to speak",
+   "mluvit"
+  ],
+  [
+   "picture",
+   "obrázek"
+  ],
+  [
+   "loud",
+   "hlasitý"
+  ],
+  [
+   "clear",
+   "jasný, zřetelný"
+  ]
+ ],
+ "comic": {
+  "prop": "phone",
+  "a": [
+   "C",
+   "Hello? Can you hear me? Hello?"
+  ],
+  "b": [
+   "E",
+   "You are on mute. Still on mute."
+  ]
+ },
+ "next": "Final simulation: design meeting with the client",
+ "videos": [
+  [
+   "YouTube – hledat: English for video calls phrases",
+   "https://www.youtube.com/results?search_query=English+for+video+calls+phrases"
+  ],
+  [
+   "YouTube – hledat: presentation signposting language English",
+   "https://www.youtube.com/results?search_query=presentation+signposting+language+English"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

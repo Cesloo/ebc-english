@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 11 · Materials and the building envelope</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 11,
+ "module": 3,
+ "title": "Materials and the building envelope",
+ "cz": "Materiály a obálka budovy",
+ "grammar": "superlatives; made of / used for",
+ "goals": [
+  "name common building materials and their properties",
+  "describe the layers of a wall or roof",
+  "compare more than two options",
+  "explain a choice of material to a client"
+ ],
+ "week": [
+  "Which materials did you specify this week?",
+  "What was the best solution and why?",
+  "What is the biggest problem in your project?"
+ ],
+ "frames": [
+  "The wall is made of …",
+  "We use … for the insulation.",
+  "The best solution is …",
+  "The biggest problem is …",
+  "It is the most expensive part of …"
+ ],
+ "vocab": [
+  [
+   "concrete",
+   "beton",
+   "The walls are made of concrete."
+  ],
+  [
+   "steel",
+   "ocel",
+   "The roof structure is made of steel."
+  ],
+  [
+   "timber",
+   "dřevo (stavební)",
+   "The facade has timber cladding."
+  ],
+  [
+   "brick",
+   "cihla",
+   "The partition walls are made of brick."
+  ],
+  [
+   "glass",
+   "sklo",
+   "The entrance has a large glass wall."
+  ],
+  [
+   "plasterboard",
+   "sádrokarton",
+   "The ceilings are made of plasterboard."
+  ],
+  [
+   "thermal insulation",
+   "tepelná izolace",
+   "The thermal insulation is 200 millimetres thick."
+  ],
+  [
+   "mineral wool",
+   "minerální vata",
+   "Mineral wool is used for fire protection."
+  ],
+  [
+   "waterproofing",
+   "hydroizolace",
+   "The waterproofing protects the basement."
+  ],
+  [
+   "cladding",
+   "obklad fasády, opláštění",
+   "The cladding is made of metal panels."
+  ],
+  [
+   "building envelope",
+   "obálka budovy",
+   "The building envelope must be airtight."
+  ],
+  [
+   "heat loss",
+   "tepelná ztráta",
+   "Good insulation reduces the heat loss."
+  ],
+  [
+   "thermal bridge",
+   "tepelný most",
+   "The balcony connection is a thermal bridge."
+  ],
+  [
+   "durable",
+   "trvanlivý, odolný",
+   "Concrete is durable and needs little maintenance."
+  ]
+ ],
+ "notes": [
+  "<b>made of<\/b> = z čeho je vyrobeno, <b>used for<\/b> = k čemu slouží.",
+  "<b>U-value<\/b> (součinitel prostupu tepla) čteme <i>you value<\/i>. Čím nižší, tím lepší.",
+  "<b>timber<\/b> (UK) = <b>lumber<\/b> (US) = stavební dřevo. <b>wood<\/b> je obecně dřevo."
+ ],
+ "match": [
+  [
+   "the material used to keep heat inside",
+   "thermal insulation"
+  ],
+  [
+   "a layer that keeps water out",
+   "waterproofing"
+  ],
+  [
+   "the outer layer of a facade",
+   "cladding"
+  ],
+  [
+   "walls, roof, windows and floor together",
+   "building envelope"
+  ],
+  [
+   "a place where heat escapes more easily",
+   "thermal bridge"
+  ],
+  [
+   "lasting a long time",
+   "durable"
+  ]
+ ],
+ "distract": [
+  "plasterboard",
+  "mineral wool"
+ ],
+ "voc": [
+  "The roof structure is made of {steel}.",
+  "Good insulation reduces the heat {loss}.",
+  "The {waterproofing} protects the basement from water.",
+  "The facade has metal {cladding}.",
+  "The balcony connection is a thermal {bridge}.",
+  "Mineral {wool} is used for fire protection."
+ ],
+ "gbox": [
+  [
+   "Superlatives",
+   "Třetí stupeň: the + -est / the most.",
+   [
+    "It is <b>the cheapest<\/b> option.",
+    "This is <b>the most efficient<\/b> solution.",
+    "<b>The biggest<\/b> heat loss is through the roof.",
+    "good → <b>the best<\/b> · bad → <b>the worst<\/b>"
+   ],
+   "the cheapest of the three options"
+  ],
+  [
+   "Made of / used for",
+   "Materiál a účel.",
+   [
+    "The wall is <b>made of<\/b> concrete.",
+    "The panels are <b>made of<\/b> aluminium.",
+    "Mineral wool is <b>used for<\/b> insulation.",
+    "This layer is <b>used for<\/b> protecting the membrane."
+   ],
+   "used for + podstatné jméno nebo -ing"
+  ]
+ ],
+ "gtask": "Doplňte třetí stupeň přídavného jména v závorce nebo of / for.",
+ "gram": [
+  "Option C is the {cheapest} of the three. (cheap)",
+  "Triple glazing is the {most efficient} solution. (efficient)",
+  "The roof has the {biggest} heat loss in the building. (big)",
+  "This is the {best} material for a wet room. (good)",
+  "The columns are made {of} reinforced concrete.",
+  "Mineral wool is used {for} thermal insulation.",
+  "Glass is the {most expensive} part of the facade. (expensive)"
+ ],
+ "reading": {
+  "title": "The external wall",
+  "cz": "Popis skladby obvodové stěny v technické zprávě.",
+  "paras": [
+   "<b>External wall — composition<\/b>",
+   "The external walls of the building are made of reinforced concrete 250 millimetres thick. On the outside, there is thermal insulation made of mineral wool, 200 millimetres thick. Mineral wool is used because it is the safest option in case of fire.",
+   "The outer layer is a ventilated facade with metal cladding. The air gap behind the cladding is 40 millimetres wide. This is the most durable solution and it needs the least maintenance.",
+   "The windows have triple glazing. They are the most expensive part of the envelope, but they have the lowest heat loss.",
+   "The biggest risk are thermal bridges at the connections of the windows and the roof. These details are shown on drawings 301 to 308."
+  ]
+ },
+ "tf": [
+  [
+   "The concrete wall is 200 millimetres thick.",
+   false
+  ],
+  [
+   "Mineral wool is used because of fire safety.",
+   true
+  ],
+  [
+   "The air gap is 40 millimetres wide.",
+   true
+  ],
+  [
+   "The windows are the cheapest part of the envelope.",
+   false
+  ],
+  [
+   "The details are on drawings 301 to 308.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Layers of the external wall (from inside)",
+  "cz": "Skladba stěny zevnitř ven. Popište skladbu jiné konstrukce ze své zakázky.",
+  "steps": [
+   [
+    "Plaster",
+    "omítka"
+   ],
+   [
+    "Reinforced concrete 250",
+    "železobeton"
+   ],
+   [
+    "Mineral wool 200",
+    "minerální vata"
+   ],
+   [
+    "Air gap 40",
+    "vzduchová mezera"
+   ],
+   [
+    "Metal cladding",
+    "kovový obklad"
+   ]
+  ],
+  "q": "What is the wall made of? Which layer is the thickest? What is the insulation used for?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Why do you use mineral {wool} and not polystyrene?"
+  ],
+  [
+   "Tomáš",
+   "Because it is the {safest} option in case of fire."
+  ],
+  [
+   "Mark",
+   "Is it more expensive?"
+  ],
+  [
+   "Tomáš",
+   "A little. But the most expensive part of the envelope is the {glass}."
+  ],
+  [
+   "Mark",
+   "What is the cladding made {of}?"
+  ],
+  [
+   "Tomáš",
+   "Aluminium panels. It is the most {durable} solution."
+  ],
+  [
+   "Mark",
+   "And where is the biggest heat {loss}?"
+  ],
+  [
+   "Tomáš",
+   "Through the roof and at the thermal {bridges} around the windows."
+  ]
+ ],
+ "speak": {
+  "title": "choose the material",
+  "cz": "Klient chce nejlevnější řešení, projektant nejlepší. Porovnejte tři možnosti a doporučte jednu.",
+  "phrases": [
+   "It is made of …",
+   "It is the cheapest / the most durable option.",
+   "It is used for …",
+   "We recommend … because it has the lowest …"
+  ],
+  "questions": [
+   "What is it made of?",
+   "Which is the cheapest option?",
+   "Which lasts the longest?",
+   "What is the biggest risk?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "You want low cost now and low cost in operation. Ask which option is the best."
+   ],
+   [
+    "Architect",
+    "Facade: plaster, metal cladding or timber. Compare price, look and maintenance."
+   ],
+   [
+    "Structural engineer",
+    "Roof structure: steel, timber or concrete. Compare weight, span and price."
+   ],
+   [
+    "Heating engineer",
+    "Pipes: steel, copper or plastic. Compare price, life and installation."
+   ],
+   [
+    "HVAC engineer",
+    "Ducts: galvanised steel, plastic or textile. Compare price and cleaning."
+   ],
+   [
+    "Fire safety engineer",
+    "Insulation: mineral wool, polystyrene or PIR. Compare fire safety and price."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "The wall is made ___ concrete.",
+   [
+    "from the",
+    "of",
+    "by"
+   ],
+   1
+  ],
+  [
+   "It is ___ option of the three.",
+   [
+    "the cheapest",
+    "the most cheap",
+    "cheaper"
+   ],
+   0
+  ],
+  [
+   "„Hydroizolace“ je:",
+   [
+    "waterproofing",
+    "hydro isolation",
+    "water stopping"
+   ],
+   0
+  ],
+  [
+   "Třetí stupeň od „good“ je:",
+   [
+    "the goodest",
+    "the best",
+    "the most good"
+   ],
+   1
+  ],
+  [
+   "„Tepelný most“ je:",
+   [
+    "heat bridge way",
+    "thermal bridge",
+    "warm bridge"
+   ],
+   1
+  ],
+  [
+   "Mineral wool is used ___ insulation.",
+   [
+    "for",
+    "to",
+    "of"
+   ],
+   0
+  ]
+ ],
+ "hw": "describe the composition of one wall, roof or floor from your project: layers, thickness, what each layer is used for.",
+ "tnote": "Izolace = <i>insulation<\/i>, ne <i>isolation<\/i> (to je izolovanost, odloučení). Velmi častá chyba v technických textech.",
+ "basics": [
+  [
+   "wood",
+   "dřevo"
+  ],
+  [
+   "metal",
+   "kov"
+  ],
+  [
+   "stone",
+   "kámen"
+  ],
+  [
+   "paint",
+   "nátěr, barva"
+  ],
+  [
+   "dry",
+   "suchý"
+  ],
+  [
+   "wet",
+   "mokrý"
+  ]
+ ],
+ "comic": {
+  "prop": "brick",
+  "a": [
+   "C",
+   "Which material is the best?"
+  ],
+  "b": [
+   "E",
+   "The cheapest one that the fire engineer likes."
+  ]
+ },
+ "next": "Review 3: fire safety and the stadium",
+ "videos": [
+  [
+   "YouTube – hledat: building envelope explained insulation thermal bridge",
+   "https://www.youtube.com/results?search_query=building+envelope+explained+insulation+thermal+bridge"
+  ],
+  [
+   "YouTube – hledat: superlatives English lesson",
+   "https://www.youtube.com/results?search_query=superlatives+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

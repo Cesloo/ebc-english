@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 18 · Coordination between disciplines</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 18,
+ "module": 5,
+ "title": "Coordination between disciplines",
+ "cz": "Koordinace profesí, změny a revize",
+ "grammar": "present perfect × past simple",
+ "goals": [
+  "describe a coordination problem and its solution",
+  "say what has changed and when it happened",
+  "ask a colleague for information politely",
+  "write a short request for information"
+ ],
+ "week": [
+  "What has changed in your project since last week?",
+  "When did you get the new documents?",
+  "What did you agree on with the other disciplines?"
+ ],
+ "frames": [
+  "The layout has changed.",
+  "I got the new model on Monday.",
+  "We agreed that …",
+  "I haven't received … yet.",
+  "I asked … for …"
+ ],
+ "vocab": [
+  [
+   "coordination meeting",
+   "koordinační porada",
+   "The coordination meeting is every Tuesday."
+  ],
+  [
+   "request for information",
+   "žádost o informaci (RFI)",
+   "I sent a request for information to the architect."
+  ],
+  [
+   "issue",
+   "problém, bod k řešení",
+   "There are five open issues."
+  ],
+  [
+   "to solve",
+   "vyřešit",
+   "We solved the clash yesterday."
+  ],
+  [
+   "to move",
+   "posunout",
+   "We moved the duct 300 millimetres down."
+  ],
+  [
+   "route",
+   "trasa",
+   "The route of the pipes has changed."
+  ],
+  [
+   "clearance",
+   "volný prostor, světlost",
+   "We need a clearance of 200 millimetres."
+  ],
+  [
+   "conflict",
+   "střet, rozpor",
+   "There is a conflict between the drawings."
+  ],
+  [
+   "change",
+   "změna",
+   "The client asked for a change."
+  ],
+  [
+   "comment",
+   "připomínka",
+   "I have added my comments to the drawing."
+  ],
+  [
+   "to mark up",
+   "vyznačit připomínky do výkresu",
+   "Please mark up the PDF."
+  ],
+  [
+   "responsible person",
+   "odpovědná osoba",
+   "Who is the responsible person for this issue?"
+  ],
+  [
+   "due date",
+   "termín splnění",
+   "The due date is next Friday."
+  ],
+  [
+   "to delay",
+   "zpozdit",
+   "The change delayed the project by two weeks."
+  ]
+ ],
+ "notes": [
+  "<b>RFI<\/b> = request for information, čteme po písmenech. Běžné v mezinárodních projektech.",
+  "<b>actual<\/b> znamená skutečný, ne aktuální. Aktuální verze = <b>current<\/b> / <b>latest version<\/b>.",
+  "Předpřítomný čas: co se změnilo (výsledek). Minulý čas: kdy přesně se to stalo."
+ ],
+ "match": [
+  [
+   "a formal question to another member of the team",
+   "request for information"
+  ],
+  [
+   "the free space needed around an element",
+   "clearance"
+  ],
+  [
+   "the date when a task must be finished",
+   "due date"
+  ],
+  [
+   "a note with an opinion or correction on a drawing",
+   "comment"
+  ],
+  [
+   "the path of a pipe, duct or cable",
+   "route"
+  ],
+  [
+   "to make something later than planned",
+   "to delay"
+  ]
+ ],
+ "distract": [
+  "issue",
+  "change"
+ ],
+ "voc": [
+  "We need a {clearance} of 200 millimetres above the unit.",
+  "The {route} of the duct has changed.",
+  "I have added my {comments} to the PDF.",
+  "The {due} date for this issue is next Friday.",
+  "The change {delayed} the project by two weeks.",
+  "There are five open {issues} from the last meeting."
+ ],
+ "gbox": [
+  [
+   "Present perfect — result now",
+   "Co se změnilo, bez přesného času.",
+   [
+    "The layout <b>has changed<\/b>.",
+    "I <b>have sent<\/b> the RFI.",
+    "We <b>haven't solved<\/b> it yet.",
+    "<b>Have<\/b> you <b>seen<\/b> the new model?"
+   ],
+   "already · yet · just · since Monday · this week"
+  ],
+  [
+   "Past simple — when it happened",
+   "Dokončený děj s časem.",
+   [
+    "The layout <b>changed<\/b> last week.",
+    "I <b>sent<\/b> the RFI on Monday.",
+    "We <b>solved<\/b> it at the meeting.",
+    "<b>Did<\/b> you <b>see<\/b> the email yesterday?"
+   ],
+   "yesterday · last week · on Monday · two days ago"
+  ]
+ ],
+ "gtask": "Doplňte předpřítomný nebo minulý čas slovesa v závorce.",
+ "gram": [
+  "The architect {has changed|'s changed} the layout again. Look at the new plan. (change)",
+  "He {changed} it on Monday. (change)",
+  "I {sent} the RFI two days ago. (send)",
+  "I {haven't received|have not received} an answer yet. (not / receive)",
+  "We {solved} the clash at the meeting yesterday. (solve)",
+  "{Have} you {seen} the latest model? (see)",
+  "The client {asked} for the change last month. (ask)"
+ ],
+ "reading": {
+  "title": "Request for information",
+  "cz": "Formální dotaz projektanta VZT na architekta.",
+  "paras": [
+   "<b>RFI no. 14 — ceiling height in corridor 1.12<\/b>",
+   "To: architect. From: HVAC engineer. Due date: 15 April.",
+   "The layout of the first floor has changed in revision C. The corridor 1.12 is now narrower and the suspended ceiling has moved from 2.80 to 2.60 metres.",
+   "Last week I checked the new model. The main duct needs 450 millimetres including a clearance of 50 millimetres. In the new model there is only 380 millimetres between the beam and the ceiling.",
+   "We discussed this at the coordination meeting on Tuesday, but we did not find a solution.",
+   "Question: Can the ceiling in corridor 1.12 stay at 2.50 metres? If not, we will have to change the route and move the shaft.",
+   "This issue has delayed our drawings by one week. Thank you for a quick answer."
+  ]
+ },
+ "tf": [
+  [
+   "The layout changed in revision C.",
+   true
+  ],
+  [
+   "The duct needs 380 millimetres.",
+   false
+  ],
+  [
+   "They found a solution at the meeting.",
+   false
+  ],
+  [
+   "The engineer asks if the ceiling can be lower.",
+   true
+  ],
+  [
+   "The issue has delayed the drawings by one week.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Life of an issue",
+  "cz": "Jak se řeší koordinační problém. Popište jeden ze své zakázky: co se stalo a jak to dopadlo.",
+  "steps": [
+   [
+    "Found",
+    "zjištěn"
+   ],
+   [
+    "RFI sent",
+    "odeslán dotaz"
+   ],
+   [
+    "Discussed",
+    "projednán"
+   ],
+   [
+    "Solution agreed",
+    "dohodnuto řešení"
+   ],
+   [
+    "Drawings updated",
+    "úprava výkresů"
+   ],
+   [
+    "Closed",
+    "uzavřen"
+   ]
+  ],
+  "q": "Who found the issue? When did you send the RFI? Has it been closed yet?"
+ },
+ "dialogue": [
+  [
+   "Pavel",
+   "Tomáš, have you {seen} my RFI about the corridor?"
+  ],
+  [
+   "Tomáš",
+   "Yes, I read it this morning. The ceiling {has} to stay at 2.60."
+  ],
+  [
+   "Pavel",
+   "Then the duct won't fit. We need a {clearance} of 50 millimetres."
+  ],
+  [
+   "Tomáš",
+   "Could you change the {route}?"
+  ],
+  [
+   "Pavel",
+   "I tried it yesterday. It {didn't} work because of the beam."
+  ],
+  [
+   "Tomáš",
+   "OK. What if we make the ceiling lower only in this {corridor}?"
+  ],
+  [
+   "Pavel",
+   "That would solve it. Has the client {approved} the heights?"
+  ],
+  [
+   "Tomáš",
+   "Not yet. I'll ask him today and add a {comment} to the model."
+  ]
+ ],
+ "speak": {
+  "title": "solve an issue together",
+  "cz": "Každá dvojice dostane koordinační problém. Popište, co se změnilo, kdy, a dohodněte řešení, odpovědnou osobu a termín.",
+  "phrases": [
+   "The … has changed, so now …",
+   "I noticed it on …",
+   "Could you …?",
+   "Let's agree: you will … by …"
+  ],
+  "questions": [
+   "When did it change?",
+   "Have you told the client?",
+   "Who is responsible for this issue?",
+   "What is the due date?"
+  ],
+  "cards": [
+   [
+    "HVAC × architect",
+    "The ceiling is 200 mm lower than last week. The duct doesn't fit."
+   ],
+   [
+    "Plumbing × structure",
+    "The shaft has moved. A waste pipe now hits a beam."
+   ],
+   [
+    "Electrical × HVAC",
+    "The unit on the roof has changed. It needs 20 kW more power."
+   ],
+   [
+    "Architect × client",
+    "The client has added a kitchen. Everyone needs new data."
+   ],
+   [
+    "Heating × BIM",
+    "Two versions of the model exist. Which is the latest?"
+   ],
+   [
+    "Lead designer",
+    "Three issues are late. Ask what happened and set due dates."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "I ___ the RFI on Monday.",
+   [
+    "have sent",
+    "sent",
+    "send"
+   ],
+   1
+  ],
+  [
+   "The layout ___. Look at the new plan.",
+   [
+    "has changed",
+    "did change",
+    "changing"
+   ],
+   0
+  ],
+  [
+   "„Aktuální verze“ je:",
+   [
+    "actual version",
+    "latest version",
+    "real version"
+   ],
+   1
+  ],
+  [
+   "___ you seen the new model?",
+   [
+    "Did",
+    "Have",
+    "Has"
+   ],
+   1
+  ],
+  [
+   "„Termín splnění“ úkolu je:",
+   [
+    "due date",
+    "end term",
+    "finish time"
+   ],
+   0
+  ],
+  [
+   "We ___ it at the meeting yesterday.",
+   [
+    "have solved",
+    "solved",
+    "has solved"
+   ],
+   1
+  ]
+ ],
+ "hw": "a short RFI to another discipline: what has changed, what you checked, your question, the due date.",
+ "tnote": "Klíč je časový údaj: s <i>yesterday, on Monday, last week<\/i> vždy minulý čas. RFI z domácího úkolu použijte znovu v lekci 21 (e-maily).",
+ "basics": [
+  [
+   "to change",
+   "změnit"
+  ],
+  [
+   "to ask",
+   "zeptat se"
+  ],
+  [
+   "to help",
+   "pomoci"
+  ],
+  [
+   "late",
+   "pozdě"
+  ],
+  [
+   "ready",
+   "připravený"
+  ],
+  [
+   "together",
+   "společně"
+  ]
+ ],
+ "comic": {
+  "prop": "duct",
+  "a": [
+   "E",
+   "Your duct is in my beam."
+  ],
+  "b": [
+   "A",
+   "No, your beam is in my duct."
+  ]
+ },
+ "next": "AI tools in a design office",
+ "videos": [
+  [
+   "YouTube – hledat: MEP coordination clash example construction",
+   "https://www.youtube.com/results?search_query=MEP+coordination+clash+example+construction"
+  ],
+  [
+   "YouTube – hledat: present perfect vs past simple English lesson",
+   "https://www.youtube.com/results?search_query=present+perfect+vs+past+simple+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

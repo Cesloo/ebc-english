@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 05 · Design documentation: what is in it</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 5,
+ "module": 2,
+ "title": "Design documentation: what is in it",
+ "cz": "Projektová dokumentace a její části",
+ "grammar": "present passive (is prepared, are submitted)",
+ "goals": [
+  "name the main parts of design documentation",
+  "describe who prepares and checks what",
+  "use the passive to describe a process",
+  "explain to a client what they receive"
+ ],
+ "week": [
+  "Which documents are you preparing this week?",
+  "Who checks your drawings?",
+  "What was sent to the client last week?"
+ ],
+ "frames": [
+  "This week I'm preparing …",
+  "The drawings are checked by …",
+  "The report was sent on …",
+  "The documentation includes …",
+  "It is not finished yet."
+ ],
+ "vocab": [
+  [
+   "drawing",
+   "výkres",
+   "The drawing shows the ground floor."
+  ],
+  [
+   "technical report",
+   "technická zpráva",
+   "The technical report describes the heating system."
+  ],
+  [
+   "site plan",
+   "situace",
+   "The site plan shows the building and the roads around it."
+  ],
+  [
+   "bill of quantities",
+   "výkaz výměr",
+   "The bill of quantities lists all materials and works."
+  ],
+  [
+   "specification",
+   "specifikace, technické podmínky",
+   "The specification describes the quality of materials."
+  ],
+  [
+   "calculation",
+   "výpočet",
+   "The structural calculation is part of the documentation."
+  ],
+  [
+   "revision",
+   "revize (verze dokumentu)",
+   "This is revision B of the drawing."
+  ],
+  [
+   "title block",
+   "rohové razítko, rozpiska",
+   "The title block shows the drawing number and the scale."
+  ],
+  [
+   "to submit",
+   "podat, odevzdat",
+   "The documentation is submitted to the authority."
+  ],
+  [
+   "to check",
+   "zkontrolovat",
+   "Every drawing is checked by the lead designer."
+  ],
+  [
+   "to approve",
+   "schválit",
+   "The design is approved by the client."
+  ],
+  [
+   "to issue",
+   "vydat",
+   "The permit is issued by the building authority."
+  ],
+  [
+   "attachment",
+   "příloha",
+   "The survey is in the attachment."
+  ],
+  [
+   "stamp",
+   "autorizační razítko",
+   "The drawing needs the engineer's stamp."
+  ]
+ ],
+ "notes": [
+  "<b>documentation<\/b> je nepočitatelné: <i>the documentation is ready<\/i>, ne <i>documentations<\/i>.",
+  "Výkres = <b>drawing<\/b>. Slovo <i>plan<\/i> znamená hlavně půdorys nebo situaci.",
+  "<b>bill of quantities<\/b> se zkracuje <b>BoQ<\/b>."
+ ],
+ "match": [
+  [
+   "a list of all materials and works with amounts",
+   "bill of quantities"
+  ],
+  [
+   "a new version of a drawing after changes",
+   "revision"
+  ],
+  [
+   "the box with the drawing number, scale and date",
+   "title block"
+  ],
+  [
+   "a text document describing the design",
+   "technical report"
+  ],
+  [
+   "a drawing of the whole site from above",
+   "site plan"
+  ],
+  [
+   "a file sent together with an email",
+   "attachment"
+  ]
+ ],
+ "distract": [
+  "calculation",
+  "stamp"
+ ],
+ "voc": [
+  "The permit is {issued} by the building authority.",
+  "Please see the survey in the {attachment}.",
+  "The drawing number is in the title {block}.",
+  "The technical {report} describes the ventilation system.",
+  "The documentation is {submitted} to the authority in June.",
+  "This is {revision} C of the floor plan."
+ ],
+ "gbox": [
+  [
+   "Passive — form",
+   "am / is / are + třetí tvar slovesa.",
+   [
+    "The drawings <b>are checked<\/b> every week.",
+    "The report <b>is written<\/b> by the engineer.",
+    "The permit <b>is issued<\/b> by the authority.",
+    "The model <b>is not updated<\/b> yet."
+   ],
+   "Původce děje: by + osoba"
+  ],
+  [
+   "When we use it",
+   "Když je důležitější dokument nebo proces než osoba. V technických textech velmi časté.",
+   [
+    "Active: We <b>submit<\/b> the documentation.",
+    "Passive: The documentation <b>is submitted<\/b>.",
+    "Question: When <b>is<\/b> the report <b>sent<\/b>?",
+    "Past: The survey <b>was done<\/b> in May."
+   ],
+   ""
+  ]
+ ],
+ "gtask": "Doplňte trpný rod slovesa v závorce (přítomný čas).",
+ "gram": [
+  "The drawings {are checked} by the lead designer. (check)",
+  "The technical report {is written} in Czech and English. (write)",
+  "The permit {is issued} by the building authority. (issue)",
+  "The bill of quantities {is prepared} by the cost estimator. (prepare)",
+  "All calculations {are included} in the documentation. (include)",
+  "The model {is updated} every Friday. (update)",
+  "The documents {are sent} to the client by email. (send)"
+ ],
+ "reading": {
+  "title": "What you will receive",
+  "cz": "Vysvětlení klientovi, co obsahuje dokumentace pro povolení stavby.",
+  "paras": [
+   "Dear Mr Collins,",
+   "You asked what the permit documentation includes. It is divided into several parts.",
+   "The first part is a general report about the project. The second part is the site plan, which shows the building, the roads and the connections to utilities. The main part contains the drawings and technical reports for each discipline: architecture, structure, fire safety and building services.",
+   "Every drawing is checked by the lead designer and stamped by an authorised engineer. The whole documentation is submitted to the building authority in digital form.",
+   "The bill of quantities is not included at this stage. It is prepared later, with the tender documentation.",
+   "All documents are sent to you for approval two weeks before the submission."
+  ]
+ },
+ "tf": [
+  [
+   "The site plan shows the connections to utilities.",
+   true
+  ],
+  [
+   "The drawings are stamped by the client.",
+   false
+  ],
+  [
+   "The documentation is submitted on paper only.",
+   false
+  ],
+  [
+   "The bill of quantities is prepared later.",
+   true
+  ],
+  [
+   "The client gets the documents two weeks before submission.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "How a drawing is issued",
+  "cz": "Cesta výkresu od projektanta ke klientovi. Popište ji v trpném rodě.",
+  "steps": [
+   [
+    "Drawn",
+    "nakreslen"
+   ],
+   [
+    "Checked",
+    "zkontrolován"
+   ],
+   [
+    "Coordinated",
+    "zkoordinován"
+   ],
+   [
+    "Stamped",
+    "orazítkován"
+   ],
+   [
+    "Sent for approval",
+    "odeslán ke schválení"
+   ],
+   [
+    "Issued",
+    "vydán"
+   ]
+  ],
+  "q": "Who is the drawing checked by? When is it sent to the client?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Is the permit documentation ready?"
+  ],
+  [
+   "Jana",
+   "Almost. The drawings are {checked} this week."
+  ],
+  [
+   "Mark",
+   "And the technical {reports}?"
+  ],
+  [
+   "Jana",
+   "They are written, but the fire safety report is not {finished} yet."
+  ],
+  [
+   "Mark",
+   "When is the documentation {submitted}?"
+  ],
+  [
+   "Jana",
+   "On 30 June. Before that, it is sent to you for {approval}."
+  ],
+  [
+   "Mark",
+   "Is the bill of {quantities} included?"
+  ],
+  [
+   "Jana",
+   "No, it is prepared later with the tender {documentation}."
+  ]
+ ],
+ "speak": {
+  "title": "explain your part of the documentation",
+  "cz": "Klient chce vědět, co za svou část odevzdáte. Popište výkresy a zprávy své profese.",
+  "phrases": [
+   "My part includes … drawings and a technical report.",
+   "The drawings are checked by …",
+   "The calculation is attached to the report.",
+   "It is sent to you for approval on …"
+  ],
+  "questions": [
+   "What does your part include?",
+   "Who are the drawings checked by?",
+   "Is the bill of quantities included?",
+   "When is it submitted?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Ask each designer what you will receive and when."
+   ],
+   [
+    "Architect",
+    "Your part: site plan, floor plans, sections, elevations, technical report."
+   ],
+   [
+    "Structural engineer",
+    "Your part: structural calculation, foundation drawing, reinforcement drawings."
+   ],
+   [
+    "Heating engineer",
+    "Your part: technical report, floor plans with radiators, boiler room scheme."
+   ],
+   [
+    "Cost estimator",
+    "Your part: bill of quantities and budget. Explain when it is prepared."
+   ],
+   [
+    "Lead designer",
+    "Explain how the documentation is checked and submitted."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "„Výkaz výměr“ je:",
+   [
+    "bill of quantities",
+    "measure list",
+    "amount table"
+   ],
+   0
+  ],
+  [
+   "The drawings ___ by the lead designer.",
+   [
+    "is checked",
+    "are checked",
+    "are check"
+   ],
+   1
+  ],
+  [
+   "„Rohové razítko“ výkresu je:",
+   [
+    "corner stamp",
+    "title block",
+    "name box"
+   ],
+   1
+  ],
+  [
+   "The permit ___ by the authority.",
+   [
+    "is issued",
+    "issues",
+    "is issue"
+   ],
+   0
+  ],
+  [
+   "Which is correct?",
+   [
+    "The documentations are ready.",
+    "The documentation is ready.",
+    "The documentation are ready."
+   ],
+   1
+  ],
+  [
+   "„Podat žádost / dokumentaci“ je:",
+   [
+    "to submit",
+    "to give up",
+    "to post in"
+   ],
+   0
+  ]
+ ],
+ "hw": "six sentences about how documents are prepared and checked in your discipline. Use the passive at least four times.",
+ "tnote": "Trpný rod jen v přítomném čase, minulý pasivně rozpoznat (was sent). Třetí tvary nepravidelných sloves z lekce: written, sent, done, drawn.",
+ "basics": [
+  [
+   "paper",
+   "papír"
+  ],
+  [
+   "page",
+   "strana"
+  ],
+  [
+   "number",
+   "číslo"
+  ],
+  [
+   "name",
+   "název, jméno"
+  ],
+  [
+   "copy",
+   "kopie"
+  ],
+  [
+   "list",
+   "seznam"
+  ]
+ ],
+ "comic": {
+  "prop": "drawing",
+  "a": [
+   "C",
+   "Is the documentation ready?"
+  ],
+  "b": [
+   "E",
+   "Yes. It only needs one more revision. Again."
+  ]
+ },
+ "next": "Reading drawings",
+ "videos": [
+  [
+   "YouTube – hledat: construction drawings and documents explained",
+   "https://www.youtube.com/results?search_query=construction+drawings+and+documents+explained"
+  ],
+  [
+   "YouTube – hledat: how to read construction documents title block",
+   "https://www.youtube.com/results?search_query=how+to+read+construction+documents+title+block"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

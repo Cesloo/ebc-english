@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 20 · Review 5: costs, tenders and bids</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 20,
+ "module": 5,
+ "title": "Review 5: costs, tenders and bids",
+ "cz": "Rozpočet, výběrová řízení a nabídky; opakování modulu 5",
+ "grammar": "future and present perfect (review); talking about prices",
+ "goals": [
+  "talk about budgets, prices and bids",
+  "explain what is and is not included in a price",
+  "describe the status and the plan of a bid",
+  "use the vocabulary from lessons 17–19 together"
+ ],
+ "week": [
+  "What have you finished for the bid or the budget?",
+  "What are you going to do before the deadline?",
+  "What will the biggest cost be?"
+ ],
+ "frames": [
+  "I have finished the …",
+  "I'm going to check …",
+  "The price includes …",
+  "It doesn't include …",
+  "The total cost will be about …"
+ ],
+ "vocab": [
+  [
+   "budget",
+   "rozpočet (finanční rámec)",
+   "The client's budget is limited."
+  ],
+  [
+   "cost estimate",
+   "odhad nákladů, rozpočet stavby",
+   "The cost estimate is based on the bill of quantities."
+  ],
+  [
+   "unit price",
+   "jednotková cena",
+   "The unit price is per square metre."
+  ],
+  [
+   "total price",
+   "celková cena",
+   "The total price doesn't include VAT."
+  ],
+  [
+   "VAT",
+   "DPH",
+   "All prices are without VAT."
+  ],
+  [
+   "tender",
+   "výběrové řízení, zakázka",
+   "The city announced a tender for the design."
+  ],
+  [
+   "bid",
+   "nabídka (do soutěže)",
+   "We have to submit our bid by Friday."
+  ],
+  [
+   "bidder",
+   "uchazeč",
+   "Five bidders took part in the tender."
+  ],
+  [
+   "contract",
+   "smlouva",
+   "The contract is signed after the tender."
+  ],
+  [
+   "to include",
+   "zahrnovat",
+   "The price includes site supervision."
+  ],
+  [
+   "extra work",
+   "vícepráce",
+   "Extra work is paid separately."
+  ],
+  [
+   "discount",
+   "sleva",
+   "We offered a discount of five per cent."
+  ],
+  [
+   "invoice",
+   "faktura",
+   "We send the invoice after each stage."
+  ],
+  [
+   "penalty",
+   "smluvní pokuta",
+   "There is a penalty for every day of delay."
+  ]
+ ],
+ "notes": [
+  "<b>budget<\/b> = kolik peněz je k dispozici, <b>cost estimate<\/b> = kolik to bude stát.",
+  "<b>tender<\/b> = soutěž, <b>bid<\/b> = naše nabídka, <b>bidder<\/b> = uchazeč. V USA též <i>proposal<\/i>.",
+  "Ceny: 1,250,000 = <i>one million two hundred and fifty thousand<\/i>. CZK čteme <i>Czech crowns<\/i>, € <i>euros<\/i>."
+ ],
+ "match": [
+  [
+   "the price for one metre, piece or hour",
+   "unit price"
+  ],
+  [
+   "our offer in a tender",
+   "bid"
+  ],
+  [
+   "a company that submits an offer",
+   "bidder"
+  ],
+  [
+   "work that was not in the original contract",
+   "extra work"
+  ],
+  [
+   "money you pay for being late",
+   "penalty"
+  ],
+  [
+   "the document that asks the client to pay",
+   "invoice"
+  ]
+ ],
+ "distract": [
+  "discount",
+  "contract"
+ ],
+ "voc": [
+  "We have to submit our {bid} by Friday noon.",
+  "The total price doesn't {include} VAT.",
+  "There is a {penalty} for every day of delay.",
+  "Extra {work} is paid separately.",
+  "The unit {price} is 1,200 crowns per square metre.",
+  "We send the {invoice} after each stage of the design."
+ ],
+ "gbox": [
+  [
+   "Status and plan",
+   "Co je hotovo × co uděláme.",
+   [
+    "We <b>have prepared<\/b> the technical part.",
+    "We <b>haven't calculated<\/b> the fee yet.",
+    "We <b>are going to<\/b> submit the bid on Thursday.",
+    "The price <b>will be<\/b> about two million."
+   ],
+   "present perfect + going to / will"
+  ],
+  [
+   "Talking about prices",
+   "Ceny a co obsahují.",
+   [
+    "The price <b>includes<\/b> site supervision.",
+    "It <b>doesn't include<\/b> the survey.",
+    "It <b>costs<\/b> 1,200 crowns <b>per<\/b> square metre.",
+    "The total is 2.4 million <b>without<\/b> VAT."
+   ],
+   "per hour · per piece · per square metre"
+  ]
+ ],
+ "gtask": "Doplňte správný tvar slovesa v závorce nebo slovo per / without.",
+ "gram": [
+  "We {have prepared|'ve prepared} the technical part of the bid. (prepare)",
+  "We {haven't calculated|have not calculated} the fee yet. (not / calculate)",
+  "We {are going to|'re going to} submit the bid on Thursday. (plan)",
+  "I think the total cost {will} be about two million.",
+  "The price is 1,200 crowns {per} square metre.",
+  "All prices are {without} VAT.",
+  "The contract {includes} a penalty for delay. (include)"
+ ],
+ "reading": {
+  "title": "Tender announcement",
+  "cz": "Zkrácené oznámení zakázky na projektové práce.",
+  "paras": [
+   "<b>Tender: design services for a sports hall<\/b>",
+   "The city is looking for a designer of a new sports hall. The scope of work includes the concept design, the permit documentation, the tender documentation with the bill of quantities, and site supervision.",
+   "The estimated value of the contract is 6.5 million crowns without VAT. Bidders have to submit their bids in electronic form by 30 April, 10:00.",
+   "The bid has to include the total price, a list of reference projects from the last five years and the names of the team members. The design has to be prepared in BIM.",
+   "The criteria are the price (70 per cent) and the experience of the team (30 per cent). The contract will include a penalty of 0.1 per cent of the price for every day of delay."
+  ]
+ },
+ "tf": [
+  [
+   "The scope includes site supervision.",
+   true
+  ],
+  [
+   "The estimated value includes VAT.",
+   false
+  ],
+  [
+   "Bids are submitted on paper.",
+   false
+  ],
+  [
+   "The price has a weight of 70 per cent.",
+   true
+  ],
+  [
+   "There is a penalty for delay.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "From tender to contract",
+  "cz": "Postup přípravy nabídky. Řekněte, co už je hotovo a co uděláte.",
+  "steps": [
+   [
+    "Tender announced",
+    "vyhlášení"
+   ],
+   [
+    "Read the documents",
+    "rozbor zadání"
+   ],
+   [
+    "Questions",
+    "dotazy"
+   ],
+   [
+    "Calculate the price",
+    "kalkulace"
+   ],
+   [
+    "Submit the bid",
+    "podání nabídky"
+   ],
+   [
+    "Contract",
+    "smlouva"
+   ]
+  ],
+  "q": "Have you read the documents yet? When are you going to submit the bid? What will the price include?"
+ },
+ "dialogue": [
+  [
+   "Jana",
+   "Have you read the {tender} documents?"
+  ],
+  [
+   "Martin",
+   "Yes. I've used an AI tool to {summarise} them."
+  ],
+  [
+   "Jana",
+   "Good. What does the scope {include}?"
+  ],
+  [
+   "Martin",
+   "All stages and site supervision. And there is a {penalty} for delay."
+  ],
+  [
+   "Jana",
+   "Have we calculated the {price} yet?"
+  ],
+  [
+   "Martin",
+   "Not yet. The cost estimator is going to finish it {tomorrow}."
+  ],
+  [
+   "Jana",
+   "When do we have to {submit} the bid?"
+  ],
+  [
+   "Martin",
+   "By 30 April, ten o'clock. I'll prepare the list of {reference} projects."
+  ]
+ ],
+ "speak": {
+  "title": "bid preparation meeting",
+  "cz": "Opakovací simulace modulu 5: porada k nabídce. Kdo co udělal, kdo co udělá, co cena obsahuje a jaká jsou rizika.",
+  "phrases": [
+   "I've already prepared …",
+   "I'm going to … by Wednesday.",
+   "The price includes … but not …",
+   "The biggest risk is …"
+  ],
+  "questions": [
+   "Have you checked the contract?",
+   "What will the fee be?",
+   "Is the survey included?",
+   "Who is going to submit the bid?"
+  ],
+  "cards": [
+   [
+    "Director",
+    "Decide: go or no go. Ask about the price, risks and capacity."
+   ],
+   [
+    "Lead designer",
+    "Present the scope and the team. Say what has been done."
+   ],
+   [
+    "Cost estimator",
+    "Explain the price: stages, hours, what is not included."
+   ],
+   [
+    "Permitting engineer",
+    "Explain the risks: deadline for the permit, penalties."
+   ],
+   [
+    "BIM coordinator",
+    "Explain the BIM requirements and what they will cost."
+   ],
+   [
+    "AI coordinator",
+    "Say how AI has helped with the documents and what you verified."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "„Nabídka do výběrového řízení“ je:",
+   [
+    "bid",
+    "offer letter in",
+    "tender paper"
+   ],
+   0
+  ],
+  [
+   "„DPH“ je:",
+   [
+    "VAT",
+    "TAX",
+    "DPT"
+   ],
+   0
+  ],
+  [
+   "The price is 1,200 crowns ___ square metre.",
+   [
+    "for",
+    "per",
+    "on"
+   ],
+   1
+  ],
+  [
+   "We ___ the fee yet.",
+   [
+    "didn't calculated",
+    "haven't calculated",
+    "aren't calculate"
+   ],
+   1
+  ],
+  [
+   "„Vícepráce“ jsou:",
+   [
+    "extra work",
+    "more works",
+    "plus job"
+   ],
+   0
+  ],
+  [
+   "„Smluvní pokuta“ je:",
+   [
+    "penalty",
+    "contract fine pay",
+    "punish"
+   ],
+   0
+  ]
+ ],
+ "hw": "a short summary of a tender you know (real or the one from the text): scope, deadline, what the price includes, the biggest risk.",
+ "tnote": "Opakovací lekce modulu 5. Čísla a ceny (lekce 7) čtěte nahlas; v simulaci má každý říct aspoň jednu cenu nebo termín.",
+ "basics": [
+  [
+   "price",
+   "cena"
+  ],
+  [
+   "money",
+   "peníze"
+  ],
+  [
+   "cheap",
+   "levný"
+  ],
+  [
+   "expensive",
+   "drahý"
+  ],
+  [
+   "to pay",
+   "platit"
+  ],
+  [
+   "to buy",
+   "koupit"
+  ]
+ ],
+ "comic": {
+  "prop": "money",
+  "a": [
+   "C",
+   "Does the price include everything?"
+  ],
+  "b": [
+   "E",
+   "Everything that is in the contract."
+  ]
+ },
+ "next": "Emails to a client",
+ "videos": [
+  [
+   "YouTube – hledat: construction tender process explained",
+   "https://www.youtube.com/results?search_query=construction+tender+process+explained"
+  ],
+  [
+   "YouTube – hledat: how to say prices and large numbers in English",
+   "https://www.youtube.com/results?search_query=how+to+say+prices+and+large+numbers+in+English"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

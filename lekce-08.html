@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 08 · Review 2: permits, authorities and standards</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 8,
+ "module": 2,
+ "title": "Review 2: permits, authorities and standards",
+ "cz": "Povolení, úřady a normy; opakování modulu 2",
+ "grammar": "obligation: must, have to, don't have to, mustn't",
+ "goals": [
+  "explain the permit process to a foreign client",
+  "say what is required and what is not",
+  "talk about standards and regulations",
+  "use the vocabulary from lessons 5–7 together"
+ ],
+ "week": [
+  "What do you have to finish this week?",
+  "Which authority are you dealing with?",
+  "What must be in your documentation?"
+ ],
+ "frames": [
+  "I have to finish … by Friday.",
+  "We must follow the standard for …",
+  "We don't have to submit … yet.",
+  "The authority asked for …",
+  "We are waiting for a statement from …"
+ ],
+ "vocab": [
+  [
+   "building authority",
+   "stavební úřad",
+   "The building authority issues the permit."
+  ],
+  [
+   "application",
+   "žádost",
+   "We submitted the application last week."
+  ],
+  [
+   "statement",
+   "stanovisko, vyjádření",
+   "We need a statement from the fire brigade."
+  ],
+  [
+   "regulation",
+   "předpis, vyhláška",
+   "The design must follow the building regulations."
+  ],
+  [
+   "standard",
+   "norma",
+   "The standard gives the minimum air flow."
+  ],
+  [
+   "requirement",
+   "požadavek",
+   "The fire safety requirements are strict."
+  ],
+  [
+   "to comply with",
+   "být v souladu s, splňovat",
+   "The design complies with the standards."
+  ],
+  [
+   "owner",
+   "vlastník",
+   "The owner of the neighbouring plot must be informed."
+  ],
+  [
+   "plot",
+   "pozemek, parcela",
+   "The plot is owned by the city."
+  ],
+  [
+   "utility company",
+   "správce sítě",
+   "We asked the utility companies about the connections."
+  ],
+  [
+   "zoning plan",
+   "územní plán",
+   "The stadium is in line with the zoning plan."
+  ],
+  [
+   "condition",
+   "podmínka",
+   "The permit has ten conditions."
+  ],
+  [
+   "to appeal",
+   "odvolat se",
+   "A neighbour can appeal against the permit."
+  ],
+  [
+   "legally valid",
+   "pravomocný",
+   "The permit is legally valid after fifteen days."
+  ]
+ ],
+ "notes": [
+  "<b>must<\/b> a <b>have to<\/b> znamenají povinnost. <b>Mustn't<\/b> = nesmí, <b>don't have to<\/b> = nemusí. Rozdíl je zásadní.",
+  "Norma = <b>standard<\/b>. Slovo <i>norm<\/i> znamená obvyklý stav, ne technickou normu.",
+  "Stanovisko dotčeného orgánu = <b>statement<\/b> nebo <b>opinion<\/b> of the authority concerned."
+ ],
+ "match": [
+  [
+   "the office that issues building permits",
+   "building authority"
+  ],
+  [
+   "a technical document with rules, for example ČSN or EN",
+   "standard"
+  ],
+  [
+   "a written opinion of an authority",
+   "statement"
+  ],
+  [
+   "a piece of land",
+   "plot"
+  ],
+  [
+   "the document that says what can be built in an area",
+   "zoning plan"
+  ],
+  [
+   "the company that operates water, gas or electricity networks",
+   "utility company"
+  ]
+ ],
+ "distract": [
+  "application",
+  "condition"
+ ],
+ "voc": [
+  "The design must {comply} with the fire safety regulations.",
+  "We are waiting for a {statement} from the fire brigade.",
+  "The permit has several {conditions}.",
+  "We submitted the {application} on 30 June.",
+  "The neighbour can {appeal} against the permit.",
+  "The {plot} next to the stadium is owned by the city."
+ ],
+ "gbox": [
+  [
+   "Obligation",
+   "Povinnost.",
+   [
+    "We <b>must<\/b> follow the regulations.",
+    "The client <b>has to<\/b> sign the application.",
+    "We <b>have to<\/b> wait for the statements.",
+    "The design <b>must<\/b> comply with the standard."
+   ],
+   "must = silnější, pravidlo · have to = okolnosti"
+  ],
+  [
+   "No obligation × prohibition",
+   "Nemusí × nesmí.",
+   [
+    "We <b>don't have to<\/b> submit paper copies. (nemusíme)",
+    "The client <b>doesn't have to<\/b> come in person.",
+    "The contractor <b>mustn't<\/b> start without a permit. (nesmí)",
+    "You <b>mustn't<\/b> change the drawing after the stamp."
+   ],
+   ""
+  ]
+ ],
+ "gtask": "Doplňte: must, mustn't, have to, has to, don't have to, doesn't have to.",
+ "gram": [
+  "The design {must|has to} comply with the fire regulations.",
+  "The contractor {mustn't} start work before the permit is valid.",
+  "We {don't have to} print the documentation. Digital form is enough.",
+  "The owner {has to|must} sign the application.",
+  "You {mustn't} block the escape routes.",
+  "The client {doesn't have to} come to the authority. We do it for him.",
+  "We {have to|must} ask all utility companies for a statement."
+ ],
+ "reading": {
+  "title": "How the permit works here",
+  "cz": "Vysvětlení povolovacího procesu zahraničnímu klientovi (zjednodušeně).",
+  "paras": [
+   "Dear Mr Collins,",
+   "Here is a short explanation of the permit process. First, we have to collect statements from the authorities and the utility companies. The fire brigade, the public health office and the environmental office must check the design.",
+   "Then we submit the application with the documentation to the building authority. The application has to be signed by the owner of the plot, or we need your power of attorney.",
+   "The authority informs the neighbours. They can make objections, and later they can appeal. This is why we cannot promise an exact date.",
+   "You don't have to come to the authority in person. Our permitting engineer deals with everything. But the contractor mustn't start any work before the permit is legally valid."
+  ]
+ },
+ "tf": [
+  [
+   "The team collects the statements before the application.",
+   true
+  ],
+  [
+   "The fire brigade checks the design.",
+   true
+  ],
+  [
+   "The client has to go to the authority in person.",
+   false
+  ],
+  [
+   "Neighbours cannot appeal.",
+   false
+  ],
+  [
+   "Work can start before the permit is legally valid.",
+   false
+  ]
+ ],
+ "flow": {
+  "title": "Steps to a building permit",
+  "cz": "Zjednodušený postup. Popište ho klientovi větami s must / have to.",
+  "steps": [
+   [
+    "Statements",
+    "stanoviska"
+   ],
+   [
+    "Application",
+    "žádost"
+   ],
+   [
+    "Procedure",
+    "řízení"
+   ],
+   [
+    "Objections",
+    "námitky"
+   ],
+   [
+    "Permit issued",
+    "vydání povolení"
+   ],
+   [
+    "Legally valid",
+    "nabytí právní moci"
+   ]
+  ],
+  "q": "What do we have to do first? Who must sign the application? When can the contractor start?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "When can we get the {permit}?"
+  ],
+  [
+   "Eva",
+   "It depends. First we {have} to collect all the statements."
+  ],
+  [
+   "Mark",
+   "Do I have to sign {anything}?"
+  ],
+  [
+   "Eva",
+   "Yes, the application. Or you can give us a power of {attorney}."
+  ],
+  [
+   "Mark",
+   "Do I have to come to the building {authority}?"
+  ],
+  [
+   "Eva",
+   "No, you {don't} have to. I deal with it."
+  ],
+  [
+   "Mark",
+   "Can the contractor start in March?"
+  ],
+  [
+   "Eva",
+   "Only if the permit is legally {valid}. He {mustn't} start before that."
+  ]
+ ],
+ "speak": {
+  "title": "explain the rules",
+  "cz": "Klient ze zahraničí nezná naše předpisy. Vysvětlete, co musí, nemusí a nesmí. Na konci shrňte tři nejdůležitější pravidla.",
+  "phrases": [
+   "First, we have to …",
+   "You don't have to …, we do it for you.",
+   "The contractor mustn't …",
+   "The design must comply with …"
+  ],
+  "questions": [
+   "Do I have to sign it myself?",
+   "How long does it take?",
+   "What happens if a neighbour appeals?",
+   "Which standards must we follow?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "You are in a hurry. Ask what you must do and if anything can be faster."
+   ],
+   [
+    "Permitting engineer",
+    "Explain the steps and what the client has to sign."
+   ],
+   [
+    "Fire safety engineer",
+    "Explain what the fire brigade requires: escape routes, fire compartments."
+   ],
+   [
+    "HVAC engineer",
+    "Explain the requirements for fresh air in changing rooms and offices."
+   ],
+   [
+    "Architect",
+    "Explain the zoning plan: height, distance from the neighbours, parking."
+   ],
+   [
+    "Lead designer",
+    "Summarise: three things the client must do and one thing he mustn't do."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "You ___ start without a permit. (nesmíte)",
+   [
+    "don't have to",
+    "mustn't",
+    "haven't to"
+   ],
+   1
+  ],
+  [
+   "You ___ come in person. (nemusíte)",
+   [
+    "mustn't",
+    "don't have to",
+    "must not to"
+   ],
+   1
+  ],
+  [
+   "Technická norma je:",
+   [
+    "norm",
+    "standard",
+    "normative"
+   ],
+   1
+  ],
+  [
+   "„Stavební úřad“ je:",
+   [
+    "building authority",
+    "construction office bureau",
+    "build department"
+   ],
+   0
+  ],
+  [
+   "The design ___ with the regulations.",
+   [
+    "complies",
+    "complains",
+    "completes"
+   ],
+   0
+  ],
+  [
+   "„Stanovisko“ úřadu je:",
+   [
+    "statement",
+    "standpoint paper",
+    "position letter"
+   ],
+   0
+  ]
+ ],
+ "hw": "a short email to a foreign client: explain three things he has to do, one he doesn't have to do and one he mustn't do before the permit.",
+ "tnote": "Opakovací lekce modulu 2: v úvodním kolečku chtějte aspoň jedno číslo a jeden trpný rod. Popis řízení je zjednodušený; právní detaily neřešte, jde o jazyk.",
+ "basics": [
+  [
+   "law",
+   "zákon"
+  ],
+  [
+   "rule",
+   "pravidlo"
+  ],
+  [
+   "neighbour",
+   "soused"
+  ],
+  [
+   "land",
+   "pozemek"
+  ],
+  [
+   "to sign",
+   "podepsat"
+  ],
+  [
+   "to wait",
+   "čekat"
+  ]
+ ],
+ "comic": {
+  "prop": "clock",
+  "a": [
+   "C",
+   "How long does the building permit take?"
+  ],
+  "b": [
+   "E",
+   "Nobody knows. But we have a nice schedule."
+  ]
+ },
+ "next": "The building: layout and spaces",
+ "videos": [
+  [
+   "YouTube – hledat: must have to mustn't don't have to English lesson",
+   "https://www.youtube.com/results?search_query=must+have+to+mustn't+don't+have+to+English+lesson"
+  ],
+  [
+   "YouTube – hledat: building permit process explained",
+   "https://www.youtube.com/results?search_query=building+permit+process+explained"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

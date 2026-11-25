@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 09 · The building: layout and spaces</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 9,
+ "module": 3,
+ "title": "The building: layout and spaces",
+ "cz": "Dispozice a prostory budovy",
+ "grammar": "comparatives (bigger, more efficient)",
+ "goals": [
+  "name the main spaces of a public building",
+  "describe and compare design options",
+  "explain a layout to a client",
+  "give reasons for a design decision"
+ ],
+ "week": [
+  "What changed in your design this week?",
+  "Which option did you choose and why?",
+  "What did the architect ask you for?"
+ ],
+ "frames": [
+  "We changed the layout of …",
+  "Option A is bigger than option B.",
+  "This solution is cheaper but …",
+  "The architect asked me to …",
+  "We decided to move … to …"
+ ],
+ "vocab": [
+  [
+   "layout",
+   "dispozice",
+   "The layout of the ground floor is simple."
+  ],
+  [
+   "entrance hall",
+   "vstupní hala",
+   "The entrance hall is two floors high."
+  ],
+  [
+   "staircase",
+   "schodiště",
+   "The main staircase is next to the lift."
+  ],
+  [
+   "lift",
+   "výtah (US elevator)",
+   "There are two lifts for visitors."
+  ],
+  [
+   "changing room",
+   "šatna",
+   "Each team has its own changing room."
+  ],
+  [
+   "stand",
+   "tribuna",
+   "The main stand has four thousand seats."
+  ],
+  [
+   "pitch",
+   "hrací plocha, hřiště",
+   "The pitch is 105 by 68 metres."
+  ],
+  [
+   "storage room",
+   "sklad",
+   "The storage room is behind the changing rooms."
+  ],
+  [
+   "suspended ceiling",
+   "podhled",
+   "The ducts are above the suspended ceiling."
+  ],
+  [
+   "partition wall",
+   "příčka",
+   "The partition walls are made of plasterboard."
+  ],
+  [
+   "facade",
+   "fasáda",
+   "The facade is made of glass and metal."
+  ],
+  [
+   "flat roof",
+   "plochá střecha",
+   "The building has a flat roof with PV panels."
+  ],
+  [
+   "barrier-free",
+   "bezbariérový",
+   "The entrance must be barrier-free."
+  ],
+  [
+   "option",
+   "varianta",
+   "We prepared three options of the layout."
+  ]
+ ],
+ "notes": [
+  "<b>variant<\/b> se v angličtině používá málo. Varianta řešení = <b>option<\/b> nebo <b>alternative<\/b>.",
+  "UK <b>lift<\/b> = US <b>elevator<\/b>. UK <b>ground floor<\/b> = US <b>first floor<\/b>.",
+  "<b>stand<\/b> = tribuna, <b>seat<\/b> = sedadlo, <b>spectator<\/b> = divák."
+ ],
+ "match": [
+  [
+   "the arrangement of rooms on a floor",
+   "layout"
+  ],
+  [
+   "a thin wall between two rooms",
+   "partition wall"
+  ],
+  [
+   "the outside face of a building",
+   "facade"
+  ],
+  [
+   "a lower ceiling that hides the ducts and pipes",
+   "suspended ceiling"
+  ],
+  [
+   "the part of a stadium where spectators sit",
+   "stand"
+  ],
+  [
+   "accessible for people in wheelchairs",
+   "barrier-free"
+  ]
+ ],
+ "distract": [
+  "storage room",
+  "pitch"
+ ],
+ "voc": [
+  "The ducts run above the {suspended} ceiling.",
+  "We prepared two {options} of the entrance hall.",
+  "All entrances must be {barrier-free}.",
+  "The {pitch} is 105 metres long.",
+  "Visitors use the main {staircase} or the lift.",
+  "The {layout} of the first floor changed in revision B."
+ ],
+ "gbox": [
+  [
+   "Short adjectives",
+   "Krátká přídavná jména: -er + than.",
+   [
+    "Option A is <b>bigger than<\/b> option B.",
+    "The new hall is <b>higher<\/b>.",
+    "This route is <b>shorter<\/b>.",
+    "good → <b>better<\/b> · bad → <b>worse<\/b>"
+   ],
+   "big → bigger · easy → easier"
+  ],
+  [
+   "Long adjectives",
+   "Dlouhá přídavná jména: more / less + than.",
+   [
+    "Option B is <b>more expensive than<\/b> option A.",
+    "This layout is <b>more efficient<\/b>.",
+    "The second option is <b>less complicated<\/b>.",
+    "It is <b>as large as<\/b> the old one."
+   ],
+   "as … as = stejně … jako"
+  ]
+ ],
+ "gtask": "Doplňte druhý stupeň přídavného jména v závorce.",
+ "gram": [
+  "Option A is {cheaper} than option B. (cheap)",
+  "The new entrance hall is {bigger} than the old one. (big)",
+  "This layout is {more efficient} than the first one. (efficient)",
+  "The route through the shaft is {shorter}. (short)",
+  "Option C is {more expensive} because of the glass facade. (expensive)",
+  "The new solution is {better} for maintenance. (good)",
+  "A flat roof is {easier} to use for PV panels. (easy)"
+ ],
+ "reading": {
+  "title": "Two options for the entrance",
+  "cz": "Architekt porovnává dvě varianty řešení vstupu.",
+  "paras": [
+   "Dear Mr Collins,",
+   "We prepared two options for the main entrance.",
+   "In option A, the entrance hall is on the south side, next to the ticket offices. The hall is smaller, but the route to the stand is shorter and the structure is simpler. This option is about ten per cent cheaper.",
+   "In option B, the entrance is on the corner and the hall is two floors high. It is bigger and more attractive, and there is more space for a shop. But the facade is more expensive and the ventilation is more complicated.",
+   "Both options are barrier-free. We recommend option A, because it is easier to build and cheaper to operate.",
+   "Please let us know which option you prefer."
+  ]
+ },
+ "tf": [
+  [
+   "Option A has a smaller hall.",
+   true
+  ],
+  [
+   "Option A is more expensive.",
+   false
+  ],
+  [
+   "In option B the hall is two floors high.",
+   true
+  ],
+  [
+   "Only option B is barrier-free.",
+   false
+  ],
+  [
+   "The architect recommends option A.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "A visitor's route through the stadium",
+  "cz": "Cesta návštěvníka. Popište ji a porovnejte s jinou budovou.",
+  "steps": [
+   [
+    "Car park",
+    "parkoviště"
+   ],
+   [
+    "Ticket office",
+    "pokladna"
+   ],
+   [
+    "Entrance hall",
+    "vstupní hala"
+   ],
+   [
+    "Staircase / lift",
+    "schodiště / výtah"
+   ],
+   [
+    "Concourse",
+    "ochoz"
+   ],
+   [
+    "Stand",
+    "tribuna"
+   ]
+  ],
+  "q": "Which route is shorter? Where are the toilets? Is the route barrier-free?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "I like option B. The hall is more {attractive}."
+  ],
+  [
+   "Tomáš",
+   "Yes, but it is also more {expensive}."
+  ],
+  [
+   "Mark",
+   "How much more?"
+  ],
+  [
+   "Tomáš",
+   "About ten per cent. The glass {facade} is the main reason."
+  ],
+  [
+   "Mark",
+   "And which option is {better} for visitors?"
+  ],
+  [
+   "Tomáš",
+   "Option A. The route to the {stand} is shorter."
+  ],
+  [
+   "Mark",
+   "Is the ventilation {easier} in option A?"
+  ],
+  [
+   "Petr",
+   "Yes, much easier. The ducts are {shorter} and we need less space above the {ceiling}."
+  ]
+ ],
+ "speak": {
+  "title": "compare two options",
+  "cz": "Každý si vybere dvě varianty ze své profese (dva zdroje tepla, dvě trasy, dvě dispozice) a porovná je klientovi. Klient vybere.",
+  "phrases": [
+   "Option A is cheaper / simpler / faster than option B.",
+   "Option B is more efficient / more flexible.",
+   "The disadvantage is …",
+   "We recommend option … because …"
+  ],
+  "questions": [
+   "Which option is cheaper to operate?",
+   "Which is easier to build?",
+   "What is the disadvantage?",
+   "Which do you recommend?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Listen to two options and ask about cost, time and operation. Then choose."
+   ],
+   [
+    "Architect",
+    "Compare a flat roof and a pitched roof for the main stand."
+   ],
+   [
+    "Heating engineer",
+    "Compare a gas boiler and a heat pump."
+   ],
+   [
+    "HVAC engineer",
+    "Compare one central air handling unit and several small units."
+   ],
+   [
+    "Structural engineer",
+    "Compare a steel roof structure and a concrete one."
+   ],
+   [
+    "Electrical engineer",
+    "Compare LED lighting options for the pitch: cheaper and better ones."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "Druhý stupeň od „good“ je:",
+   [
+    "gooder",
+    "better",
+    "more good"
+   ],
+   1
+  ],
+  [
+   "Option B is ___ than option A.",
+   [
+    "more expensive",
+    "expensiver",
+    "most expensive"
+   ],
+   0
+  ],
+  [
+   "„Podhled“ je:",
+   [
+    "under ceiling",
+    "suspended ceiling",
+    "low roof"
+   ],
+   1
+  ],
+  [
+   "„Varianta řešení“ je nejlépe:",
+   [
+    "variant",
+    "option",
+    "version type"
+   ],
+   1
+  ],
+  [
+   "This route is ___.",
+   [
+    "shorter",
+    "more short",
+    "shortest than"
+   ],
+   0
+  ],
+  [
+   "„Tribuna“ je:",
+   [
+    "tribune",
+    "stand",
+    "stage"
+   ],
+   1
+  ]
+ ],
+ "hw": "compare two options from your current project in 6 sentences and say which one you recommend and why.",
+ "tnote": "Češi říkají <i>more cheaper<\/i> a <i>more better<\/i>. Dvojí stupňování opravujte hned, jinak se zafixuje.",
+ "basics": [
+  [
+   "roof",
+   "střecha"
+  ],
+  [
+   "hall",
+   "hala"
+  ],
+  [
+   "toilet",
+   "záchod"
+  ],
+  [
+   "kitchen",
+   "kuchyň"
+  ],
+  [
+   "car park",
+   "parkoviště"
+  ],
+  [
+   "garden",
+   "zahrada"
+  ]
+ ],
+ "comic": {
+  "prop": "building",
+  "a": [
+   "C",
+   "I want a bigger hall, more shops and a lower price."
+  ],
+  "b": [
+   "A",
+   "Great. Which two?"
+  ]
+ },
+ "next": "Structures and loads",
+ "videos": [
+  [
+   "YouTube – hledat: comparative adjectives English lesson",
+   "https://www.youtube.com/results?search_query=comparative+adjectives+English+lesson"
+  ],
+  [
+   "YouTube – hledat: stadium design architecture explained",
+   "https://www.youtube.com/results?search_query=stadium+design+architecture+explained"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

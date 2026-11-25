@@ -1,0 +1,18 @@
+# Co je tady uvedeno, se na GitHub NEPOSILA.
+# Chcete-li neco zverejnit, radek smazte nebo pred nej dejte #.
+
+# pracovni a pomocne soubory
+ZVEREJNIT.bat
+NAVOD-zverejneni.md
+00_roadmapa-navrh.md
+
+# zip kurzu (GitHub umi nabidnout vlastni zip, vzdy aktualni)
+*.zip
+
+# balast Windows, Office a nastroju
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+*.bak
+.claude/

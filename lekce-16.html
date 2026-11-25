@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 16 · Review 4: electrical systems, controls and energy</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 16,
+ "module": 4,
+ "title": "Review 4: electrical systems, controls and energy",
+ "cz": "Elektro, měření a regulace, energetika; opakování modulu 4",
+ "grammar": "conditionals and cause–effect (review)",
+ "goals": [
+  "name the main parts of electrical and control systems",
+  "talk about energy consumption and savings",
+  "explain technical consequences to a client",
+  "use the vocabulary from lessons 13–15 together"
+ ],
+ "week": [
+  "What did you coordinate with other disciplines this week?",
+  "What will happen if the client changes the requirements?",
+  "Why did you choose this solution?"
+ ],
+ "frames": [
+  "I coordinated … with …",
+  "If the client adds …, we will need …",
+  "We chose … because …",
+  "The consumption is …",
+  "As a result, …"
+ ],
+ "vocab": [
+  [
+   "power supply",
+   "napájení, přívod elektřiny",
+   "The power supply comes from a transformer."
+  ],
+  [
+   "switchboard",
+   "rozvaděč",
+   "The main switchboard is in a separate room."
+  ],
+  [
+   "cable tray",
+   "kabelový žlab",
+   "The cable trays run along the corridor."
+  ],
+  [
+   "socket",
+   "zásuvka (US outlet)",
+   "Each office has eight sockets."
+  ],
+  [
+   "lighting",
+   "osvětlení",
+   "The pitch lighting uses LED lamps."
+  ],
+  [
+   "backup generator",
+   "záložní zdroj (dieselagregát)",
+   "The backup generator starts in fifteen seconds."
+  ],
+  [
+   "building management system",
+   "systém měření a regulace (BMS)",
+   "The BMS controls heating and ventilation."
+  ],
+  [
+   "sensor",
+   "čidlo",
+   "A sensor measures the temperature in each room."
+  ],
+  [
+   "to control",
+   "řídit, regulovat",
+   "The system controls the valves automatically."
+  ],
+  [
+   "consumption",
+   "spotřeba",
+   "The electricity consumption is 900 megawatt hours per year."
+  ],
+  [
+   "photovoltaic panels",
+   "fotovoltaické panely",
+   "Photovoltaic panels on the roof produce electricity."
+  ],
+  [
+   "energy performance certificate",
+   "průkaz energetické náročnosti",
+   "The building has an energy performance certificate, class A."
+  ],
+  [
+   "peak load",
+   "špičkové zatížení",
+   "The peak load is during evening matches."
+  ],
+  [
+   "to save",
+   "ušetřit",
+   "LED lighting saves forty per cent of energy."
+  ]
+ ],
+ "notes": [
+  "<b>to control<\/b> = řídit. Zkontrolovat = <b>to check<\/b>. Častý omyl.",
+  "UK <b>socket<\/b> = US <b>outlet<\/b>. <b>BMS<\/b> = building management system (MaR).",
+  "kWh = <i>kilowatt hours<\/i>, MWh = <i>megawatt hours<\/i>."
+ ],
+ "match": [
+  [
+   "the cabinet with breakers and switches",
+   "switchboard"
+  ],
+  [
+   "a device that measures temperature or CO2",
+   "sensor"
+  ],
+  [
+   "a machine that produces electricity when the power fails",
+   "backup generator"
+  ],
+  [
+   "the system that controls heating, ventilation and lighting",
+   "building management system"
+  ],
+  [
+   "the amount of energy a building uses",
+   "consumption"
+  ],
+  [
+   "the highest demand for power at one moment",
+   "peak load"
+  ]
+ ],
+ "distract": [
+  "socket",
+  "cable tray"
+ ],
+ "voc": [
+  "The BMS {controls} the heating and ventilation automatically.",
+  "The backup {generator} starts if the power fails.",
+  "LED lighting {saves} forty per cent of energy.",
+  "The cable {trays} run above the suspended ceiling.",
+  "A {sensor} measures the CO2 level in the hall.",
+  "The yearly electricity {consumption} is 900 megawatt hours."
+ ],
+ "gbox": [
+  [
+   "If … (review)",
+   "Jak systém funguje × co se stane.",
+   [
+    "<b>If<\/b> the power <b>fails<\/b>, the generator <b>starts<\/b>.",
+    "<b>If<\/b> we <b>add<\/b> PV panels, the consumption <b>will be<\/b> lower.",
+    "<b>If<\/b> the sensor <b>shows<\/b> high CO2, the fan <b>speeds<\/b> up.",
+    "We <b>won't get<\/b> class A <b>if<\/b> we <b>don't use<\/b> heat recovery."
+   ],
+   ""
+  ],
+  [
+   "Cause and effect (review)",
+   "Příčina a důsledek.",
+   [
+    "The peak load is high <b>because of<\/b> the pitch lighting.",
+    "We use LED, <b>so<\/b> the consumption is lower.",
+    "<b>Due to<\/b> the BMS, the building saves energy.",
+    "<b>Therefore<\/b>, we recommend PV panels."
+   ],
+   ""
+  ]
+ ],
+ "gtask": "Doplňte správný tvar slovesa nebo spojku (if, so, because, because of).",
+ "gram": [
+  "If the power fails, the backup generator {starts}. (start)",
+  "If we install PV panels, the building {will produce} its own electricity. (produce)",
+  "The peak load is high {because of} the pitch lighting.",
+  "We use LED lamps, {so} the consumption is lower.",
+  "{If} the CO2 level is high, the fan speeds up.",
+  "We won't get class A if we {don't use|do not use} heat recovery. (not / use)",
+  "The BMS is important {because} it controls all the systems together."
+ ],
+ "reading": {
+  "title": "Energy concept",
+  "cz": "Shrnutí energetické koncepce stadionu pro klienta.",
+  "paras": [
+   "<b>Stadium — energy concept<\/b>",
+   "The stadium is designed as a low-energy building. The main heat sources are heat pumps, and the roof carries 1,200 square metres of photovoltaic panels. If the sun shines, the panels cover most of the daily consumption.",
+   "The biggest consumer is the pitch lighting. Because of TV broadcasts, the lighting has to be very strong. Therefore, we use LED lamps, which save about forty per cent of energy.",
+   "A building management system controls the heating, ventilation and lighting. Sensors measure temperature and CO2 in the rooms. If a room is empty, the system reduces the ventilation.",
+   "If the power fails during a match, a backup generator starts in fifteen seconds and supplies the emergency lighting and the fire safety systems.",
+   "As a result, the building reaches energy class A."
+  ]
+ },
+ "tf": [
+  [
+   "The main heat source is a gas boiler.",
+   false
+  ],
+  [
+   "The biggest consumer is the pitch lighting.",
+   true
+  ],
+  [
+   "LED lamps save about forty per cent of energy.",
+   true
+  ],
+  [
+   "The ventilation runs at full power in empty rooms.",
+   false
+  ],
+  [
+   "The generator starts in fifteen seconds.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "From the grid to the socket",
+  "cz": "Cesta elektřiny budovou. Popište ji a řekněte, co se stane při výpadku.",
+  "steps": [
+   [
+    "Grid",
+    "distribuční síť"
+   ],
+   [
+    "Transformer",
+    "trafostanice"
+   ],
+   [
+    "Main switchboard",
+    "hlavní rozvaděč"
+   ],
+   [
+    "Cable trays",
+    "kabelové trasy"
+   ],
+   [
+    "Local switchboards",
+    "podružné rozvaděče"
+   ],
+   [
+    "Sockets and lighting",
+    "zásuvky a osvětlení"
+   ]
+  ],
+  "q": "What happens if the power fails? Where is the main switchboard? What does the BMS control?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "What happens if the power {fails} during a match?"
+  ],
+  [
+   "Ivan",
+   "The backup {generator} starts in fifteen seconds."
+  ],
+  [
+   "Mark",
+   "Does it supply the whole stadium?"
+  ],
+  [
+   "Ivan",
+   "No, only the emergency {lighting} and the fire safety systems."
+  ],
+  [
+   "Mark",
+   "Why is the peak {load} so high?"
+  ],
+  [
+   "Ivan",
+   "Because of the pitch lighting. That's why we use {LED} lamps."
+  ],
+  [
+   "Mark",
+   "Will the PV panels help?"
+  ],
+  [
+   "Ivan",
+   "Yes. If the sun {shines}, they will cover most of the daily {consumption}."
+  ]
+ ],
+ "speak": {
+  "title": "coordination meeting of building services",
+  "cz": "Opakovací simulace modulu 4: koordinační porada TZB. Každý řekne, co potřebuje, proč, a co se stane, když to nedostane.",
+  "phrases": [
+   "I need … because …",
+   "If we don't get …, we won't be able to …",
+   "The … is too small, so …",
+   "Let's agree on …"
+  ],
+  "questions": [
+   "How much space do you need?",
+   "What happens if we move it?",
+   "Why can't it go through the shaft?",
+   "Who will update the drawing?"
+  ],
+  "cards": [
+   [
+    "Lead designer",
+    "Lead the meeting. Collect the requirements and write the decisions."
+   ],
+   [
+    "Heating engineer",
+    "You need a bigger plant room and a route for pipes to the roof."
+   ],
+   [
+    "HVAC engineer",
+    "You need 500 mm above the ceiling and power for the units."
+   ],
+   [
+    "Plumbing engineer",
+    "You need a shaft next to the toilets and a place for the retention tank."
+   ],
+   [
+    "Electrical engineer",
+    "You need the power demand of all units by Friday."
+   ],
+   [
+    "Architect",
+    "You have a fixed layout. Offer one extra room and one shaft."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "„Řídit, regulovat“ je:",
+   [
+    "to check",
+    "to control",
+    "to regulate on"
+   ],
+   1
+  ],
+  [
+   "„Rozvaděč“ je:",
+   [
+    "switchboard",
+    "divider box",
+    "spreader"
+   ],
+   0
+  ],
+  [
+   "If the power fails, the generator ___.",
+   [
+    "will starts",
+    "starts",
+    "is start"
+   ],
+   1
+  ],
+  [
+   "„Spotřeba“ energie je:",
+   [
+    "consumption",
+    "spending",
+    "usement"
+   ],
+   0
+  ],
+  [
+   "The load is high ___ the lighting.",
+   [
+    "because",
+    "because of",
+    "so"
+   ],
+   1
+  ],
+  [
+   "„Čidlo“ je:",
+   [
+    "sensor",
+    "feeler",
+    "detect"
+   ],
+   0
+  ]
+ ],
+ "hw": "a short summary of the building services in your project for a client: sources, main systems, two sentences with if and two with because / so.",
+ "tnote": "Opakovací lekce modulu 4. V poradě nechte vést schůzku studenta, ne lektora; je to příprava na modul 6.",
+ "basics": [
+  [
+   "light",
+   "světlo"
+  ],
+  [
+   "switch",
+   "vypínač"
+  ],
+  [
+   "cable",
+   "kabel"
+  ],
+  [
+   "power",
+   "elektřina, výkon"
+  ],
+  [
+   "on / off",
+   "zapnuto / vypnuto"
+  ],
+  [
+   "energy",
+   "energie"
+  ]
+ ],
+ "comic": {
+  "prop": "bulb",
+  "a": [
+   "C",
+   "What happens if the power fails?"
+  ],
+  "b": [
+   "E",
+   "The generator starts. And then my phone rings."
+  ]
+ },
+ "next": "CAD and BIM",
+ "videos": [
+  [
+   "YouTube – hledat: building management system BMS explained",
+   "https://www.youtube.com/results?search_query=building+management+system+BMS+explained"
+  ],
+  [
+   "YouTube – hledat: electrical distribution in buildings explained",
+   "https://www.youtube.com/results?search_query=electrical+distribution+in+buildings+explained"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

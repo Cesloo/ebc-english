@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 12 · Review 3: fire safety and the stadium</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 12,
+ "module": 3,
+ "title": "Review 3: fire safety and the stadium",
+ "cz": "Požární bezpečnost a stadion; opakování modulu 3",
+ "grammar": "rules: must, mustn't, have to, be allowed to (review)",
+ "goals": [
+  "explain the basic fire safety concept of a building",
+  "describe a stadium: stands, capacity, routes",
+  "say what is allowed and what is not",
+  "use the vocabulary from lessons 9–11 together"
+ ],
+ "week": [
+  "What rules limited your design this week?",
+  "What did the fire safety engineer ask for?",
+  "What are you not allowed to change?"
+ ],
+ "frames": [
+  "The fire safety engineer asked for …",
+  "We are not allowed to …",
+  "The doors must open …",
+  "We had to change …",
+  "The capacity is limited to …"
+ ],
+ "vocab": [
+  [
+   "escape route",
+   "úniková cesta",
+   "The escape route leads to the exit."
+  ],
+  [
+   "emergency exit",
+   "nouzový východ",
+   "There are six emergency exits."
+  ],
+  [
+   "fire compartment",
+   "požární úsek",
+   "The plant room is a separate fire compartment."
+  ],
+  [
+   "fire resistance",
+   "požární odolnost",
+   "The wall has a fire resistance of 60 minutes."
+  ],
+  [
+   "fire door",
+   "požární dveře",
+   "Fire doors must close automatically."
+  ],
+  [
+   "fire damper",
+   "požární klapka",
+   "There is a fire damper in the duct."
+  ],
+  [
+   "sprinkler system",
+   "sprinklerové hasicí zařízení",
+   "The car park has a sprinkler system."
+  ],
+  [
+   "fire alarm",
+   "požární signalizace",
+   "The fire alarm is connected to the fire brigade."
+  ],
+  [
+   "smoke extraction",
+   "odvod kouře",
+   "Smoke extraction is needed in the hall."
+  ],
+  [
+   "evacuation",
+   "evakuace",
+   "The evacuation of the stand takes eight minutes."
+  ],
+  [
+   "spectator",
+   "divák",
+   "The stadium is designed for 15,000 spectators."
+  ],
+  [
+   "row",
+   "řada (sedadel)",
+   "Each stand has eighteen rows."
+  ],
+  [
+   "turnstile",
+   "turniket",
+   "Spectators enter through turnstiles."
+  ],
+  [
+   "to be allowed to",
+   "smět, mít dovoleno",
+   "We are not allowed to store materials here."
+  ]
+ ],
+ "notes": [
+  "Požární úsek = <b>fire compartment<\/b>, požární odolnost = <b>fire resistance<\/b> (např. 60 minutes).",
+  "<b>exit<\/b> = východ, <b>entrance<\/b> = vchod, <b>escape route<\/b> = celá úniková cesta.",
+  "<b>be allowed to<\/b> je běžnější než <i>may<\/i>: <i>You are not allowed to park here.<\/i>"
+ ],
+ "match": [
+  [
+   "the way people leave the building in a fire",
+   "escape route"
+  ],
+  [
+   "a part of the building separated by fire walls",
+   "fire compartment"
+  ],
+  [
+   "a device that closes a duct in a fire",
+   "fire damper"
+  ],
+  [
+   "a system that removes smoke from a space",
+   "smoke extraction"
+  ],
+  [
+   "a person who watches a match",
+   "spectator"
+  ],
+  [
+   "a gate that lets one person in at a time",
+   "turnstile"
+  ]
+ ],
+ "distract": [
+  "fire alarm",
+  "row"
+ ],
+ "voc": [
+  "The escape {route} must be free at all times.",
+  "The wall has a fire {resistance} of 90 minutes.",
+  "There is a fire {damper} where the duct crosses the wall.",
+  "The {evacuation} of the main stand takes eight minutes.",
+  "The stadium is designed for 15,000 {spectators}.",
+  "The plant room is a separate fire {compartment}."
+ ],
+ "gbox": [
+  [
+   "Rules",
+   "Povinnost a zákaz.",
+   [
+    "Fire doors <b>must<\/b> close automatically.",
+    "You <b>mustn't<\/b> block the escape routes.",
+    "The stand <b>has to<\/b> be empty in eight minutes.",
+    "Doors <b>must<\/b> open in the direction of escape."
+   ],
+   ""
+  ],
+  [
+   "Permission",
+   "Co je a není dovoleno.",
+   [
+    "We <b>are allowed to<\/b> use timber inside.",
+    "We <b>are not allowed to<\/b> store materials here.",
+    "<b>Are<\/b> we <b>allowed to<\/b> use plastic pipes?",
+    "Spectators <b>aren't allowed to<\/b> enter this area."
+   ],
+   "be allowed to + základní tvar"
+  ]
+ ],
+ "gtask": "Doplňte: must, mustn't, has to, are allowed to, aren't allowed to.",
+ "gram": [
+  "Emergency exits {must} be marked with green signs.",
+  "You {mustn't} lock the emergency exits during a match.",
+  "Spectators {aren't allowed to|are not allowed to} enter the plant rooms.",
+  "The evacuation {has to|must} be finished in eight minutes.",
+  "We {are allowed to} use plastic pipes in this fire compartment.",
+  "Ducts {must} have fire dampers where they cross fire walls.",
+  "Cars {aren't allowed to|are not allowed to} park in front of the emergency exit."
+ ],
+ "reading": {
+  "title": "Fire safety concept in short",
+  "cz": "Shrnutí požárně bezpečnostního řešení pro klienta.",
+  "paras": [
+   "<b>Stadium — fire safety summary<\/b>",
+   "The stadium is divided into twelve fire compartments. The plant rooms, the kitchen and the car park are separate compartments with a fire resistance of 60 or 90 minutes.",
+   "Each stand has its own escape routes. Spectators leave through the concourse to the emergency exits. The evacuation of the largest stand must be finished in eight minutes, so the exits have to be at least 2.4 metres wide.",
+   "All ducts must have fire dampers where they cross fire walls. The car park has a sprinkler system and smoke extraction. The fire alarm is connected to the fire brigade.",
+   "During matches, nobody is allowed to store materials on the escape routes, and the emergency exits mustn't be locked."
+  ]
+ },
+ "tf": [
+  [
+   "The stadium has twelve fire compartments.",
+   true
+  ],
+  [
+   "All stands share one escape route.",
+   false
+  ],
+  [
+   "The exits have to be at least 2.4 metres wide.",
+   true
+  ],
+  [
+   "The car park has no sprinklers.",
+   false
+  ],
+  [
+   "Emergency exits can be locked during matches.",
+   false
+  ]
+ ],
+ "flow": {
+  "title": "What happens in a fire",
+  "cz": "Sled událostí při požáru. Popište, co se musí stát a kdo za to odpovídá.",
+  "steps": [
+   [
+    "Fire alarm",
+    "signalizace"
+   ],
+   [
+    "Dampers close",
+    "uzavření klapek"
+   ],
+   [
+    "Smoke extraction starts",
+    "spuštění odvodu kouře"
+   ],
+   [
+    "Evacuation",
+    "evakuace"
+   ],
+   [
+    "Fire brigade arrives",
+    "příjezd hasičů"
+   ]
+  ],
+  "q": "What must close automatically? How long does the evacuation take? Who is the alarm connected to?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Why do we need so many emergency {exits}?"
+  ],
+  [
+   "Jiří",
+   "Because the evacuation {has} to be finished in eight minutes."
+  ],
+  [
+   "Mark",
+   "Are we {allowed} to use the concourse for small shops?"
+  ],
+  [
+   "Jiří",
+   "Yes, but they mustn't block the escape {routes}."
+  ],
+  [
+   "Mark",
+   "And the ducts in the car park?"
+  ],
+  [
+   "Jiří",
+   "They must have fire {dampers} at every fire wall."
+  ],
+  [
+   "Mark",
+   "Is the fire {alarm} connected to the fire brigade?"
+  ],
+  [
+   "Jiří",
+   "Yes, it is. And the car park has a {sprinkler} system and smoke {extraction}."
+  ]
+ ],
+ "speak": {
+  "title": "design review with the client",
+  "cz": "Opakovací simulace modulu 3. Klient má nápady, tým vysvětluje, co je dovoleno, co ne a jaká varianta je nejlepší.",
+  "phrases": [
+   "I'm afraid we are not allowed to …",
+   "The regulations say that … must …",
+   "The safest option is …",
+   "We can do it, but we have to add …"
+  ],
+  "questions": [
+   "Are we allowed to …?",
+   "Why do we need …?",
+   "Which option is the safest?",
+   "How long does the evacuation take?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Ideas: a shop in the concourse, timber cladding in the hall, fewer exits to save money."
+   ],
+   [
+    "Fire safety engineer",
+    "Explain the rules: escape routes, widths, materials."
+   ],
+   [
+    "Architect",
+    "Compare three options for the hall cladding: look, price, fire safety."
+   ],
+   [
+    "Structural engineer",
+    "Explain the fire resistance of steel and concrete structures."
+   ],
+   [
+    "HVAC engineer",
+    "Explain fire dampers and smoke extraction in simple words."
+   ],
+   [
+    "Lead designer",
+    "Summarise what is allowed, what is not and the next steps."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "„Úniková cesta“ je:",
+   [
+    "escape route",
+    "exit way out",
+    "run road"
+   ],
+   0
+  ],
+  [
+   "„Požární úsek“ je:",
+   [
+    "fire sector",
+    "fire compartment",
+    "fire part"
+   ],
+   1
+  ],
+  [
+   "We ___ store materials here. (není dovoleno)",
+   [
+    "aren't allowed to",
+    "don't have to",
+    "aren't must"
+   ],
+   0
+  ],
+  [
+   "Fire doors ___ close automatically.",
+   [
+    "must",
+    "must to",
+    "are must"
+   ],
+   0
+  ],
+  [
+   "„Divák“ na stadionu je:",
+   [
+    "spectator",
+    "viewer man",
+    "watcher"
+   ],
+   0
+  ],
+  [
+   "„Požární klapka“ je:",
+   [
+    "fire flap",
+    "fire damper",
+    "fire valve door"
+   ],
+   1
+  ]
+ ],
+ "hw": "a short summary for a client (6–8 sentences): the three most important fire safety rules in your part of the design.",
+ "tnote": "Opakovací lekce modulu 3. V simulaci chtějte od každého aspoň jedno porovnání (lekce 9 a 11) a jedno modální sloveso (lekce 10).",
+ "basics": [
+  [
+   "fire",
+   "oheň, požár"
+  ],
+  [
+   "smoke",
+   "kouř"
+  ],
+  [
+   "safe",
+   "bezpečný"
+  ],
+  [
+   "danger",
+   "nebezpečí"
+  ],
+  [
+   "exit",
+   "východ"
+  ],
+  [
+   "seat",
+   "sedadlo"
+  ]
+ ],
+ "comic": {
+  "prop": "fire",
+  "a": [
+   "C",
+   "Do we really need so many emergency exits?"
+  ],
+  "b": [
+   "E",
+   "Only on the day you need them."
+  ]
+ },
+ "next": "Heating and cooling",
+ "videos": [
+  [
+   "YouTube – hledat: fire safety in buildings explained compartmentation",
+   "https://www.youtube.com/results?search_query=fire+safety+in+buildings+explained+compartmentation"
+  ],
+  [
+   "YouTube – hledat: stadium evacuation design",
+   "https://www.youtube.com/results?search_query=stadium+evacuation+design"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

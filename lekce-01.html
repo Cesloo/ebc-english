@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 01 · Who we are: roles in a design team</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 1,
+ "module": 1,
+ "title": "Who we are: roles in a design team",
+ "cz": "Představení týmu a rolí v projektu",
+ "grammar": "present simple × present continuous",
+ "goals": [
+  "say what my job is and what I am responsible for",
+  "say what I am working on this week",
+  "name the main roles in a design team",
+  "introduce myself in a kick-off meeting with a foreign client"
+ ],
+ "week": [
+  "What is your job in the company?",
+  "What are you working on this week?",
+  "Who do you work with on this project?"
+ ],
+ "frames": [
+  "I'm a … / I work as a …",
+  "I'm responsible for …",
+  "This week I'm working on …",
+  "I work with … / I report to …",
+  "At the moment we're preparing …"
+ ],
+ "vocab": [
+  [
+   "client / investor",
+   "klient / investor",
+   "The client wants to open the stadium in two years."
+  ],
+  [
+   "lead designer",
+   "hlavní inženýr projektu (HIP)",
+   "The lead designer coordinates all the disciplines."
+  ],
+  [
+   "project manager",
+   "vedoucí projektu",
+   "Our project manager checks the schedule every week."
+  ],
+  [
+   "architect",
+   "architekt (ASŘ)",
+   "The architect is responsible for the layout."
+  ],
+  [
+   "structural engineer",
+   "statik",
+   "The structural engineer designs the load-bearing structure."
+  ],
+  [
+   "building services engineer",
+   "projektant TZB",
+   "A building services engineer designs the systems inside the building."
+  ],
+  [
+   "heating engineer",
+   "projektant vytápění (ÚT)",
+   "The heating engineer is calculating the heat losses."
+  ],
+  [
+   "HVAC engineer",
+   "projektant vzduchotechniky (VZT)",
+   "Our HVAC engineer designs ventilation and air conditioning."
+  ],
+  [
+   "plumbing and drainage engineer",
+   "projektant ZTI",
+   "The plumbing and drainage engineer designs water supply and sewerage."
+  ],
+  [
+   "electrical engineer",
+   "projektant elektro",
+   "The electrical engineer designs the lighting and power supply."
+  ],
+  [
+   "fire safety engineer",
+   "specialista požární bezpečnosti",
+   "The fire safety engineer checks the escape routes."
+  ],
+  [
+   "cost estimator",
+   "rozpočtář",
+   "The cost estimator prepares the budget."
+  ],
+  [
+   "engineering services",
+   "inženýrská činnost (IČ)",
+   "Engineering services include permits and negotiations with the authorities."
+  ],
+  [
+   "building permit",
+   "stavební povolení",
+   "We are applying for the building permit."
+  ],
+  [
+   "discipline",
+   "profese (část projektu)",
+   "Structure, heating and electrical are different disciplines."
+  ],
+  [
+   "to be responsible for",
+   "být odpovědný za",
+   "I'm responsible for the ventilation design."
+  ],
+  [
+   "kick-off meeting",
+   "úvodní schůzka projektu",
+   "The kick-off meeting is on Monday at ten."
+  ]
+ ],
+ "notes": [
+  "<b>designer<\/b> = projektant. Slovo <i>projectant<\/i> v angličtině neexistuje.",
+  "<b>project<\/b> = celá zakázka. Projektová dokumentace = <b>design documentation<\/b> nebo <b>the design<\/b>.",
+  "<b>building services<\/b> (UK) = <b>MEP<\/b> – mechanical, electrical and plumbing (US). Obojí znamená TZB.",
+  "I'm <b>an<\/b> engineer. / I'm <b>a<\/b> designer. — povolání vždy se členem."
+ ],
+ "match": [
+  [
+   "designs the load-bearing structure",
+   "structural engineer"
+  ],
+  [
+   "coordinates all the disciplines and talks to the client",
+   "lead designer"
+  ],
+  [
+   "designs ventilation and air conditioning",
+   "HVAC engineer"
+  ],
+  [
+   "prepares the budget",
+   "cost estimator"
+  ],
+  [
+   "is responsible for the layout and appearance of the building",
+   "architect"
+  ],
+  [
+   "checks the escape routes and fire compartments",
+   "fire safety engineer"
+  ]
+ ],
+ "distract": [
+  "electrical engineer",
+  "heating engineer"
+ ],
+ "voc": [
+  "The {kick-off meeting} with the client is on Monday at ten.",
+  "We can't start building without a {building permit}.",
+  "Structure, heating and ventilation are different {disciplines}.",
+  "I'm {responsible} for the ventilation design.",
+  "Our {engineering services} team deals with the authorities.",
+  "The {client} wants to open the stadium in two years."
+ ],
+ "gbox": [
+  [
+   "Present simple — my job, routine",
+   "Co dělám obecně, moje role, co se opakuje.",
+   [
+    "I <b>design<\/b> heating systems.",
+    "She <b>coordinates<\/b> the design team.",
+    "We <b>don't prepare<\/b> cost estimates.",
+    "<b>Do<\/b> you <b>work<\/b> in Revit?"
+   ],
+   "Signály: usually, every week, always, often"
+  ],
+  [
+   "Present continuous — this week, this project",
+   "Na čem pracuji právě teď, v tomto období.",
+   [
+    "I<b>'m designing<\/b> the heating for a stadium.",
+    "She<b>'s coordinating<\/b> the tender documentation.",
+    "We <b>aren't working<\/b> on that yet.",
+    "<b>Are<\/b> you <b>working<\/b> on the stadium?"
+   ],
+   "Signály: now, at the moment, this week, currently"
+  ]
+ ],
+ "gram": [
+  "I {design} heating systems for public buildings. (design)",
+  "This week I {am working|'m working} on the stadium project. (work)",
+  "Our lead designer usually {coordinates} ten people. (coordinate)",
+  "At the moment we {are preparing|'re preparing} the documentation for the building permit. (prepare)",
+  "Petr is a structural engineer. He {doesn't design|does not design} ventilation. (not / design)",
+  "The client {wants} a new roof over the stands. (want)",
+  "Eva can't come to the phone. She {is talking|'s talking} to the authorities. (talk)"
+ ],
+ "reading": {
+  "title": "Meet the design team",
+  "cz": "E-mail, kterým vedoucí projektu představuje tým zahraničnímu klientovi.",
+  "paras": [
+   "<b>Subject: Stadium project — our design team<\/b>",
+   "Dear Mr Collins,",
+   "Thank you for the meeting last week. Before the kick-off meeting, I would like to introduce our design team.",
+   "My name is Jana Nováková and I am the lead designer. I coordinate all the disciplines and I am your main contact for the design. Tomáš Král is our architect. He is responsible for the layout and the appearance of the building. Our structural engineer, Petr Malý, designs the load-bearing structure, including the roof over the stands.",
+   "The building services team has four people. They design the heating, ventilation and air conditioning, plumbing and drainage, and the electrical systems. Eva Horáková leads our engineering services. She deals with the authorities and applies for the building permit.",
+   "At the moment, we are collecting the survey data and we are preparing the project schedule. Our cost estimator is working on the first budget.",
+   "We look forward to working with you.",
+   "Best regards, Jana Nováková"
+  ]
+ },
+ "tf": [
+  [
+   "Jana Nováková is the architect.",
+   false
+  ],
+  [
+   "The structural engineer designs the roof over the stands.",
+   true
+  ],
+  [
+   "Five people work in the building services team.",
+   false
+  ],
+  [
+   "Eva Horáková applies for the building permit.",
+   true
+  ],
+  [
+   "The team has already finished the project schedule.",
+   false
+  ]
+ ],
+ "svg": "<svg viewBox=\"0 0 900 360\" role=\"img\" aria-label=\"Project team chart\" style=\"width:100%;height:auto\">\n<g fill=\"none\" stroke=\"#5d6b75\" stroke-width=\"1.5\"><path d=\"M450 52v28M450 122v28M150 180v-15h600v15M450 150v30M300 180v-15M600 180v-15M600 222v33M360 285v-15h480v15M520 270v15M680 270v15\"/><path d=\"M560 101h130\" stroke-dasharray=\"5 4\"/><\/g>\n<g font-size=\"14\" text-anchor=\"middle\">\n<rect x=\"350\" y=\"10\" width=\"200\" height=\"42\" rx=\"6\" fill=\"#16242e\"/><text x=\"450\" y=\"36\" fill=\"#fff\" font-weight=\"600\">Client (investor)<\/text>\n<rect x=\"340\" y=\"80\" width=\"220\" height=\"42\" rx=\"6\" fill=\"#0b6e4f\"/><text x=\"450\" y=\"106\" fill=\"#fff\" font-weight=\"600\">Lead designer (HIP)<\/text>\n<rect x=\"690\" y=\"80\" width=\"190\" height=\"42\" rx=\"6\" fill=\"#fff\" stroke=\"#16242e\"/><text x=\"785\" y=\"106\">Cost estimator<\/text>\n<g fill=\"#e8f3ee\" stroke=\"#0b6e4f\"><rect x=\"60\" y=\"180\" width=\"180\" height=\"42\" rx=\"6\"/><rect x=\"250\" y=\"180\" width=\"140\" height=\"42\" rx=\"6\"/><rect x=\"400\" y=\"180\" width=\"130\" height=\"42\" rx=\"6\"/><rect x=\"540\" y=\"180\" width=\"170\" height=\"42\" rx=\"6\"/><rect x=\"720\" y=\"180\" width=\"160\" height=\"42\" rx=\"6\"/><rect x=\"290\" y=\"285\" width=\"140\" height=\"42\" rx=\"6\"/><rect x=\"440\" y=\"285\" width=\"160\" height=\"42\" rx=\"6\"/><rect x=\"610\" y=\"285\" width=\"140\" height=\"42\" rx=\"6\"/><rect x=\"760\" y=\"285\" width=\"130\" height=\"42\" rx=\"6\"/><\/g>\n<text x=\"150\" y=\"206\">Engineering services<\/text><text x=\"320\" y=\"206\">Architect<\/text><text x=\"465\" y=\"198\">Structural<\/text><text x=\"465\" y=\"214\">engineer<\/text><text x=\"625\" y=\"206\">Building services<\/text><text x=\"800\" y=\"206\">Fire safety engineer<\/text>\n<text x=\"360\" y=\"311\">Heating<\/text><text x=\"520\" y=\"311\">HVAC / ventilation<\/text><text x=\"680\" y=\"303\">Plumbing and<\/text><text x=\"680\" y=\"319\">drainage<\/text><text x=\"825\" y=\"311\">Electrical<\/text>\n<g font-size=\"12\" fill=\"#5d6b75\"><text x=\"150\" y=\"240\">(IČ) permits, authorities<\/text><text x=\"320\" y=\"240\">(ASŘ)<\/text><text x=\"465\" y=\"240\">(statik)<\/text><text x=\"625\" y=\"240\">(TZB)<\/text><text x=\"800\" y=\"240\">(PBŘ)<\/text><text x=\"360\" y=\"345\">(ÚT)<\/text><text x=\"520\" y=\"345\">(VZT)<\/text><text x=\"680\" y=\"345\">(ZTI)<\/text><text x=\"825\" y=\"345\">(elektro, MaR)<\/text><\/g>\n<\/g><\/svg>",
+ "svgTitle": "Who is who in a project",
+ "svgCz": "Schéma týmu. Ukažte, kde jste vy, a řekněte, s kým spolupracujete.",
+ "dialogue": [
+  [
+   "Mark",
+   "Good morning, everyone. Can you hear me well?"
+  ],
+  [
+   "Jana",
+   "Good morning, Mark. Yes, we can {hear} you. Let me {introduce} the team."
+  ],
+  [
+   "Mark",
+   "Great, go ahead."
+  ],
+  [
+   "Jana",
+   "I'm Jana, the lead {designer}. I'm your main {contact} for the design."
+  ],
+  [
+   "Petr",
+   "Hello, I'm Petr. I'm the structural {engineer}. I'm {responsible} for the roof and the stands."
+  ],
+  [
+   "Mark",
+   "Nice to meet you, Petr. What are you {working} on at the moment?"
+  ],
+  [
+   "Petr",
+   "We're checking the {survey} of the old structure."
+  ],
+  [
+   "Mark",
+   "And who deals with the building {permit}?"
+  ],
+  [
+   "Jana",
+   "That's Eva. She leads our engineering {services}. She's talking to the authorities this week."
+  ]
+ ],
+ "videos": [
+  [
+   "Think Construction: Careers in construction (CIOB)",
+   "https://www.youtube.com/watch?v=0JD7f--JXOw"
+  ],
+  [
+   "Britannica: roles in designing and constructing a building",
+   "https://www.britannica.com/video/193387/job-specialties-building-construction-project-planning-architects"
+  ],
+  [
+   "YouTube – hledat: roles in a construction project team",
+   "https://www.youtube.com/results?search_query=roles+in+a+construction+project+team"
+  ]
+ ],
+ "speak": {
+  "title": "introduce yourself to the client",
+  "cz": "Hraní rolí. Jste na úvodní schůzce stadionu, klient vás nezná. Každý se představí (30–40 vteřin), klient položí jednu otázku.",
+  "phrases": [
+   "Good morning, my name is … and I'm the …",
+   "In this project I'm responsible for …",
+   "I usually work on … (schools, hospitals, sports buildings)",
+   "At the moment I'm working on …"
+  ],
+  "questions": [
+   "Who is my main contact for …?",
+   "What are you working on right now?",
+   "Do you work with BIM?",
+   "Who do you coordinate with most?"
+  ],
+  "cards": [
+   [
+    "Client's project manager",
+    "You are from the investor's office. You want to know who does what. Ask every person one question."
+   ],
+   [
+    "Lead designer",
+    "You coordinate the team. Introduce yourself and then introduce two colleagues."
+   ],
+   [
+    "HVAC engineer",
+    "You design ventilation for the changing rooms and the VIP area. You are waiting for the architect's layout."
+   ],
+   [
+    "Structural engineer",
+    "You design the roof over the stands. You are checking the survey of the old structure."
+   ],
+   [
+    "Permitting engineer",
+    "You deal with the authorities. You are preparing the application for the building permit."
+   ],
+   [
+    "Architect",
+    "You are responsible for the layout. You are working on the first floor plans."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "Jak se anglicky řekne „projektant“?",
+   [
+    "projectant",
+    "designer",
+    "projector"
+   ],
+   1
+  ],
+  [
+   "I'm responsible ___ the heating design.",
+   [
+    "of",
+    "for",
+    "about"
+   ],
+   1
+  ],
+  [
+   "Building services are:",
+   [
+    "TZB",
+    "inženýrská činnost",
+    "stavební část"
+   ],
+   0
+  ],
+  [
+   "She ___ the design team. It's her job.",
+   [
+    "coordinate",
+    "is coordinate",
+    "coordinates"
+   ],
+   2
+  ],
+  [
+   "This week we ___ the project schedule.",
+   [
+    "prepare",
+    "are preparing",
+    "prepares"
+   ],
+   1
+  ],
+  [
+   "Which sentence is correct?",
+   [
+    "I am engineer.",
+    "I am an engineer.",
+    "I am the engineer of heating."
+   ],
+   1
+  ]
+ ],
+ "hw": "your professional profile (5–6 sentences): your role, your responsibility, typical projects, what you are working on now.",
+ "tnote": "Typické chyby: vynechaný člen u povolání, <i>responsible of<\/i> místo <i>for<\/i>, <i>I work on it this week<\/i> místo průběhového času.",
+ "basics": [
+  [
+   "building",
+   "budova"
+  ],
+  [
+   "room",
+   "místnost"
+  ],
+  [
+   "office",
+   "kancelář"
+  ],
+  [
+   "site",
+   "staveniště"
+  ],
+  [
+   "work",
+   "práce"
+  ],
+  [
+   "team",
+   "tým"
+  ]
+ ],
+ "comic": {
+  "prop": "building",
+  "a": [
+   "C",
+   "So, who is responsible for the building?"
+  ],
+  "b": [
+   "E",
+   "Everybody. That's why we need so many meetings."
+  ]
+ },
+ "next": "Our company and our projects"
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

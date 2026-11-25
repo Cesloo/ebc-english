@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 15 · Water, drainage and plumbing</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 15,
+ "module": 4,
+ "title": "Water, drainage and plumbing",
+ "cz": "Zdravotechnika: voda, kanalizace, zařizovací předměty",
+ "grammar": "countable and uncountable; how much / how many; enough, too",
+ "goals": [
+  "name the main parts of water supply and drainage",
+  "talk about quantities and capacities",
+  "ask how much and how many",
+  "explain a problem with capacity or space"
+ ],
+ "week": [
+  "How many drawings did you finish?",
+  "How much time do you need for your part?",
+  "What is too small or not enough in your project?"
+ ],
+ "frames": [
+  "I finished … drawings.",
+  "I need … more days.",
+  "There isn't enough space for …",
+  "The pipe is too small.",
+  "How many … do we need?"
+ ],
+ "vocab": [
+  [
+   "water supply",
+   "přívod vody, vodovod",
+   "The water supply comes from the street."
+  ],
+  [
+   "water main",
+   "vodovodní řad",
+   "The building is connected to the water main."
+  ],
+  [
+   "sewer",
+   "kanalizace (stoka)",
+   "The waste water flows to the public sewer."
+  ],
+  [
+   "drainage",
+   "odvodnění, kanalizace v budově",
+   "The drainage of the roof is under pressure."
+  ],
+  [
+   "waste water",
+   "splašková (odpadní) voda",
+   "Waste water from the showers goes to the sewer."
+  ],
+  [
+   "rainwater",
+   "dešťová voda",
+   "Rainwater is collected in a tank."
+  ],
+  [
+   "hot water",
+   "teplá voda",
+   "Hot water is prepared in the plant room."
+  ],
+  [
+   "sanitary fixture",
+   "zařizovací předmět",
+   "Sanitary fixtures include washbasins, toilets and showers."
+  ],
+  [
+   "washbasin",
+   "umyvadlo",
+   "There are six washbasins in each washroom."
+  ],
+  [
+   "tap",
+   "baterie, kohoutek (US faucet)",
+   "The taps have sensors."
+  ],
+  [
+   "water meter",
+   "vodoměr",
+   "The water meter is in the basement."
+  ],
+  [
+   "retention tank",
+   "retenční nádrž",
+   "The retention tank holds 80 cubic metres."
+  ],
+  [
+   "slope",
+   "sklon, spád",
+   "The pipe has a slope of two per cent."
+  ],
+  [
+   "connection",
+   "přípojka",
+   "The water connection is 80 millimetres in diameter."
+  ]
+ ],
+ "notes": [
+  "<b>water, space, time, information, equipment<\/b> jsou nepočitatelná: <i>how much water<\/i>, ne <i>how many waters<\/i>.",
+  "UK <b>tap<\/b> = US <b>faucet<\/b>. UK <b>toilet<\/b> / WC = US <b>restroom<\/b> (místnost).",
+  "<b>too small<\/b> = příliš malý, <b>not big enough<\/b> = ne dost velký. <i>Enough<\/i> stojí za přídavným jménem, ale před podstatným: <i>enough space<\/i>."
+ ],
+ "match": [
+  [
+   "the public pipe that takes waste water away",
+   "sewer"
+  ],
+  [
+   "water from the roof and paved areas",
+   "rainwater"
+  ],
+  [
+   "a toilet, washbasin or shower",
+   "sanitary fixture"
+  ],
+  [
+   "a device that measures water consumption",
+   "water meter"
+  ],
+  [
+   "a tank that holds rainwater and releases it slowly",
+   "retention tank"
+  ],
+  [
+   "how much a pipe falls along its length",
+   "slope"
+  ]
+ ],
+ "distract": [
+  "tap",
+  "water main"
+ ],
+ "voc": [
+  "The {rainwater} from the roof is collected in a tank.",
+  "The pipe must have a {slope} of at least two per cent.",
+  "The water {meter} is in the basement next to the entrance.",
+  "Waste water flows to the public {sewer}.",
+  "The {taps} in the washrooms have sensors.",
+  "The retention {tank} holds 80 cubic metres of water."
+ ],
+ "gbox": [
+  [
+   "How much / how many",
+   "Počitatelná × nepočitatelná.",
+   [
+    "<b>How many<\/b> showers are there?",
+    "<b>How much<\/b> water do they use?",
+    "There are <b>a few<\/b> problems. / There is <b>a little<\/b> space.",
+    "<b>many<\/b> pipes · <b>much<\/b> time · <b>a lot of<\/b> (obojí)"
+   ],
+   "many + množné číslo · much + nepočitatelné"
+  ],
+  [
+   "Enough / too",
+   "Dost × příliš.",
+   [
+    "There is<b>n't enough<\/b> space in the shaft.",
+    "The pipe is <b>too small<\/b>.",
+    "The tank is<b>n't big enough<\/b>.",
+    "There are <b>too many<\/b> pipes and <b>too much<\/b> water."
+   ],
+   "enough + podst. jméno · přídavné jméno + enough"
+  ]
+ ],
+ "gtask": "Doplňte: much, many, enough, too.",
+ "gram": [
+  "How {many} showers are in each changing room?",
+  "How {much} hot water do we need per day?",
+  "The shaft is {too} small for all the pipes.",
+  "There isn't {enough} space above the ceiling.",
+  "How {many} sanitary fixtures are on this floor?",
+  "The tank isn't big {enough} for a heavy rain.",
+  "We don't have {much} time before the deadline."
+ ],
+ "reading": {
+  "title": "Water for a match day",
+  "cz": "Technická zpráva: potřeba vody a odvodnění stadionu.",
+  "paras": [
+   "<b>Water supply and drainage — summary<\/b>",
+   "On a match day, the stadium uses a lot of water in a short time. At half-time, many spectators use the toilets at once. Therefore, the water connection is 100 millimetres in diameter and there is a storage tank for 20 cubic metres.",
+   "How much hot water do the players need? There are four changing rooms with 48 showers. The hot water tanks hold 6,000 litres, which is enough for two matches in a row.",
+   "Rainwater from the roof is collected in a retention tank. A part of it is used for watering the pitch, so the stadium needs less drinking water.",
+   "The existing sewer in the street is too small. The city doesn't allow more than five litres per second, so the retention tank has to be big enough to hold a heavy rain."
+  ]
+ },
+ "tf": [
+  [
+   "Many spectators use the toilets at half-time.",
+   true
+  ],
+  [
+   "There are 48 showers in the changing rooms.",
+   true
+  ],
+  [
+   "The hot water is enough for only one match.",
+   false
+  ],
+  [
+   "Rainwater is used for watering the pitch.",
+   true
+  ],
+  [
+   "The sewer in the street is big enough.",
+   false
+  ]
+ ],
+ "flow": {
+  "title": "Where the water goes",
+  "cz": "Cesta vody budovou. U každého kroku řekněte kolik (how much / how many).",
+  "steps": [
+   [
+    "Water main",
+    "vodovodní řad"
+   ],
+   [
+    "Connection and meter",
+    "přípojka a vodoměr"
+   ],
+   [
+    "Hot water tank",
+    "ohřev teplé vody"
+   ],
+   [
+    "Sanitary fixtures",
+    "zařizovací předměty"
+   ],
+   [
+    "Waste pipes",
+    "odpadní potrubí"
+   ],
+   [
+    "Sewer",
+    "kanalizace"
+   ]
+  ],
+  "q": "How many fixtures are there? How much water does the tank hold? Is the sewer big enough?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "How {many} toilets do we need for 15,000 spectators?"
+  ],
+  [
+   "Lucie",
+   "About 250, according to the standard."
+  ],
+  [
+   "Mark",
+   "That is a lot. Is there {enough} space?"
+  ],
+  [
+   "Lucie",
+   "On the upper level, yes. On the lower level the shafts are {too} small."
+  ],
+  [
+   "Mark",
+   "And how {much} water do we use on a match day?"
+  ],
+  [
+   "Lucie",
+   "About 120 cubic metres. The rainwater {tank} helps with the pitch."
+  ],
+  [
+   "Mark",
+   "Is the {sewer} in the street a problem?"
+  ],
+  [
+   "Lucie",
+   "Yes. It isn't big {enough}, so we need a {retention} tank."
+  ]
+ ],
+ "speak": {
+  "title": "how much, how many, is it enough?",
+  "cz": "Ve dvojici: jeden se ptá na množství a kapacity ve vaší zakázce, druhý odpovídá a říká, čeho je dost, málo nebo příliš.",
+  "phrases": [
+   "We need … litres / … units.",
+   "There isn't enough space for …",
+   "The … is too small, so we have to …",
+   "That is enough for …"
+  ],
+  "questions": [
+   "How many … are there?",
+   "How much … do you need?",
+   "Is the plant room big enough?",
+   "Is there too much noise?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Ask about numbers: toilets, showers, tanks, costs. Ask if it is enough."
+   ],
+   [
+    "Plumbing engineer",
+    "Explain water, hot water and the retention tank with numbers."
+   ],
+   [
+    "Architect",
+    "There isn't enough space for shafts. Find where they can go."
+   ],
+   [
+    "Heating engineer",
+    "Explain how much energy is needed for hot water."
+   ],
+   [
+    "Structural engineer",
+    "The tank is too heavy for the slab. Say where it can stand."
+   ],
+   [
+    "Cost estimator",
+    "There are too many changes. Say how much time you need for the budget."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "How ___ water does the tank hold?",
+   [
+    "many",
+    "much",
+    "lot"
+   ],
+   1
+  ],
+  [
+   "How ___ showers are there?",
+   [
+    "many",
+    "much",
+    "a lot"
+   ],
+   0
+  ],
+  [
+   "The shaft is ___ small.",
+   [
+    "enough",
+    "too",
+    "much"
+   ],
+   1
+  ],
+  [
+   "The tank isn't ___.",
+   [
+    "enough big",
+    "big enough",
+    "too big enough"
+   ],
+   1
+  ],
+  [
+   "„Dešťová voda“ je:",
+   [
+    "rainwater",
+    "storm rain water",
+    "fall water"
+   ],
+   0
+  ],
+  [
+   "„Zařizovací předmět“ je:",
+   [
+    "sanitary fixture",
+    "toilet object",
+    "bathroom thing"
+   ],
+   0
+  ]
+ ],
+ "hw": "six sentences about quantities in your project (how many units, how much space, what is enough and what is too small).",
+ "tnote": "Nepočitatelná, která Čechy pletou: <i>information, equipment, documentation, advice, space<\/i>. V kolečku chtějte aspoň jedno číslo.",
+ "basics": [
+  [
+   "bathroom",
+   "koupelna"
+  ],
+  [
+   "shower",
+   "sprcha"
+  ],
+  [
+   "sink",
+   "dřez"
+  ],
+  [
+   "drain",
+   "odtok, vpusť"
+  ],
+  [
+   "rain",
+   "déšť"
+  ],
+  [
+   "to leak",
+   "unikat, téct"
+  ]
+ ],
+ "comic": {
+  "prop": "pipe",
+  "a": [
+   "C",
+   "Why is the shaft so big?"
+  ],
+  "b": [
+   "E",
+   "Because water always finds a way. We give it one."
+  ]
+ },
+ "next": "Review 4: electrical systems, controls and energy",
+ "videos": [
+  [
+   "YouTube – hledat: how plumbing and drainage works in a building",
+   "https://www.youtube.com/results?search_query=how+plumbing+and+drainage+works+in+a+building"
+  ],
+  [
+   "YouTube – hledat: much many enough too English lesson",
+   "https://www.youtube.com/results?search_query=much+many+enough+too+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

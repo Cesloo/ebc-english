@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 03 · Project stages: from brief to handover</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 3,
+ "module": 1,
+ "title": "Project stages: from brief to handover",
+ "cz": "Fáze projektu od zadání po předání",
+ "grammar": "sequencing words and wh- questions",
+ "goals": [
+  "name the main stages of a building project",
+  "describe a process step by step",
+  "ask questions about dates, people and documents",
+  "explain to a client what happens next"
+ ],
+ "week": [
+  "What stage is your project at?",
+  "What is the next milestone?",
+  "When is your next deadline?"
+ ],
+ "frames": [
+  "The project is at the … stage.",
+  "First we …, then we …",
+  "After that, we …",
+  "The next milestone is …",
+  "The deadline is on …"
+ ],
+ "vocab": [
+  [
+   "brief",
+   "zadání",
+   "The client's brief describes what they need."
+  ],
+  [
+   "feasibility study",
+   "studie proveditelnosti",
+   "The feasibility study shows if the project is possible."
+  ],
+  [
+   "concept design",
+   "studie stavby, koncept",
+   "The architect presents the concept design to the client."
+  ],
+  [
+   "permit documentation",
+   "dokumentace pro povolení stavby",
+   "We submit the permit documentation to the building authority."
+  ],
+  [
+   "tender documentation",
+   "zadávací dokumentace",
+   "Contractors prepare their bids from the tender documentation."
+  ],
+  [
+   "detailed design",
+   "prováděcí dokumentace",
+   "The detailed design shows every detail for construction."
+  ],
+  [
+   "contractor",
+   "zhotovitel, dodavatel stavby",
+   "The contractor builds the building."
+  ],
+  [
+   "construction",
+   "výstavba",
+   "Construction starts next spring."
+  ],
+  [
+   "site supervision",
+   "dozor na stavbě",
+   "The designer visits the site during site supervision."
+  ],
+  [
+   "handover",
+   "předání",
+   "The handover of the building is in June."
+  ],
+  [
+   "as-built documentation",
+   "dokumentace skutečného provedení",
+   "As-built documentation shows what was really built."
+  ],
+  [
+   "milestone",
+   "milník",
+   "The building permit is an important milestone."
+  ],
+  [
+   "deadline",
+   "termín",
+   "The deadline for the tender documentation is 30 May."
+  ],
+  [
+   "schedule",
+   "harmonogram",
+   "We update the schedule every month."
+  ]
+ ],
+ "notes": [
+  "<b>schedule<\/b>: UK výslovnost /ˈʃedjuːl/, US /ˈskedʒuːl/. Obě jsou správně.",
+  "<b>term<\/b> neznamená termín odevzdání. Termín = <b>deadline<\/b>, případně <b>date<\/b>.",
+  "Názvy stupňů dokumentace se v různých zemích liší. Klientovi vždy vysvětlete, co stupeň obsahuje."
+ ],
+ "match": [
+  [
+   "the client's description of what they need",
+   "brief"
+  ],
+  [
+   "the company that builds the building",
+   "contractor"
+  ],
+  [
+   "the last date for finishing a task",
+   "deadline"
+  ],
+  [
+   "drawings of what was really built",
+   "as-built documentation"
+  ],
+  [
+   "an important point in the schedule",
+   "milestone"
+  ],
+  [
+   "giving the finished building to the client",
+   "handover"
+  ]
+ ],
+ "distract": [
+  "schedule",
+  "construction"
+ ],
+ "voc": [
+  "The {contractor} starts work on site in April.",
+  "The {deadline} for the permit documentation is 15 March.",
+  "After construction, we prepare the {as-built} documentation.",
+  "We present the {concept} design to the client next week.",
+  "The designer checks the works during site {supervision}.",
+  "We update the project {schedule} every month."
+ ],
+ "gbox": [
+  [
+   "Sequencing — step by step",
+   "Pořadí kroků v procesu.",
+   [
+    "<b>First,<\/b> we visit the site.",
+    "<b>Then<\/b> we prepare the concept design.",
+    "<b>After that,<\/b> we apply for the permit.",
+    "<b>Finally,<\/b> the contractor hands over the building."
+   ],
+   "first · then · next · after that · finally · before · after"
+  ],
+  [
+   "Wh- questions",
+   "Tázací slovo + pomocné sloveso + podmět + sloveso.",
+   [
+    "<b>When does<\/b> construction start?",
+    "<b>Who prepares<\/b> the tender documentation?",
+    "<b>What do<\/b> you need from us?",
+    "<b>How long does<\/b> the permit take?"
+   ],
+   "Pozor: Who prepares…? (bez does, ptáme se na podmět)"
+  ]
+ ],
+ "gtask": "Doplňte jedno slovo: first, then, finally, when, who, what, how.",
+ "gram": [
+  "{First}, the client gives us the brief.",
+  "{Then} we prepare the concept design.",
+  "{Finally}, the building is handed over to the client.",
+  "{When} does the tender start? — In September.",
+  "{Who} is responsible for the schedule? — The project manager.",
+  "{How} long does the building permit take? — About four months.",
+  "{What} do you need from the client? — The survey of the site."
+ ],
+ "reading": {
+  "title": "What happens next?",
+  "cz": "Vedoucí projektu vysvětluje klientovi postup zakázky.",
+  "paras": [
+   "Dear Mr Collins,",
+   "You asked about the next steps, so here is a short overview.",
+   "First, we finish the concept design and present it to you. After your approval, we prepare the permit documentation and submit it to the building authority. The permit usually takes three to four months.",
+   "Then we prepare the tender documentation with the bill of quantities. You use it to choose a contractor. After that, we complete the detailed design.",
+   "During construction, we visit the site every two weeks. Finally, after the handover, the contractor prepares the as-built documentation.",
+   "The most important milestone this year is the building permit. Our deadline for the application is 30 June."
+  ]
+ },
+ "tf": [
+  [
+   "The team presents the concept design before the permit documentation.",
+   true
+  ],
+  [
+   "The building permit usually takes one month.",
+   false
+  ],
+  [
+   "The client uses the tender documentation to choose a contractor.",
+   true
+  ],
+  [
+   "The designers visit the site every week.",
+   false
+  ],
+  [
+   "The deadline for the permit application is 30 June.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Project stages",
+  "cz": "Fáze projektu. Řekněte, v které fázi je vaše zakázka.",
+  "steps": [
+   [
+    "Brief",
+    "zadání"
+   ],
+   [
+    "Concept design",
+    "studie"
+   ],
+   [
+    "Permit documentation",
+    "dokumentace pro povolení"
+   ],
+   [
+    "Tender documentation",
+    "zadávací dokumentace"
+   ],
+   [
+    "Detailed design",
+    "prováděcí dokumentace"
+   ],
+   [
+    "Construction and supervision",
+    "výstavba a dozor"
+   ],
+   [
+    "Handover",
+    "předání"
+   ]
+  ],
+  "q": "What stage is your project at? What happens after the permit? Who prepares the as-built documentation?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "What {stage} is the project at now?"
+  ],
+  [
+   "Jana",
+   "We are finishing the concept {design}."
+  ],
+  [
+   "Mark",
+   "And what happens {then}?"
+  ],
+  [
+   "Jana",
+   "After your approval, we prepare the {permit} documentation."
+  ],
+  [
+   "Mark",
+   "How {long} does the permit take?"
+  ],
+  [
+   "Jana",
+   "Usually three or four months. It is our most important {milestone}."
+  ],
+  [
+   "Mark",
+   "When can the {contractor} start?"
+  ],
+  [
+   "Jana",
+   "Next spring, if we keep the {deadline}."
+  ]
+ ],
+ "speak": {
+  "title": "explain the next steps",
+  "cz": "Klient neví, jak u nás projekt probíhá. Vysvětlete mu postup své části a odpovězte na otázky.",
+  "phrases": [
+   "First, we … Then we … After that, …",
+   "This stage usually takes …",
+   "The next milestone is …",
+   "We need … from you before we start."
+  ],
+  "questions": [
+   "What stage are we at?",
+   "What happens after the permit?",
+   "How long does this stage take?",
+   "Who prepares the tender documentation?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "You want to know the dates. Ask: when, how long, who."
+   ],
+   [
+    "Lead designer",
+    "Explain all the stages from concept design to handover."
+   ],
+   [
+    "Permitting engineer",
+    "Explain the steps to get a building permit."
+   ],
+   [
+    "HVAC engineer",
+    "Explain what you need from the architect and when."
+   ],
+   [
+    "Cost estimator",
+    "Explain when the client gets the budget and the bill of quantities."
+   ],
+   [
+    "Architect",
+    "Explain what happens between the brief and the concept design."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "„Termín odevzdání“ je:",
+   [
+    "term",
+    "deadline",
+    "date line"
+   ],
+   1
+  ],
+  [
+   "„Prováděcí dokumentace“ je:",
+   [
+    "detailed design",
+    "realisation paper",
+    "executive project"
+   ],
+   0
+  ],
+  [
+   "___, we visit the site. Then we start the design.",
+   [
+    "Finally",
+    "First",
+    "After"
+   ],
+   1
+  ],
+  [
+   "___ does construction start?",
+   [
+    "Who",
+    "When",
+    "What"
+   ],
+   1
+  ],
+  [
+   "Who ___ the schedule?",
+   [
+    "does prepare",
+    "prepares",
+    "prepare"
+   ],
+   1
+  ],
+  [
+   "The company that builds the building is the:",
+   [
+    "contractor",
+    "constructor",
+    "builder designer"
+   ],
+   0
+  ]
+ ],
+ "hw": "six sentences describing the stages of one of your projects. Use first, then, after that, finally.",
+ "tnote": "Názvy stupňů (DUR, DSP, DPS, nově dokumentace pro povolení stavby) nepřekládejte zkratkou. Vysvětlete, že v Británii se používá RIBA Plan of Work se stupni 0–7.",
+ "basics": [
+  [
+   "start",
+   "začátek"
+  ],
+  [
+   "end",
+   "konec"
+  ],
+  [
+   "plan",
+   "plán"
+  ],
+  [
+   "step",
+   "krok"
+  ],
+  [
+   "date",
+   "datum"
+  ],
+  [
+   "month",
+   "měsíc"
+  ]
+ ],
+ "comic": {
+  "prop": "drawing",
+  "a": [
+   "C",
+   "What stage is the project at?"
+  ],
+  "b": [
+   "E",
+   "The stage where everything still looks easy."
+  ]
+ },
+ "next": "Review 1: the kick-off meeting",
+ "videos": [
+  [
+   "YouTube – hledat: building design process stages explained",
+   "https://www.youtube.com/results?search_query=building+design+process+stages+explained"
+  ],
+  [
+   "YouTube – hledat: RIBA plan of work stages explained",
+   "https://www.youtube.com/results?search_query=RIBA+plan+of+work+stages+explained"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

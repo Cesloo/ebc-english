@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 22 · Meetings and minutes</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 22,
+ "module": 6,
+ "title": "Meetings and minutes",
+ "cz": "Porady a zápisy",
+ "grammar": "reported speech (he said that …) and agreeing / disagreeing",
+ "goals": [
+  "take part in a meeting in English",
+  "agree, disagree and interrupt politely",
+  "report what someone said",
+  "write short minutes with action items"
+ ],
+ "week": [
+  "Which meeting did you have this week?",
+  "What did the client say?",
+  "What did you agree on?"
+ ],
+ "frames": [
+  "We had a meeting about …",
+  "The client said that …",
+  "He asked if …",
+  "We agreed that …",
+  "I have to … by …"
+ ],
+ "vocab": [
+  [
+   "to attend",
+   "zúčastnit se",
+   "Six people attended the meeting."
+  ],
+  [
+   "chairperson",
+   "předsedající",
+   "The lead designer was the chairperson."
+  ],
+  [
+   "item",
+   "bod programu",
+   "The next item is the schedule."
+  ],
+  [
+   "action item",
+   "úkol ze zápisu",
+   "Each action item has a responsible person."
+  ],
+  [
+   "to suggest",
+   "navrhnout",
+   "I suggest moving the deadline."
+  ],
+  [
+   "to agree / to disagree",
+   "souhlasit / nesouhlasit",
+   "I agree with Petr. / I'm afraid I disagree."
+  ],
+  [
+   "to interrupt",
+   "přerušit, skočit do řeči",
+   "Sorry to interrupt, but …"
+  ],
+  [
+   "to postpone",
+   "odložit",
+   "We postponed the decision to next week."
+  ],
+  [
+   "to summarise",
+   "shrnout",
+   "Let me summarise the main points."
+  ],
+  [
+   "decision",
+   "rozhodnutí",
+   "The client made a decision about the roof."
+  ],
+  [
+   "to point out",
+   "upozornit na",
+   "Petr pointed out a problem with the loads."
+  ],
+  [
+   "to raise an issue",
+   "vznést bod, otevřít problém",
+   "I would like to raise an issue."
+  ],
+  [
+   "deadline extension",
+   "prodloužení termínu",
+   "We asked for a deadline extension."
+  ],
+  [
+   "any other business",
+   "různé (AOB)",
+   "The last item is any other business."
+  ]
+ ],
+ "notes": [
+  "<b>I'm afraid<\/b> zjemňuje nesouhlas: <i>I'm afraid I disagree.<\/i> Neznamená strach.",
+  "<b>suggest<\/b> + -ing nebo that: <i>I suggest moving it.<\/i> Ne <i>I suggest to move<\/i>.",
+  "V nepřímé řeči se čas posouvá: <i>is → was, will → would, can → could<\/i>."
+ ],
+ "match": [
+  [
+   "the person who leads a meeting",
+   "chairperson"
+  ],
+  [
+   "a task from a meeting with a name and a date",
+   "action item"
+  ],
+  [
+   "to move something to a later date",
+   "to postpone"
+  ],
+  [
+   "to say a short version of the main points",
+   "to summarise"
+  ],
+  [
+   "to start speaking when another person is speaking",
+   "to interrupt"
+  ],
+  [
+   "the last point of a meeting for other topics",
+   "any other business"
+  ]
+ ],
+ "distract": [
+  "decision",
+  "to attend"
+ ],
+ "voc": [
+  "Let me {summarise} the main points.",
+  "We {postponed} the decision to the next meeting.",
+  "Sorry to {interrupt}, but I have a question.",
+  "Each action {item} has a responsible person and a date.",
+  "I {suggest} moving the deadline by one week.",
+  "Petr {pointed} out a problem with the roof loads."
+ ],
+ "gbox": [
+  [
+   "Reported speech",
+   "Co kdo řekl: said that + posun času.",
+   [
+    "„The price <b>is<\/b> too high.“ → He said that the price <b>was<\/b> too high.",
+    "„We <b>will<\/b> decide.“ → They said they <b>would<\/b> decide.",
+    "„We <b>can<\/b> start.“ → She said they <b>could<\/b> start.",
+    "„Is it ready?“ → He asked <b>if<\/b> it <b>was<\/b> ready."
+   ],
+   "say that · tell somebody that · ask if"
+  ],
+  [
+   "Agreeing and disagreeing",
+   "Souhlas a zdvořilý nesouhlas.",
+   [
+    "<b>I agree<\/b> with you. / <b>That's a good point.<\/b>",
+    "<b>I see your point, but<\/b> …",
+    "<b>I'm afraid I disagree<\/b> because …",
+    "<b>Sorry to interrupt<\/b>, could I add something?"
+   ],
+   ""
+  ]
+ ],
+ "gtask": "Převeďte do nepřímé řeči: doplňte správný tvar slovesa.",
+ "gram": [
+  "“The budget is limited.” → The client said that the budget {was} limited.",
+  "“We will send the survey.” → They said they {would} send the survey.",
+  "“We can start in March.” → He said they {could} start in March.",
+  "“The roof is too heavy.” → Petr said that the roof {was} too heavy.",
+  "“Is the permit ready?” → Mark asked {if} the permit was ready.",
+  "“I need more time.” → Eva said that she {needed} more time.",
+  "“We don't want changes.” → They said they {didn't|did not} want changes."
+ ],
+ "reading": {
+  "title": "Minutes of the meeting",
+  "cz": "Zápis z koordinační porady s klientem.",
+  "paras": [
+   "<b>Minutes — design meeting no. 6<\/b>",
+   "Attended: M. Collins (client), J. Nováková, T. Král, P. Malý, P. Dvořák.",
+   "<b>1. Schedule.<\/b> J. Nováková said that the permit documentation was on time. The client asked if the tender could start in September. We agreed that it could, if the permit was issued by August.",
+   "<b>2. Roof.<\/b> P. Malý pointed out that the air handling unit was too heavy for the trusses. P. Dvořák suggested moving it above column C4. The client agreed.",
+   "<b>3. VIP area.<\/b> The client said that he wanted a bigger kitchen. T. Král said that it would change the layout. The decision was postponed.",
+   "<b>Action items.<\/b> P. Dvořák: new position of the unit, by 12 May. T. Král: two options of the kitchen, by 19 May. Client: decision on the kitchen, by 26 May."
+  ]
+ },
+ "tf": [
+  [
+   "The permit documentation was late.",
+   false
+  ],
+  [
+   "The tender can start in September if the permit is issued by August.",
+   true
+  ],
+  [
+   "The unit was too heavy for the trusses.",
+   true
+  ],
+  [
+   "The client decided about the kitchen at the meeting.",
+   false
+  ],
+  [
+   "T. Král has to prepare two options by 19 May.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "From meeting to minutes",
+  "cz": "Průběh porady a co patří do zápisu.",
+  "steps": [
+   [
+    "Agenda",
+    "program"
+   ],
+   [
+    "Discussion",
+    "diskuse"
+   ],
+   [
+    "Decision",
+    "rozhodnutí"
+   ],
+   [
+    "Action item",
+    "úkol"
+   ],
+   [
+    "Responsible person",
+    "odpovědná osoba"
+   ],
+   [
+    "Due date",
+    "termín"
+   ]
+  ],
+  "q": "What did the client say? What was decided? Who has to do what by when?"
+ },
+ "dialogue": [
+  [
+   "Jana",
+   "Let's move to the next {item}: the roof."
+  ],
+  [
+   "Petr",
+   "I'd like to {point} out a problem. The unit is too heavy for the trusses."
+  ],
+  [
+   "Pavel",
+   "I see your point, {but} we can't put it in the basement."
+  ],
+  [
+   "Mark",
+   "Sorry to {interrupt}. How much does it weigh?"
+  ],
+  [
+   "Pavel",
+   "2.8 tonnes. I {suggest} moving it above column C4."
+  ],
+  [
+   "Petr",
+   "I {agree}. That would work."
+  ],
+  [
+   "Mark",
+   "Good. And the kitchen?"
+  ],
+  [
+   "Jana",
+   "I'm {afraid} we need more time. Let's {postpone} it to the next meeting."
+  ]
+ ],
+ "speak": {
+  "title": "hold a meeting and report it",
+  "cz": "Krátká porada ve trojicích (5 minut): předsedající, dva účastníci s opačným názorem. Pak každá trojice ohlásí skupině, co kdo řekl (nepřímá řeč).",
+  "phrases": [
+   "Let's move to the next item.",
+   "I see your point, but …",
+   "Sorry to interrupt, …",
+   "So we agreed that …"
+  ],
+  "questions": [
+   "What do you suggest?",
+   "Do we all agree?",
+   "Who is responsible for this?",
+   "When is the due date?"
+  ],
+  "cards": [
+   [
+    "Chairperson",
+    "Lead the meeting: two items, decisions and action items."
+   ],
+   [
+    "Topic 1 — for",
+    "The unit should be on the roof: shorter ducts, more space inside."
+   ],
+   [
+    "Topic 1 — against",
+    "The unit should be in the basement: noise, weight, maintenance."
+   ],
+   [
+    "Topic 2 — for",
+    "We should ask for a deadline extension of two weeks."
+   ],
+   [
+    "Topic 2 — against",
+    "We should keep the deadline and add people to the team."
+   ],
+   [
+    "Reporter",
+    "Listen and report: He said that … She suggested … They agreed that …"
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "“I am busy.” → He said that he ___ busy.",
+   [
+    "is",
+    "was",
+    "be"
+   ],
+   1
+  ],
+  [
+   "I suggest ___ the deadline.",
+   [
+    "to move",
+    "moving",
+    "move to"
+   ],
+   1
+  ],
+  [
+   "„Úkol ze zápisu“ je:",
+   [
+    "action item",
+    "task point paper",
+    "work note"
+   ],
+   0
+  ],
+  [
+   "Zdvořilý nesouhlas:",
+   [
+    "You are wrong.",
+    "I'm afraid I disagree.",
+    "No, no, no."
+   ],
+   1
+  ],
+  [
+   "“We will decide.” → They said they ___ decide.",
+   [
+    "will",
+    "would",
+    "did"
+   ],
+   1
+  ],
+  [
+   "„Odložit“ rozhodnutí je:",
+   [
+    "to postpone",
+    "to put off away",
+    "to delay on"
+   ],
+   0
+  ]
+ ],
+ "hw": "minutes of today's practice meeting: who attended, two items with what was said (reported speech), action items with names and dates.",
+ "tnote": "Nepřímá řeč jen v základní podobě (said that + posun času, asked if). Zápis porovnejte s domácím úkolem z lekce 4 a ukažte pokrok.",
+ "basics": [
+  [
+   "to say",
+   "říct"
+  ],
+  [
+   "to think",
+   "myslet"
+  ],
+  [
+   "to decide",
+   "rozhodnout"
+  ],
+  [
+   "opinion",
+   "názor"
+  ],
+  [
+   "idea",
+   "nápad"
+  ],
+  [
+   "to listen",
+   "poslouchat"
+  ]
+ ],
+ "comic": {
+  "prop": "clock",
+  "a": [
+   "E",
+   "This meeting could be an email."
+  ],
+  "b": [
+   "C",
+   "Good point. Let's discuss it at the next meeting."
+  ]
+ },
+ "next": "Calls and presenting the design",
+ "videos": [
+  [
+   "YouTube – hledat: business English meeting phrases agreeing disagreeing",
+   "https://www.youtube.com/results?search_query=business+English+meeting+phrases+agreeing+disagreeing"
+  ],
+  [
+   "YouTube – hledat: reported speech English lesson",
+   "https://www.youtube.com/results?search_query=reported+speech+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

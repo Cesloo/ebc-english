@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 14 · Ventilation and air conditioning</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 14,
+ "module": 4,
+ "title": "Ventilation and air conditioning",
+ "cz": "Vzduchotechnika a klimatizace",
+ "grammar": "cause and effect: because, so, therefore, due to",
+ "goals": [
+  "name the main parts of a ventilation system",
+  "explain why a system is designed in a certain way",
+  "connect cause and effect in speaking and writing",
+  "discuss space requirements with other disciplines"
+ ],
+ "week": [
+  "What did you have to change this week and why?",
+  "Where is the biggest space problem?",
+  "What caused the delay?"
+ ],
+ "frames": [
+  "I changed … because …",
+  "The duct is too big, so …",
+  "Due to the low ceiling, we …",
+  "Therefore we need …",
+  "The reason is …"
+ ],
+ "vocab": [
+  [
+   "air handling unit",
+   "vzduchotechnická jednotka (AHU)",
+   "The air handling unit is on the roof."
+  ],
+  [
+   "duct",
+   "vzduchovod, potrubí VZT",
+   "The duct is 800 by 400 millimetres."
+  ],
+  [
+   "fresh air",
+   "čerstvý vzduch",
+   "Each person needs 50 cubic metres of fresh air per hour."
+  ],
+  [
+   "supply air",
+   "přiváděný vzduch",
+   "Supply air enters the room through diffusers."
+  ],
+  [
+   "exhaust air",
+   "odváděný vzduch",
+   "Exhaust air is taken from the showers."
+  ],
+  [
+   "heat recovery",
+   "zpětné získávání tepla",
+   "Heat recovery saves about 80 per cent of the heat."
+  ],
+  [
+   "filter",
+   "filtr",
+   "The filters are changed twice a year."
+  ],
+  [
+   "fan",
+   "ventilátor",
+   "The fan moves the air through the ducts."
+  ],
+  [
+   "diffuser",
+   "distribuční prvek, anemostat",
+   "The diffusers are in the ceiling."
+  ],
+  [
+   "grille",
+   "mřížka",
+   "The exhaust grille is above the door."
+  ],
+  [
+   "silencer",
+   "tlumič hluku",
+   "A silencer reduces the noise from the fan."
+  ],
+  [
+   "air change rate",
+   "intenzita výměny vzduchu",
+   "The air change rate in the showers is eight per hour."
+  ],
+  [
+   "humidity",
+   "vlhkost",
+   "The humidity in the showers is high."
+  ],
+  [
+   "noise level",
+   "hladina hluku",
+   "The noise level in the offices must be low."
+  ]
+ ],
+ "notes": [
+  "<b>HVAC<\/b> = heating, ventilation and air conditioning. Čteme po písmenech nebo <i>h-vac<\/i>.",
+  "<b>air conditioning<\/b> = klimatizace (chlazení), <b>ventilation<\/b> = větrání. Není to totéž.",
+  "<b>because<\/b> + věta, <b>because of / due to<\/b> + podstatné jméno."
+ ],
+ "match": [
+  [
+   "the unit that heats, cools and filters the air",
+   "air handling unit"
+  ],
+  [
+   "a channel that carries the air",
+   "duct"
+  ],
+  [
+   "using the heat from exhaust air again",
+   "heat recovery"
+  ],
+  [
+   "a device that reduces noise in a duct",
+   "silencer"
+  ],
+  [
+   "how many times per hour the air in a room is changed",
+   "air change rate"
+  ],
+  [
+   "the amount of water in the air",
+   "humidity"
+  ]
+ ],
+ "distract": [
+  "fan",
+  "grille"
+ ],
+ "voc": [
+  "The {fan} moves the air through the ducts.",
+  "Heat {recovery} saves about 80 per cent of the heat.",
+  "The {filters} must be changed twice a year.",
+  "Supply air enters the room through {diffusers} in the ceiling.",
+  "The {humidity} in the showers is very high.",
+  "A {silencer} reduces the noise from the unit."
+ ],
+ "gbox": [
+  [
+   "Cause",
+   "Proč: příčina.",
+   [
+    "We need a bigger duct <b>because<\/b> the air flow is higher.",
+    "<b>Because of<\/b> the low ceiling, the duct is flat.",
+    "<b>Due to<\/b> the noise limits, we added silencers.",
+    "<b>The reason is<\/b> the capacity of the VIP area."
+   ],
+   "because + věta · because of / due to + podst. jméno"
+  ],
+  [
+   "Effect",
+   "Co z toho plyne: důsledek.",
+   [
+    "The ceiling is low, <b>so<\/b> the duct is flat.",
+    "The air flow is higher. <b>Therefore<\/b>, we need a bigger unit.",
+    "<b>As a result<\/b>, the plant room is too small.",
+    "<b>That's why<\/b> we moved the unit to the roof."
+   ],
+   "so (mluvené) · therefore (psané)"
+  ]
+ ],
+ "gtask": "Doplňte: because, because of, so, therefore, due to.",
+ "gram": [
+  "We moved the unit to the roof {because} there was no space in the basement.",
+  "The ceiling is very low, {so} we use flat ducts.",
+  "{Due to|Because of} the noise limits, we added two silencers.",
+  "The capacity increased. {Therefore}, the air flow is higher.",
+  "The duct is bigger {because of|due to} the higher air flow.",
+  "The showers are humid, {so} we need a high air change rate.",
+  "We need heat recovery {because} the energy standard requires it."
+ ],
+ "reading": {
+  "title": "Why the unit is on the roof",
+  "cz": "Projektant VZT vysvětluje klientovi změnu řešení.",
+  "paras": [
+   "Dear Mr Collins,",
+   "You asked why we moved the air handling unit from the basement to the roof.",
+   "The capacity of the VIP area increased from 100 to 150 people. Therefore, the fresh air flow is fifty per cent higher and we need a bigger unit. The plant room in the basement is too small for it.",
+   "Because of the low ceiling in the corridor, the ducts from the basement would have to be very flat and wide. As a result, there would be no space for the heating pipes and cable trays.",
+   "On the roof, the ducts are shorter, so the fan needs less energy. Due to the noise limits for the neighbours, we added silencers and an acoustic screen.",
+   "The structural engineer checked the roof and the unit stands above a column."
+  ]
+ },
+ "tf": [
+  [
+   "The capacity of the VIP area is now 150 people.",
+   true
+  ],
+  [
+   "The plant room in the basement is big enough.",
+   false
+  ],
+  [
+   "The ceiling in the corridor is low.",
+   true
+  ],
+  [
+   "On the roof the ducts are longer.",
+   false
+  ],
+  [
+   "They added silencers because of the neighbours.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "The path of the air",
+  "cz": "Cesta vzduchu jednotkou a budovou. Popište ji a u každého kroku řekněte proč.",
+  "steps": [
+   [
+    "Fresh air intake",
+    "nasávání"
+   ],
+   [
+    "Filter",
+    "filtr"
+   ],
+   [
+    "Heat recovery",
+    "rekuperace"
+   ],
+   [
+    "Heating / cooling coil",
+    "ohřívač / chladič"
+   ],
+   [
+    "Fan and silencer",
+    "ventilátor a tlumič"
+   ],
+   [
+    "Ducts and diffusers",
+    "rozvody a vyústky"
+   ],
+   [
+    "Exhaust air",
+    "odvod"
+   ]
+  ],
+  "q": "Why do we need a filter? Why is there a silencer? Where does the exhaust air go?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Why is the unit on the {roof} now?"
+  ],
+  [
+   "Pavel",
+   "Because the plant room in the basement is too {small}."
+  ],
+  [
+   "Mark",
+   "Is it not too noisy for the neighbours?"
+  ],
+  [
+   "Pavel",
+   "No. Due to the noise {limits}, we added silencers."
+  ],
+  [
+   "Mark",
+   "And why is the duct in the corridor so {flat}?"
+  ],
+  [
+   "Pavel",
+   "Because of the low {ceiling}. We have only 400 millimetres."
+  ],
+  [
+   "Mark",
+   "I see. So there is no space for the cables."
+  ],
+  [
+   "Pavel",
+   "Exactly. {Therefore}, the cable trays go along the other {wall}."
+  ]
+ ],
+ "speak": {
+  "title": "explain your reasons",
+  "cz": "Klient nebo kolega se ptá proč. Každý vysvětlí jedno rozhodnutí ze své zakázky větami s because / so / therefore.",
+  "phrases": [
+   "We chose … because …",
+   "Due to …, we had to …",
+   "The ceiling is low, so …",
+   "Therefore we recommend …"
+  ],
+  "questions": [
+   "Why is it so big?",
+   "Why did you move it?",
+   "What is the reason for the change?",
+   "What will be the result?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Ask why about everything. You pay for it."
+   ],
+   [
+    "HVAC engineer",
+    "Explain why the ducts need 500 mm above the ceiling."
+   ],
+   [
+    "Architect",
+    "Explain why the ceiling can't be lower than 3 metres in the hall."
+   ],
+   [
+    "Structural engineer",
+    "Explain why the unit must stand above a column."
+   ],
+   [
+    "Electrical engineer",
+    "Explain why you need a separate room for the switchboard."
+   ],
+   [
+    "Plumbing engineer",
+    "Explain why the shaft must be next to the toilets."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "___ the low ceiling, the duct is flat.",
+   [
+    "Because",
+    "Because of",
+    "So"
+   ],
+   1
+  ],
+  [
+   "The room is small, ___ we moved the unit.",
+   [
+    "so",
+    "because",
+    "due"
+   ],
+   0
+  ],
+  [
+   "„Rekuperace“ je:",
+   [
+    "recuperation air",
+    "heat recovery",
+    "back heating"
+   ],
+   1
+  ],
+  [
+   "„Vzduchovod“ je:",
+   [
+    "duct",
+    "air pipe way",
+    "channel tube"
+   ],
+   0
+  ],
+  [
+   "Klimatizace (chlazení) je:",
+   [
+    "ventilation",
+    "air conditioning",
+    "air heating"
+   ],
+   1
+  ],
+  [
+   "We added silencers ___ the noise limits require it.",
+   [
+    "because",
+    "due to",
+    "therefore"
+   ],
+   0
+  ]
+ ],
+ "hw": "an email to a client: explain one change in your design. Give two reasons and two results.",
+ "tnote": "<i>Because<\/i> × <i>because of<\/i> je hlavní cíl. <i>Therefore<\/i> patří do psaného projevu, v mluveném stačí <i>so<\/i> a <i>that's why<\/i>.",
+ "basics": [
+  [
+   "air",
+   "vzduch"
+  ],
+  [
+   "noise",
+   "hluk"
+  ],
+  [
+   "quiet",
+   "tichý"
+  ],
+  [
+   "clean",
+   "čistý"
+  ],
+  [
+   "dirty",
+   "špinavý"
+  ],
+  [
+   "fresh",
+   "čerstvý"
+  ]
+ ],
+ "comic": {
+  "prop": "duct",
+  "a": [
+   "A",
+   "Can you make the duct invisible?"
+  ],
+  "b": [
+   "E",
+   "Yes, if you make the ceiling lower."
+  ]
+ },
+ "next": "Water, drainage and plumbing",
+ "videos": [
+  [
+   "YouTube – hledat: how an air handling unit works explained",
+   "https://www.youtube.com/results?search_query=how+an+air+handling+unit+works+explained"
+  ],
+  [
+   "YouTube – hledat: HVAC system basics explained",
+   "https://www.youtube.com/results?search_query=HVAC+system+basics+explained"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

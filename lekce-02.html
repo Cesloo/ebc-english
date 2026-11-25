@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 02 · Our company and our projects</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 2,
+ "module": 1,
+ "title": "Our company and our projects",
+ "cz": "Představení firmy a referenčních zakázek",
+ "grammar": "past simple",
+ "goals": [
+  "describe our company in a few sentences",
+  "talk about finished projects in the past tense",
+  "say years and basic numbers",
+  "answer a client's questions about our experience"
+ ],
+ "week": [
+  "What did you finish last week?",
+  "What was the most difficult task?",
+  "Which project did you work on last year?"
+ ],
+ "frames": [
+  "Last week I finished …",
+  "We designed … in 2022.",
+  "I worked on … for two years.",
+  "The project was … (large, difficult, interesting)",
+  "We didn't have enough time for …"
+ ],
+ "vocab": [
+  [
+   "reference project",
+   "referenční zakázka",
+   "This hospital is our best reference project."
+  ],
+  [
+   "to complete",
+   "dokončit",
+   "We completed the design in March."
+  ],
+  [
+   "refurbishment",
+   "rekonstrukce, modernizace",
+   "The project was a refurbishment of an old school."
+  ],
+  [
+   "new build",
+   "novostavba",
+   "The sports hall is a new build."
+  ],
+  [
+   "extension",
+   "přístavba",
+   "We designed an extension to the university building."
+  ],
+  [
+   "public building",
+   "veřejná budova",
+   "Most of our clients own public buildings."
+  ],
+  [
+   "sports facility",
+   "sportovní zařízení",
+   "A stadium is a large sports facility."
+  ],
+  [
+   "energy audit",
+   "energetický audit",
+   "We carried out an energy audit of the building."
+  ],
+  [
+   "energy savings",
+   "úspory energie",
+   "The refurbishment brought energy savings of forty per cent."
+  ],
+  [
+   "subsidy",
+   "dotace",
+   "The client received a subsidy for the project."
+  ],
+  [
+   "branch",
+   "pobočka",
+   "Our company has seven branches."
+  ],
+  [
+   "head office",
+   "sídlo, centrála",
+   "The head office is in another city."
+  ],
+  [
+   "experience",
+   "zkušenost(i)",
+   "We have a lot of experience with hospitals."
+  ],
+  [
+   "to carry out",
+   "provést",
+   "We carried out a survey of the building."
+  ]
+ ],
+ "notes": [
+  "<b>experience<\/b> je nepočitatelné: <i>a lot of experience<\/i>, ne <i>experiences<\/i>.",
+  "Roky: 2019 = <i>twenty nineteen<\/i>, 2008 = <i>two thousand and eight<\/i>.",
+  "<b>reconstruction<\/b> znamená spíš obnovu zničené stavby. Pro rekonstrukci budovy je běžnější <b>refurbishment<\/b> nebo <b>renovation<\/b>."
+ ],
+ "match": [
+  [
+   "a completely new building",
+   "new build"
+  ],
+  [
+   "a new part added to an existing building",
+   "extension"
+  ],
+  [
+   "money from the state or the EU for a project",
+   "subsidy"
+  ],
+  [
+   "a finished project we show to new clients",
+   "reference project"
+  ],
+  [
+   "a local office of a company",
+   "branch"
+  ],
+  [
+   "modernisation of an old building",
+   "refurbishment"
+  ]
+ ],
+ "distract": [
+  "head office",
+  "energy audit"
+ ],
+ "voc": [
+  "We {completed} the design three months ago.",
+  "Our company has seven {branches} in the country.",
+  "The new insulation brought large energy {savings}.",
+  "We have ten years of {experience} with sports buildings.",
+  "First we carried out an energy {audit} of the old building.",
+  "The town received a {subsidy} from the EU."
+ ],
+ "gbox": [
+  [
+   "Past simple — regular verbs",
+   "Dokončený děj v minulosti: sloveso + -ed.",
+   [
+    "We <b>designed<\/b> a new hospital wing.",
+    "The project <b>started<\/b> in 2021.",
+    "We <b>didn't finish<\/b> on time.",
+    "<b>Did<\/b> you <b>work<\/b> on that project?"
+   ],
+   "Signály: last year, in 2020, two years ago, yesterday"
+  ],
+  [
+   "Past simple — irregular verbs",
+   "Nepravidelná slovesa je nutné se naučit.",
+   [
+    "be → <b>was / were<\/b>",
+    "have → <b>had<\/b> · do → <b>did<\/b>",
+    "build → <b>built<\/b> · make → <b>made<\/b>",
+    "win → <b>won<\/b> · take → <b>took<\/b> · get → <b>got<\/b>"
+   ],
+   "The project took three years. We won the tender."
+  ]
+ ],
+ "gram": [
+  "We {designed} the university building in 2019. (design)",
+  "The construction {took} two years. (take)",
+  "I {didn't work|did not work} on that project. (not / work)",
+  "The client {was} very happy with the result. (be)",
+  "{Did} you {win} the tender last year? (win)",
+  "They {built} the new stand in eight months. (build)",
+  "We {had} a problem with the old foundations. (have)"
+ ],
+ "reading": {
+  "title": "Company profile",
+  "cz": "Profil smyšlené projekční firmy na webu.",
+  "paras": [
+   "<b>Moravia Design Studio — who we are<\/b>",
+   "We are a design and consulting company with six offices and about one hundred and twenty employees. Our teams design public buildings: schools, hospitals, university buildings and sports facilities.",
+   "The company started in 2004 as a small energy consulting office. In the first years we carried out energy audits and prepared subsidy applications. Later we added architects, structural engineers and building services engineers.",
+   "In 2019 we completed the design of a new university building. Two years later we designed the refurbishment of a hospital with twelve operating theatres. Last year we won a tender for a sports hall.",
+   "Today we offer complete design services, from the first study to supervision on site."
+  ]
+ },
+ "tf": [
+  [
+   "The company has six offices.",
+   true
+  ],
+  [
+   "The company started as an architecture studio.",
+   false
+  ],
+  [
+   "They completed the university building in 2019.",
+   true
+  ],
+  [
+   "The hospital project was a new build.",
+   false
+  ],
+  [
+   "They won a tender for a sports hall last year.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Company timeline",
+  "cz": "Časová osa firmy z textu. Zkuste podobnou říct o naší firmě nebo o své kariéře.",
+  "steps": [
+   [
+    "2004 — started",
+    "založení"
+   ],
+   [
+    "energy audits",
+    "energetické audity"
+   ],
+   [
+    "added designers",
+    "rozšíření o projektanty"
+   ],
+   [
+    "2019 — university",
+    "dokončený projekt"
+   ],
+   [
+    "hospital refurbishment",
+    "rekonstrukce nemocnice"
+   ],
+   [
+    "won a tender",
+    "vyhraná zakázka"
+   ]
+  ],
+  "q": "When did you start in the company? What was your first project?"
+ },
+ "dialogue": [
+  [
+   "Client",
+   "Can you tell me something about your {experience} with sports buildings?"
+  ],
+  [
+   "Jana",
+   "Yes, of course. Two years ago we {designed} a sports hall for a town near Brno."
+  ],
+  [
+   "Client",
+   "Was it a new {build}?"
+  ],
+  [
+   "Jana",
+   "Yes, it was. We {completed} the design in ten months."
+  ],
+  [
+   "Client",
+   "And did you work on any {refurbishment} projects?"
+  ],
+  [
+   "Jana",
+   "Yes. Last year we {carried} out a survey and prepared a design for an old swimming pool."
+  ],
+  [
+   "Client",
+   "Did the client get a {subsidy}?"
+  ],
+  [
+   "Jana",
+   "Yes, they did. The project brought energy {savings} of thirty per cent."
+  ]
+ ],
+ "speak": {
+  "title": "present our company",
+  "cz": "Klient se ptá na firmu a zkušenosti. Ve dvojici: jeden je klient, druhý představuje firmu a dvě referenční zakázky ze své praxe.",
+  "phrases": [
+   "Our company has … branches and about … employees.",
+   "We designed … in …",
+   "The project was a refurbishment / a new build.",
+   "It took … months."
+  ],
+  "questions": [
+   "When did the company start?",
+   "What kind of buildings do you design?",
+   "Did you work on any sports facilities?",
+   "How long did the project take?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Ask about the company: size, experience, similar projects."
+   ],
+   [
+    "Lead designer",
+    "Present the company and one hospital or university project you know."
+   ],
+   [
+    "Heating engineer",
+    "Describe one refurbishment project: what you designed and what the savings were."
+   ],
+   [
+    "Architect",
+    "Describe one new build: where, when, how long it took."
+   ],
+   [
+    "Structural engineer",
+    "Describe a project with a difficult structure and how you solved it."
+   ],
+   [
+    "Permitting engineer",
+    "Describe a project where the permit took a long time and why."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "Minulý čas od „build“ je:",
+   [
+    "builded",
+    "built",
+    "build"
+   ],
+   1
+  ],
+  [
+   "We ___ the project in 2020.",
+   [
+    "complete",
+    "completed",
+    "completing"
+   ],
+   1
+  ],
+  [
+   "„Rekonstrukce budovy“ je nejlépe:",
+   [
+    "refurbishment",
+    "reparation",
+    "remake"
+   ],
+   0
+  ],
+  [
+   "___ you work on the hospital?",
+   [
+    "Did",
+    "Was",
+    "Were"
+   ],
+   0
+  ],
+  [
+   "We have a lot of ___ with schools.",
+   [
+    "experiences",
+    "experience",
+    "experienced"
+   ],
+   1
+  ],
+  [
+   "„Dotace“ je:",
+   [
+    "subsidy",
+    "donation",
+    "support money"
+   ],
+   0
+  ]
+ ],
+ "hw": "five sentences about one reference project you worked on: what, where, when, how long, what was difficult.",
+ "tnote": "Výslovnost koncovky -ed: <i>designed<\/i> /d/, <i>worked<\/i> /t/, <i>completed<\/i> /ɪd/. Češi často přidávají slabiku navíc (<i>work-ed<\/i>).",
+ "basics": [
+  [
+   "school",
+   "škola"
+  ],
+  [
+   "hospital",
+   "nemocnice"
+  ],
+  [
+   "town",
+   "město"
+  ],
+  [
+   "street",
+   "ulice"
+  ],
+  [
+   "old",
+   "starý"
+  ],
+  [
+   "new",
+   "nový"
+  ]
+ ],
+ "comic": {
+  "prop": "clock",
+  "a": [
+   "C",
+   "Did you finish your last project on time?"
+  ],
+  "b": [
+   "E",
+   "Yes! On the second deadline."
+  ]
+ },
+ "next": "Project stages: from brief to handover",
+ "videos": [
+  [
+   "YouTube – hledat: architecture firm company profile video",
+   "https://www.youtube.com/results?search_query=architecture+firm+company+profile+video"
+  ],
+  [
+   "YouTube – hledat: English past simple business",
+   "https://www.youtube.com/results?search_query=English+past+simple+business"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

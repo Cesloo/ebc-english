@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 06 · Reading drawings</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 6,
+ "module": 2,
+ "title": "Reading drawings",
+ "cz": "Čtení výkresů: půdorys, řez, pohled, detail",
+ "grammar": "prepositions of place and there is / there are",
+ "goals": [
+  "name the types of drawings",
+  "describe where things are on a drawing",
+  "use prepositions of place correctly",
+  "explain a drawing to a client on a call"
+ ],
+ "week": [
+  "Which drawings did you work on this week?",
+  "Where is the problem on the drawing?",
+  "What is still missing?"
+ ],
+ "frames": [
+  "I worked on the floor plan of …",
+  "There is a problem on the second floor.",
+  "The plant room is next to …",
+  "The duct runs above the corridor.",
+  "It is shown on drawing number …"
+ ],
+ "vocab": [
+  [
+   "floor plan",
+   "půdorys",
+   "The floor plan shows the rooms on one level."
+  ],
+  [
+   "section",
+   "řez",
+   "The section shows the heights of the floors."
+  ],
+  [
+   "elevation",
+   "pohled",
+   "The south elevation faces the street."
+  ],
+  [
+   "detail",
+   "detail",
+   "Detail five shows the window connection."
+  ],
+  [
+   "scale",
+   "měřítko",
+   "The scale of the drawing is one to fifty."
+  ],
+  [
+   "legend",
+   "legenda",
+   "Look at the legend for the symbols."
+  ],
+  [
+   "dimension",
+   "kóta, rozměr",
+   "All dimensions are in millimetres."
+  ],
+  [
+   "level",
+   "výšková kóta, úroveň",
+   "The floor level is plus 3.60."
+  ],
+  [
+   "grid line",
+   "modulová osa",
+   "The column is on grid line C."
+  ],
+  [
+   "ground floor",
+   "přízemí (1. NP)",
+   "The entrance is on the ground floor."
+  ],
+  [
+   "basement",
+   "suterén (PP)",
+   "The plant room is in the basement."
+  ],
+  [
+   "corridor",
+   "chodba",
+   "The pipes run along the corridor."
+  ],
+  [
+   "plant room",
+   "technická místnost, strojovna",
+   "The air handling unit is in the plant room."
+  ],
+  [
+   "shaft",
+   "šachta",
+   "The pipes go up through the shaft."
+  ]
+ ],
+ "notes": [
+  "UK: ground floor = 1. NP, first floor = 2. NP. US: first floor = přízemí. U zahraničního klienta si to vždy ověřte.",
+  "<b>1:50<\/b> čteme <i>one to fifty<\/i>.",
+  "<b>on<\/b> the drawing, <b>on<\/b> the second floor, <b>in<\/b> the basement, <b>in<\/b> the room."
+ ],
+ "match": [
+  [
+   "a vertical cut through the building",
+   "section"
+  ],
+  [
+   "a view of the building from outside",
+   "elevation"
+  ],
+  [
+   "a view of one floor from above",
+   "floor plan"
+  ],
+  [
+   "the explanation of symbols on a drawing",
+   "legend"
+  ],
+  [
+   "the floor below the ground",
+   "basement"
+  ],
+  [
+   "a vertical space for pipes and ducts",
+   "shaft"
+  ]
+ ],
+ "distract": [
+  "scale",
+  "corridor"
+ ],
+ "voc": [
+  "The {scale} of this drawing is one to one hundred.",
+  "All {dimensions} are in millimetres.",
+  "The boiler is in the {plant} room in the basement.",
+  "The column stands on {grid} line B.",
+  "The main entrance is on the {ground} floor.",
+  "The pipes go up through the {shaft} to the roof."
+ ],
+ "gbox": [
+  [
+   "Prepositions of place",
+   "Kde co je na výkrese a v budově.",
+   [
+    "<b>above<\/b> the ceiling · <b>below<\/b> the slab",
+    "<b>next to<\/b> the staircase · <b>between<\/b> grid lines 2 and 3",
+    "<b>behind<\/b> the wall · <b>in front of<\/b> the entrance",
+    "<b>along<\/b> the corridor · <b>through<\/b> the wall"
+   ],
+   "on the left / on the right · at the top / at the bottom of the drawing"
+  ],
+  [
+   "There is / there are",
+   "Co se kde nachází.",
+   [
+    "<b>There is<\/b> a plant room in the basement.",
+    "<b>There are<\/b> two staircases.",
+    "<b>There isn't<\/b> enough space above the ceiling.",
+    "<b>Is there<\/b> a shaft next to the toilets?"
+   ],
+   ""
+  ]
+ ],
+ "gtask": "Doplňte: above, below, between, next to, through, along, there is, there are.",
+ "gram": [
+  "The duct runs {above} the suspended ceiling.",
+  "The plant room is in the basement, {below} the changing rooms.",
+  "The shaft is {between} grid lines 4 and 5.",
+  "{There are} two staircases in the building.",
+  "The toilets are {next to} the staircase.",
+  "The pipe goes {through} the wall into the corridor.",
+  "{There is} a legend on the right side of the drawing."
+ ],
+ "reading": {
+  "title": "A walk through the drawing",
+  "cz": "Projektant popisuje klientovi půdorys po telefonu.",
+  "paras": [
+   "Please open drawing number 102, the ground floor plan. The scale is one to one hundred.",
+   "The main entrance is at the bottom of the drawing, on the south side. Behind the entrance, there is a large hall. On the left, there are the ticket offices. On the right, next to the staircase, there are the toilets.",
+   "The changing rooms are along the corridor, between grid lines 3 and 7. There are four changing rooms and each has its own showers.",
+   "The plant room is not on this floor. It is in the basement, below the changing rooms. The ducts go up through a shaft next to grid line 5.",
+   "The red dimensions show the changes from the last revision."
+  ]
+ },
+ "tf": [
+  [
+   "The drawing shows the ground floor.",
+   true
+  ],
+  [
+   "The ticket offices are on the right.",
+   false
+  ],
+  [
+   "There are four changing rooms.",
+   true
+  ],
+  [
+   "The plant room is above the changing rooms.",
+   false
+  ],
+  [
+   "The red dimensions show changes.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Types of drawings",
+  "cz": "Od celku k detailu. Řekněte, které výkresy děláte vy a v jakém měřítku.",
+  "steps": [
+   [
+    "Site plan 1:500",
+    "situace"
+   ],
+   [
+    "Floor plan 1:100",
+    "půdorys"
+   ],
+   [
+    "Section 1:100",
+    "řez"
+   ],
+   [
+    "Elevation 1:100",
+    "pohled"
+   ],
+   [
+    "Detail 1:10",
+    "detail"
+   ]
+  ],
+  "q": "Which drawings do you prepare? What scale do you use? What is shown on a section?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "I'm looking at the ground floor {plan}. Where is the plant room?"
+  ],
+  [
+   "Petr",
+   "It isn't on this floor. It's in the {basement}."
+  ],
+  [
+   "Mark",
+   "I see. And what is this room {next} to the staircase?"
+  ],
+  [
+   "Petr",
+   "Those are the toilets. There {are} two more on the first floor."
+  ],
+  [
+   "Mark",
+   "What is the {scale} of this drawing?"
+  ],
+  [
+   "Petr",
+   "One to one hundred. The {dimensions} are in millimetres."
+  ],
+  [
+   "Mark",
+   "And where do the ducts go?"
+  ],
+  [
+   "Petr",
+   "They go up {through} the shaft, between {grid} lines 4 and 5."
+  ]
+ ],
+ "speak": {
+  "title": "describe a drawing",
+  "cz": "Vezměte si skutečný výkres ze své zakázky (nebo popište kancelář). Jeden popisuje, druhý kreslí náčrt podle toho, co slyší.",
+  "phrases": [
+   "Please look at drawing number …",
+   "On the left / on the right there is …",
+   "The … is next to / above / below …",
+   "It is shown in section A–A."
+  ],
+  "questions": [
+   "Where is the plant room?",
+   "What is next to the staircase?",
+   "What scale is it?",
+   "Is there a shaft on this floor?"
+  ],
+  "cards": [
+   [
+    "Describer A",
+    "Describe the floor plan of our office. Your partner draws it."
+   ],
+   [
+    "Listener A",
+    "Draw what you hear. Ask questions if something is not clear."
+   ],
+   [
+    "Describer B",
+    "Describe the route of a pipe or duct from the plant room to a room."
+   ],
+   [
+    "Listener B",
+    "Draw the route. Ask: above or below? left or right?"
+   ],
+   [
+    "Describer C",
+    "Describe a section of a building you know: floors, heights, roof."
+   ],
+   [
+    "Listener C",
+    "Draw the section and repeat it back in your words."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "„Řez“ je:",
+   [
+    "cut",
+    "section",
+    "slice"
+   ],
+   1
+  ],
+  [
+   "V Británii je „first floor“:",
+   [
+    "přízemí",
+    "první patro nad přízemím",
+    "suterén"
+   ],
+   1
+  ],
+  [
+   "The duct runs ___ the ceiling.",
+   [
+    "above",
+    "between",
+    "at"
+   ],
+   0
+  ],
+  [
+   "___ two staircases in the building.",
+   [
+    "There is",
+    "There are",
+    "It is"
+   ],
+   1
+  ],
+  [
+   "1:50 čteme:",
+   [
+    "one to fifty",
+    "one per fifty",
+    "one fifty"
+   ],
+   0
+  ],
+  [
+   "The plant room is ___ the basement.",
+   [
+    "on",
+    "in",
+    "at"
+   ],
+   1
+  ]
+ ],
+ "hw": "describe one drawing from your project in 6–8 sentences: type, scale, what is on the left, on the right, above, below.",
+ "tnote": "Přineste nebo promítněte skutečný výkres (bez citlivých údajů). Kreslení podle poslechu je časově náročné, hlídejte 8 minut.",
+ "basics": [
+  [
+   "wall",
+   "stěna"
+  ],
+  [
+   "floor",
+   "podlaha, patro"
+  ],
+  [
+   "ceiling",
+   "strop"
+  ],
+  [
+   "door",
+   "dveře"
+  ],
+  [
+   "window",
+   "okno"
+  ],
+  [
+   "stairs",
+   "schody"
+  ]
+ ],
+ "comic": {
+  "prop": "drawing",
+  "a": [
+   "C",
+   "Where is the toilet on this plan?"
+  ],
+  "b": [
+   "A",
+   "Next to the staircase. In the real building too, we hope."
+  ]
+ },
+ "next": "Numbers, dimensions and units",
+ "videos": [
+  [
+   "YouTube – hledat: how to read architectural drawings floor plan section elevation",
+   "https://www.youtube.com/results?search_query=how+to+read+architectural+drawings+floor+plan+section+elevation"
+  ],
+  [
+   "YouTube – hledat: English prepositions of place lesson",
+   "https://www.youtube.com/results?search_query=English+prepositions+of+place+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

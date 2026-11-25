@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 04 · Review 1: the kick-off meeting</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 4,
+ "module": 1,
+ "title": "Review 1: the kick-off meeting",
+ "cz": "Opakování modulu 1 a simulace úvodní schůzky",
+ "grammar": "questions in present and past (review)",
+ "goals": [
+  "take part in a kick-off meeting in English",
+  "ask and answer questions about people, experience and dates",
+  "agree on next steps",
+  "use the vocabulary from lessons 1–3 together"
+ ],
+ "week": [
+  "What did you do on your project last week?",
+  "What are you doing this week?",
+  "What is your next step?"
+ ],
+ "frames": [
+  "Last week I …",
+  "This week I'm …",
+  "Next, I need to …",
+  "I'm waiting for … from …",
+  "We agreed that …"
+ ],
+ "vocab": [
+  [
+   "agenda",
+   "program jednání",
+   "The first point on the agenda is the schedule."
+  ],
+  [
+   "scope of work",
+   "rozsah prací",
+   "The scope of work includes all building services."
+  ],
+  [
+   "deliverable",
+   "výstup, odevzdávaná část",
+   "The first deliverable is the concept design."
+  ],
+  [
+   "fee",
+   "honorář, cena za projekt",
+   "The design fee is in the contract."
+  ],
+  [
+   "contact person",
+   "kontaktní osoba",
+   "Who is the contact person for the structure?"
+  ],
+  [
+   "to agree on",
+   "dohodnout se na",
+   "We agreed on the deadline."
+  ],
+  [
+   "to confirm",
+   "potvrdit",
+   "Can you confirm the date by email?"
+  ],
+  [
+   "minutes",
+   "zápis z jednání",
+   "I will send the minutes tomorrow."
+  ],
+  [
+   "next steps",
+   "další kroky",
+   "Let's summarise the next steps."
+  ],
+  [
+   "approval",
+   "schválení",
+   "We need the client's approval."
+  ],
+  [
+   "requirement",
+   "požadavek",
+   "What are your requirements for the VIP area?"
+  ],
+  [
+   "site visit",
+   "prohlídka staveniště",
+   "The site visit is on Thursday morning."
+  ]
+ ],
+ "notes": [
+  "<b>minutes<\/b> (zápis) je vždy v množném čísle: <i>The minutes are ready.<\/i>",
+  "<b>agenda<\/b> není diář. Diář = <b>diary<\/b> nebo <b>planner<\/b>."
+ ],
+ "match": [
+  [
+   "the list of points for a meeting",
+   "agenda"
+  ],
+  [
+   "the written record of a meeting",
+   "minutes"
+  ],
+  [
+   "what is and what is not part of our contract",
+   "scope of work"
+  ],
+  [
+   "a document or drawing we hand in to the client",
+   "deliverable"
+  ],
+  [
+   "something the client needs or wants",
+   "requirement"
+  ],
+  [
+   "the client says yes to the design",
+   "approval"
+  ]
+ ],
+ "distract": [
+  "fee",
+  "site visit"
+ ],
+ "voc": [
+  "I will send the {minutes} of the meeting tomorrow.",
+  "The first point on the {agenda} is the project team.",
+  "Can you {confirm} the date of the site visit?",
+  "Fire safety design is not in our {scope} of work.",
+  "We need your {approval} of the concept design.",
+  "Let's summarise the next {steps}."
+ ],
+ "gbox": [
+  [
+   "Questions — present",
+   "Do/does pro rutinu, am/is/are + -ing pro právě teď.",
+   [
+    "<b>Do<\/b> you <b>work<\/b> with BIM?",
+    "<b>Does<\/b> the fee <b>include<\/b> supervision?",
+    "What <b>are<\/b> you <b>working<\/b> on now?",
+    "Who <b>is<\/b> the contact person?"
+   ],
+   ""
+  ],
+  [
+   "Questions — past",
+   "Did + základní tvar, was/were.",
+   [
+    "<b>Did<\/b> you <b>visit<\/b> the site?",
+    "When <b>did<\/b> the project <b>start<\/b>?",
+    "<b>Was<\/b> the survey complete?",
+    "How long <b>did<\/b> the permit <b>take<\/b>?"
+   ],
+   ""
+  ]
+ ],
+ "gtask": "Doplňte pomocné sloveso: do, does, did, is, are, was.",
+ "gram": [
+  "{Do} you usually prepare the tender documentation?",
+  "{Does} the scope of work include the car park?",
+  "What {are} you working on this week?",
+  "{Did} you visit the site last month?",
+  "Who {is} the contact person for building services?",
+  "When {did} you complete the last stadium project?",
+  "{Was} the old documentation complete?"
+ ],
+ "reading": {
+  "title": "Kick-off meeting agenda",
+  "cz": "Pozvánka s programem úvodní schůzky.",
+  "paras": [
+   "<b>Subject: Kick-off meeting — agenda<\/b>",
+   "Dear all,",
+   "The kick-off meeting for the stadium project is on Tuesday at 9:00 in our office. The meeting takes about ninety minutes.",
+   "Agenda: 1. Introduction of both teams. 2. Client's requirements and scope of work. 3. Project schedule and milestones. 4. Deliverables for the concept design. 5. Contact persons and communication. 6. Next steps.",
+   "Please prepare a short introduction: your name, your role and your experience with similar projects. After the meeting, we visit the site together.",
+   "I will send the minutes by Thursday. Please confirm that you can come.",
+   "Best regards, Jana"
+  ]
+ },
+ "tf": [
+  [
+   "The meeting is on Tuesday morning.",
+   true
+  ],
+  [
+   "The meeting takes about two hours.",
+   false
+  ],
+  [
+   "The schedule is on the agenda.",
+   true
+  ],
+  [
+   "The site visit is before the meeting.",
+   false
+  ],
+  [
+   "Jana sends the minutes by Thursday.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "A typical kick-off meeting",
+  "cz": "Průběh úvodní schůzky. Použijte jako osnovu simulace.",
+  "steps": [
+   [
+    "Introductions",
+    "představení"
+   ],
+   [
+    "Requirements",
+    "požadavky klienta"
+   ],
+   [
+    "Scope of work",
+    "rozsah prací"
+   ],
+   [
+    "Schedule",
+    "harmonogram"
+   ],
+   [
+    "Contacts",
+    "kontakty"
+   ],
+   [
+    "Next steps",
+    "další kroky"
+   ]
+  ],
+  "q": "What is the first point? What do we agree on at the end?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Thank you all for coming. Let's start with the {agenda}."
+  ],
+  [
+   "Jana",
+   "The first point is the introduction of the {teams}."
+  ],
+  [
+   "Mark",
+   "Good. After that, I would like to explain our {requirements}."
+  ],
+  [
+   "Jana",
+   "Of course. Does the {scope} of work include the car park?"
+  ],
+  [
+   "Mark",
+   "Yes, it does. Did you get the old {documentation}?"
+  ],
+  [
+   "Jana",
+   "We did, but it wasn't {complete}. We need a new survey."
+  ],
+  [
+   "Mark",
+   "I see. Can you {confirm} the deadline for the concept design?"
+  ],
+  [
+   "Jana",
+   "Yes, the end of March. I will write it in the {minutes}."
+  ]
+ ],
+ "speak": {
+  "title": "kick-off meeting simulation",
+  "cz": "Simulace celé schůzky podle schématu 4.2. Jedna skupina tří je klient, druhá projekční tým; nebo tři dvojice a každá projde body 1–3 a 6.",
+  "phrases": [
+   "Let's start with …",
+   "Could you tell us about your requirements for …?",
+   "Does the scope of work include …?",
+   "So, the next steps are …"
+  ],
+  "questions": [
+   "Who is the contact person for …?",
+   "When do you need the first deliverable?",
+   "Did you work on a similar project?",
+   "Can you confirm that by email?"
+  ],
+  "cards": [
+   [
+    "Client's director",
+    "Open the meeting. Explain what you want: a modern stadium, low energy costs, fast permit."
+   ],
+   [
+    "Client's project manager",
+    "Ask about dates, contact persons and deliverables."
+   ],
+   [
+    "Lead designer",
+    "Introduce the team, explain the stages and summarise the next steps."
+   ],
+   [
+    "Architect",
+    "Ask the client about requirements: capacity, VIP area, changing rooms."
+   ],
+   [
+    "Building services engineer",
+    "Ask about energy sources, existing connections and operating costs."
+   ],
+   [
+    "Permitting engineer",
+    "Explain the permit process and what you need from the client."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "„Zápis z jednání“ je:",
+   [
+    "minutes",
+    "record paper",
+    "meeting write"
+   ],
+   0
+  ],
+  [
+   "___ the fee include site supervision?",
+   [
+    "Do",
+    "Does",
+    "Is"
+   ],
+   1
+  ],
+  [
+   "When ___ the project start? (last year)",
+   [
+    "does",
+    "did",
+    "was"
+   ],
+   1
+  ],
+  [
+   "„Rozsah prací“ je:",
+   [
+    "scope of work",
+    "range of works",
+    "work size"
+   ],
+   0
+  ],
+  [
+   "What ___ you working on now?",
+   [
+    "do",
+    "are",
+    "did"
+   ],
+   1
+  ],
+  [
+   "We agreed ___ the deadline.",
+   [
+    "on",
+    "with",
+    "for"
+   ],
+   0
+  ]
+ ],
+ "hw": "short minutes of today's simulated meeting: who was there, what we agreed on, three next steps with dates.",
+ "tnote": "Opakovací lekce: části 2 a 3 zkraťte na 10 minut a simulaci dejte 20 minut. Zápis z jednání (domácí úkol) navazuje na lekci 22.",
+ "basics": [
+  [
+   "meeting",
+   "schůzka"
+  ],
+  [
+   "question",
+   "otázka"
+  ],
+  [
+   "answer",
+   "odpověď"
+  ],
+  [
+   "problem",
+   "problém"
+  ],
+  [
+   "time",
+   "čas"
+  ],
+  [
+   "people",
+   "lidé"
+  ]
+ ],
+ "comic": {
+  "prop": "stadium",
+  "a": [
+   "E",
+   "Any questions before we start?"
+  ],
+  "b": [
+   "C",
+   "Only one. Can it be bigger, faster and cheaper?"
+  ]
+ },
+ "next": "Design documentation: what is in it",
+ "videos": [
+  [
+   "YouTube – hledat: project kick-off meeting example English",
+   "https://www.youtube.com/results?search_query=project+kick-off+meeting+example+English"
+  ],
+  [
+   "YouTube – hledat: business English meeting roleplay kick-off",
+   "https://www.youtube.com/results?search_query=business+English+meeting+roleplay+kick-off"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

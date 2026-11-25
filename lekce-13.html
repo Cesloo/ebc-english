@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 13 · Heating and cooling</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 13,
+ "module": 4,
+ "title": "Heating and cooling",
+ "cz": "Vytápění a chlazení",
+ "grammar": "zero and first conditional (if …)",
+ "goals": [
+  "name the main parts of a heating and cooling system",
+  "explain how the system works in simple words",
+  "say what happens if something changes",
+  "answer a client's questions about energy sources"
+ ],
+ "week": [
+  "Which system did you design or check this week?",
+  "What happens if the client changes the source?",
+  "What are you waiting for?"
+ ],
+ "frames": [
+  "I designed the heating for …",
+  "If the client agrees, we will use …",
+  "If the temperature falls, the system …",
+  "We are waiting for the heat loss calculation.",
+  "The source is a …"
+ ],
+ "vocab": [
+  [
+   "heat source",
+   "zdroj tepla",
+   "The heat source is a heat pump."
+  ],
+  [
+   "boiler",
+   "kotel",
+   "The gas boiler is in the plant room."
+  ],
+  [
+   "heat pump",
+   "tepelné čerpadlo",
+   "The heat pump takes heat from the air."
+  ],
+  [
+   "district heating",
+   "dálkové vytápění (CZT)",
+   "The stadium is connected to district heating."
+  ],
+  [
+   "radiator",
+   "otopné těleso",
+   "There are radiators under the windows."
+  ],
+  [
+   "underfloor heating",
+   "podlahové vytápění",
+   "The changing rooms have underfloor heating."
+  ],
+  [
+   "pipe",
+   "potrubí, trubka",
+   "The pipes run above the ceiling."
+  ],
+  [
+   "pump",
+   "čerpadlo",
+   "The pump circulates the water."
+  ],
+  [
+   "valve",
+   "ventil, armatura",
+   "The valve controls the flow."
+  ],
+  [
+   "heat exchanger",
+   "výměník tepla",
+   "The heat exchanger separates the two circuits."
+  ],
+  [
+   "storage tank",
+   "akumulační nádrž, zásobník",
+   "The storage tank holds 2,000 litres."
+  ],
+  [
+   "chiller",
+   "zdroj chladu",
+   "The chiller produces cold water for cooling."
+  ],
+  [
+   "flow and return",
+   "přívod a zpátečka",
+   "The flow temperature is 55 degrees and the return 45."
+  ],
+  [
+   "to supply",
+   "dodávat, zásobovat",
+   "The boiler supplies heat to the whole building."
+  ]
+ ],
+ "notes": [
+  "<b>heating<\/b> = vytápění, <b>heat<\/b> = teplo, <b>to heat<\/b> = vytápět. <i>Hot<\/i> je přídavné jméno.",
+  "55 °C čteme <i>fifty-five degrees Celsius<\/i>.",
+  "Topná a vratná voda = <b>flow and return<\/b>. Teplotní spád 55/45 = <i>fifty-five forty-five<\/i>."
+ ],
+ "match": [
+  [
+   "a device that takes heat from air, ground or water",
+   "heat pump"
+  ],
+  [
+   "heat delivered from a central plant in the city",
+   "district heating"
+  ],
+  [
+   "heating pipes in the floor",
+   "underfloor heating"
+  ],
+  [
+   "a device that moves heat from one circuit to another",
+   "heat exchanger"
+  ],
+  [
+   "a device that produces cold water",
+   "chiller"
+  ],
+  [
+   "a device that opens, closes or controls the flow",
+   "valve"
+  ]
+ ],
+ "distract": [
+  "boiler",
+  "storage tank"
+ ],
+ "voc": [
+  "The {pump} circulates the water in the system.",
+  "The changing rooms have {underfloor} heating.",
+  "The flow temperature is 55 degrees and the {return} is 45.",
+  "The boiler {supplies} heat to the whole building.",
+  "The storage {tank} holds 2,000 litres of hot water.",
+  "The {chiller} produces cold water for the air conditioning."
+ ],
+ "gbox": [
+  [
+   "Zero conditional — always true",
+   "If + přítomný čas, přítomný čas. Fyzika, pravidla, jak systém funguje.",
+   [
+    "<b>If<\/b> the temperature <b>falls<\/b>, the valve <b>opens<\/b>.",
+    "<b>If<\/b> the pump <b>stops<\/b>, the system <b>doesn't work<\/b>.",
+    "<b>When<\/b> the tank <b>is<\/b> full, the heat pump <b>stops<\/b>.",
+    ""
+   ],
+   "if / when + present, present"
+  ],
+  [
+   "First conditional — possible future",
+   "If + přítomný čas, will + sloveso. Co se stane, když…",
+   [
+    "<b>If<\/b> we <b>use<\/b> a heat pump, the costs <b>will be<\/b> lower.",
+    "<b>If<\/b> the client <b>agrees<\/b>, we <b>will change<\/b> the source.",
+    "We <b>won't finish<\/b> on time <b>if<\/b> we <b>don't get<\/b> the data.",
+    ""
+   ],
+   "Po if nikdy will."
+  ]
+ ],
+ "gtask": "Doplňte správný tvar slovesa v závorce.",
+ "gram": [
+  "If the outside temperature falls, the boiler {starts}. (start)",
+  "If we use a heat pump, the operating costs {will be} lower. (be)",
+  "If the client {agrees}, we will connect the building to district heating. (agree)",
+  "When the tank is full, the pump {stops}. (stop)",
+  "If we {don't get|do not get} the heat loss calculation, we won't finish on time. (not / get)",
+  "If the pipe is too small, the flow {is} too low. (be)",
+  "We {will need} a bigger plant room if we add a chiller. (need)"
+ ],
+ "reading": {
+  "title": "How the heating works",
+  "cz": "Popis systému vytápění pro klienta, zjednodušeně.",
+  "paras": [
+   "<b>Heating system — short description<\/b>",
+   "The heat source for the building is two air-to-water heat pumps with a total output of 180 kilowatts. A gas boiler is used as a backup. If the outside temperature falls below minus ten degrees, the boiler starts automatically.",
+   "The heat pumps supply hot water to a storage tank. From the tank, pumps circulate the water to three circuits: underfloor heating in the changing rooms, radiators in the offices and the air handling units.",
+   "In summer, the heat pumps work as chillers and produce cold water for cooling.",
+   "If the client installs photovoltaic panels on the roof, the heat pumps will use this electricity and the operating costs will be about thirty per cent lower."
+  ]
+ },
+ "tf": [
+  [
+   "The main heat source is a gas boiler.",
+   false
+  ],
+  [
+   "The boiler starts when it is very cold outside.",
+   true
+  ],
+  [
+   "There are three heating circuits.",
+   true
+  ],
+  [
+   "The heat pumps can't be used for cooling.",
+   false
+  ],
+  [
+   "With PV panels the costs will be lower.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "From source to room",
+  "cz": "Cesta tepla od zdroje do místnosti. Popište ji a doplňte věty s if.",
+  "steps": [
+   [
+    "Heat pump / boiler",
+    "zdroj tepla"
+   ],
+   [
+    "Storage tank",
+    "akumulační nádrž"
+   ],
+   [
+    "Pump and valves",
+    "čerpadlo a armatury"
+   ],
+   [
+    "Pipes",
+    "rozvody"
+   ],
+   [
+    "Radiators / underfloor heating",
+    "otopná plocha"
+   ],
+   [
+    "Room",
+    "místnost"
+   ]
+  ],
+  "q": "What happens if the pump stops? What supplies heat to the tank? Where are the valves?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "Why do you want a heat {pump} and not only a gas boiler?"
+  ],
+  [
+   "Pavel",
+   "Because the operating costs will be {lower}."
+  ],
+  [
+   "Mark",
+   "What happens if it is very cold {outside}?"
+  ],
+  [
+   "Pavel",
+   "If the temperature falls below minus ten, the {boiler} starts."
+  ],
+  [
+   "Mark",
+   "And in summer?"
+  ],
+  [
+   "Pavel",
+   "The heat pumps work as {chillers} and produce cold water."
+  ],
+  [
+   "Mark",
+   "Will we need a bigger plant {room}?"
+  ],
+  [
+   "Pavel",
+   "Yes, if we add the storage {tank}, we will need about ten square metres more."
+  ]
+ ],
+ "speak": {
+  "title": "explain the system and answer what-if questions",
+  "cz": "Projektant vysvětlí systém (i jiný než vytápění), klient se ptá „co když“.",
+  "phrases": [
+   "The heat source is … It supplies …",
+   "If the temperature falls, …",
+   "If you choose this option, the costs will be …",
+   "It depends on …"
+  ],
+  "questions": [
+   "What happens if the pump stops?",
+   "What will happen if we remove the boiler?",
+   "Will the costs be lower?",
+   "How does it work in summer?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Ask three what-if questions about costs, comfort and failures."
+   ],
+   [
+    "Heating engineer",
+    "Explain heat pumps with a backup boiler."
+   ],
+   [
+    "Heating engineer 2",
+    "Explain district heating with a heat exchanger."
+   ],
+   [
+    "HVAC engineer",
+    "Explain cooling of the VIP area in summer."
+   ],
+   [
+    "Electrical engineer",
+    "Explain what happens to the heating if the power fails."
+   ],
+   [
+    "Lead designer",
+    "Explain how the choice of source changes the schedule and the budget."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "If the pump stops, the system ___.",
+   [
+    "doesn't work",
+    "won't works",
+    "not work"
+   ],
+   0
+  ],
+  [
+   "If we use a heat pump, the costs ___ lower.",
+   [
+    "are being",
+    "will be",
+    "would"
+   ],
+   1
+  ],
+  [
+   "„Zpátečka“ je:",
+   [
+    "return",
+    "back pipe",
+    "reverse"
+   ],
+   0
+  ],
+  [
+   "„Tepelné čerpadlo“ je:",
+   [
+    "thermal pumper",
+    "heat pump",
+    "warm pump"
+   ],
+   1
+  ],
+  [
+   "If the client ___, we will change the source.",
+   [
+    "will agree",
+    "agrees",
+    "agree"
+   ],
+   1
+  ],
+  [
+   "„Dálkové vytápění“ je:",
+   [
+    "district heating",
+    "distance heating",
+    "far heating"
+   ],
+   0
+  ]
+ ],
+ "hw": "describe the heating (or another system) of your project in 6 sentences and add three sentences with if.",
+ "tnote": "Hlídejte <i>will<\/i> po <i>if<\/i> (<i>if we will use<\/i>). Studenti z jiných profesí popisují v části 6 svůj systém; slovíčka topenářů jim stačí pasivně.",
+ "basics": [
+  [
+   "hot",
+   "horký"
+  ],
+  [
+   "cold",
+   "studený"
+  ],
+  [
+   "warm",
+   "teplý"
+  ],
+  [
+   "water",
+   "voda"
+  ],
+  [
+   "gas",
+   "plyn"
+  ],
+  [
+   "temperature",
+   "teplota"
+  ]
+ ],
+ "comic": {
+  "prop": "radiator",
+  "a": [
+   "C",
+   "Is a heat pump expensive?"
+  ],
+  "b": [
+   "E",
+   "Only once. The gas bill comes every month."
+  ]
+ },
+ "next": "Ventilation and air conditioning",
+ "videos": [
+  [
+   "YouTube – hledat: how a heat pump works explained simply",
+   "https://www.youtube.com/results?search_query=how+a+heat+pump+works+explained+simply"
+  ],
+  [
+   "YouTube – hledat: first conditional zero conditional English lesson",
+   "https://www.youtube.com/results?search_query=first+conditional+zero+conditional+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

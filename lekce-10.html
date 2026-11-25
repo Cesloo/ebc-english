@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 10 · Structures and loads</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 10,
+ "module": 3,
+ "title": "Structures and loads",
+ "cz": "Nosné konstrukce a zatížení",
+ "grammar": "modal verbs: can, could, should, may",
+ "goals": [
+  "name the main structural elements",
+  "explain what carries what",
+  "say what is possible, recommended and risky",
+  "discuss a structural problem with other disciplines"
+ ],
+ "week": [
+  "What structural question did you solve this week?",
+  "Where do you need an opening or more space?",
+  "What can't be changed in your design?"
+ ],
+ "frames": [
+  "The beam carries …",
+  "We can't move this column.",
+  "We should check the …",
+  "It may be a problem for …",
+  "Could you send me the loads?"
+ ],
+ "vocab": [
+  [
+   "foundation",
+   "základ",
+   "The foundations stand on piles."
+  ],
+  [
+   "column",
+   "sloup",
+   "The columns are on a grid of six metres."
+  ],
+  [
+   "beam",
+   "nosník, průvlak",
+   "The beam carries the floor slab."
+  ],
+  [
+   "slab",
+   "deska (stropní, základová)",
+   "The slab is 250 millimetres thick."
+  ],
+  [
+   "load-bearing wall",
+   "nosná stěna",
+   "We can't make an opening in the load-bearing wall."
+  ],
+  [
+   "truss",
+   "příhradový vazník",
+   "Steel trusses carry the roof over the stand."
+  ],
+  [
+   "span",
+   "rozpětí",
+   "The span of the roof is 32 metres."
+  ],
+  [
+   "load",
+   "zatížení",
+   "The snow load is important for the roof."
+  ],
+  [
+   "reinforced concrete",
+   "železobeton",
+   "The structure is made of reinforced concrete."
+  ],
+  [
+   "reinforcement",
+   "výztuž",
+   "The reinforcement is shown on the drawing."
+  ],
+  [
+   "opening",
+   "prostup, otvor",
+   "We need an opening for the duct in this wall."
+  ],
+  [
+   "precast",
+   "prefabrikovaný",
+   "The stands are made of precast elements."
+  ],
+  [
+   "cast in situ",
+   "monolitický (betonovaný na místě)",
+   "The foundations are cast in situ."
+  ],
+  [
+   "to carry",
+   "nést",
+   "The columns carry the roof."
+  ]
+ ],
+ "notes": [
+  "<b>construction<\/b> = výstavba (proces). Nosná konstrukce = <b>structure<\/b>.",
+  "Statik = <b>structural engineer<\/b>. <i>Static<\/i> znamená nehybný.",
+  "<b>beam<\/b> = vodorovný nosník, <b>column<\/b> = svislý sloup, <b>slab<\/b> = deska."
+ ],
+ "match": [
+  [
+   "a vertical element that carries beams",
+   "column"
+  ],
+  [
+   "the distance between two supports",
+   "span"
+  ],
+  [
+   "a horizontal element that carries a slab",
+   "beam"
+  ],
+  [
+   "a hole in a wall or slab for pipes or ducts",
+   "opening"
+  ],
+  [
+   "steel bars inside concrete",
+   "reinforcement"
+  ],
+  [
+   "made in a factory and brought to the site",
+   "precast"
+  ]
+ ],
+ "distract": [
+  "truss",
+  "foundation"
+ ],
+ "voc": [
+  "The steel {trusses} carry the roof over the stand.",
+  "The {span} of the roof is 32 metres.",
+  "We need an {opening} in the slab for the shaft.",
+  "The snow {load} is higher in the mountains.",
+  "The stands are made of {precast} concrete elements.",
+  "The {foundations} stand on piles because the soil is weak."
+ ],
+ "gbox": [
+  [
+   "Possibility and ability",
+   "Co jde a nejde.",
+   [
+    "We <b>can<\/b> move the duct.",
+    "We <b>can't<\/b> cut this beam.",
+    "It <b>may<\/b> be a problem. (možná)",
+    "<b>Could<\/b> you send me the loads? (zdvořilá prosba)"
+   ],
+   "can / can't + základní tvar"
+  ],
+  [
+   "Recommendation",
+   "Co doporučujeme.",
+   [
+    "We <b>should<\/b> check the old foundations.",
+    "You <b>shouldn't<\/b> make openings near the column.",
+    "The opening <b>should<\/b> be smaller.",
+    "<b>Should<\/b> we use steel or concrete?"
+   ],
+   "should = měli bychom"
+  ]
+ ],
+ "gtask": "Doplňte: can, can't, should, shouldn't, may, could.",
+ "gram": [
+  "We {can't} make an opening in this beam. It is not possible.",
+  "{Could} you send me the weight of the air handling unit, please?",
+  "We {should} check the old structure before we start.",
+  "You {shouldn't} put heavy units on this part of the roof.",
+  "The duct {can} go through the wall here. There is enough space.",
+  "The survey {may} show problems with the foundations.",
+  "The opening {should} be at least 300 millimetres from the column."
+ ],
+ "reading": {
+  "title": "Openings in the slab",
+  "cz": "Statik odpovídá profesím na požadavky na prostupy.",
+  "paras": [
+   "Hi all,",
+   "Thank you for your drawings with the openings. Here are my comments.",
+   "The openings for the ventilation shaft on grid line 5 are fine. The slab can carry them without changes. The large opening next to column C4 is a problem. We can't cut the beam there, because it carries the stand above.",
+   "Could you move the duct about one metre to the left? Then it can go between the beams. If this is not possible, we should meet and find another route.",
+   "The air handling unit on the roof weighs 2.8 tonnes. This may be too much for the steel trusses. Please send me the exact weight and position. We should put it above a column, not in the middle of the span.",
+   "Thanks, Petr"
+  ]
+ },
+ "tf": [
+  [
+   "The openings on grid line 5 are a problem.",
+   false
+  ],
+  [
+   "The beam next to column C4 can't be cut.",
+   true
+  ],
+  [
+   "Petr asks to move the duct to the left.",
+   true
+  ],
+  [
+   "The unit on the roof weighs 2.8 tonnes.",
+   true
+  ],
+  [
+   "The unit should be in the middle of the span.",
+   false
+  ]
+ ],
+ "flow": {
+  "title": "How the load goes down",
+  "cz": "Cesta zatížení od střechy do základů. Popište ji slovesem carry.",
+  "steps": [
+   [
+    "Roof",
+    "střecha"
+   ],
+   [
+    "Truss / beam",
+    "vazník / nosník"
+   ],
+   [
+    "Column",
+    "sloup"
+   ],
+   [
+    "Foundation",
+    "základ"
+   ],
+   [
+    "Soil",
+    "zemina"
+   ]
+  ],
+  "q": "What carries the roof? What do the columns stand on? Where can we make openings?"
+ },
+ "dialogue": [
+  [
+   "Petr",
+   "I looked at your duct route. We have a {problem} at column C4."
+  ],
+  [
+   "Pavel",
+   "What is wrong?"
+  ],
+  [
+   "Petr",
+   "The opening is too close to the {beam}. We {can't} cut it."
+  ],
+  [
+   "Pavel",
+   "Could we make the {opening} smaller?"
+  ],
+  [
+   "Petr",
+   "That may help, but it {should} be at least 300 millimetres from the column."
+  ],
+  [
+   "Pavel",
+   "OK. I can {move} the duct to the left."
+  ],
+  [
+   "Petr",
+   "Good. And could you send me the {weight} of the unit on the roof?"
+  ],
+  [
+   "Pavel",
+   "Sure. It is about 2.8 tonnes. Should it stand above a {column}?"
+  ]
+ ],
+ "speak": {
+  "title": "coordination between disciplines",
+  "cz": "Koordinační schůzka. Profese potřebují prostupy a místo, statik říká, co jde a co ne. Hledejte řešení.",
+  "phrases": [
+   "We need an opening for … here.",
+   "I'm afraid we can't … because …",
+   "Could you move it about … to the left?",
+   "We should check it together."
+  ],
+  "questions": [
+   "Can we make an opening in this wall?",
+   "How heavy is the unit?",
+   "Could the duct go below the beam?",
+   "Should we change the route?"
+  ],
+  "cards": [
+   [
+    "Structural engineer",
+    "You protect the structure. No openings in beams, units above columns."
+   ],
+   [
+    "HVAC engineer",
+    "You need a duct 800 × 400 mm through a load-bearing wall."
+   ],
+   [
+    "Plumbing engineer",
+    "You need a shaft 600 × 600 mm through all slabs."
+   ],
+   [
+    "Electrical engineer",
+    "You need cable trays below the beams and a transformer room."
+   ],
+   [
+    "Architect",
+    "You want a high ceiling in the hall and no visible ducts."
+   ],
+   [
+    "Lead designer",
+    "Lead the meeting and write down what was agreed."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "Nosná konstrukce je:",
+   [
+    "construction",
+    "structure",
+    "static"
+   ],
+   1
+  ],
+  [
+   "„Rozpětí“ je:",
+   [
+    "span",
+    "spread",
+    "width range"
+   ],
+   0
+  ],
+  [
+   "We ___ cut this beam. It is impossible.",
+   [
+    "shouldn't to",
+    "can't",
+    "may"
+   ],
+   1
+  ],
+  [
+   "___ you send me the loads, please?",
+   [
+    "Could",
+    "Should",
+    "May you"
+   ],
+   0
+  ],
+  [
+   "„Monolitický“ beton je:",
+   [
+    "monolith concrete",
+    "cast in situ",
+    "one-piece precast"
+   ],
+   1
+  ],
+  [
+   "We ___ check the old foundations. (doporučení)",
+   [
+    "should",
+    "can to",
+    "may to"
+   ],
+   0
+  ]
+ ],
+ "hw": "an email to another discipline: describe a problem with an opening or space, say what can and can't be done and what you recommend.",
+ "tnote": "Po modálním slovese nikdy <i>to<\/i> (<i>we can to move<\/i>). <i>May<\/i> zde jen ve významu „možná“, ne jako žádost o dovolení.",
+ "basics": [
+  [
+   "strong",
+   "pevný, silný"
+  ],
+  [
+   "weak",
+   "slabý"
+  ],
+  [
+   "weight",
+   "hmotnost"
+  ],
+  [
+   "to stand",
+   "stát"
+  ],
+  [
+   "to hold",
+   "držet"
+  ],
+  [
+   "ground",
+   "zem, terén"
+  ]
+ ],
+ "comic": {
+  "prop": "beam",
+  "a": [
+   "E",
+   "Can I make a small hole in this beam?"
+  ],
+  "b": [
+   "A",
+   "Sure. Which stand should fall down?"
+  ]
+ },
+ "next": "Materials and the building envelope",
+ "videos": [
+  [
+   "YouTube – hledat: structural elements beam column slab explained",
+   "https://www.youtube.com/results?search_query=structural+elements+beam+column+slab+explained"
+  ],
+  [
+   "YouTube – hledat: modal verbs can could should may English lesson",
+   "https://www.youtube.com/results?search_query=modal+verbs+can+could+should+may+English+lesson"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>

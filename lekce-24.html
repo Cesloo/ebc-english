@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EBC English · Lesson 24 · Final simulation: design meeting with the client</title>
+<link rel="stylesheet" href="assets/styl.css">
+</head>
+<body>
+<div id="app"><p style="padding:24px">Načítám lekci… Pokud se nic nezobrazí, otevřete soubor v prohlížeči Edge nebo Chrome a nechte u něj složku <b>assets</b>.</p></div>
+<script>
+/* ================================================================
+   OBSAH LEKCE — TADY MŮŽETE UPRAVOVAT
+   Text měňte jen mezi uvozovkami. Správná odpověď ve cvičení je ve
+   složených závorkách, varianty odděluje svislá čára: {is|'s}
+   ================================================================ */
+const LESSON = {
+ "n": 24,
+ "module": 6,
+ "title": "Final simulation: design meeting with the client",
+ "cz": "Závěrečná simulace jednání se zahraničním klientem",
+ "grammar": "review of the whole course",
+ "goals": [
+  "take part in a complete design meeting in English",
+  "present, explain, negotiate and agree on next steps",
+  "deal with a change and a delay",
+  "see what I have learned and what to practise next"
+ ],
+ "week": [
+  "What has been the most useful part of the course for your work?",
+  "What is still difficult?",
+  "What are you going to practise next?"
+ ],
+ "frames": [
+  "The most useful part was …",
+  "I can now …",
+  "I still find … difficult.",
+  "I'm going to practise …",
+  "At work I have already used …"
+ ],
+ "vocab": [
+  [
+   "variation",
+   "změna díla (změnový list)",
+   "The new kitchen is a variation to the contract."
+  ],
+  [
+   "additional cost",
+   "dodatečné náklady, vícenáklady",
+   "The change means an additional cost."
+  ],
+  [
+   "to negotiate",
+   "vyjednávat",
+   "We negotiated a new deadline."
+  ],
+  [
+   "compromise",
+   "kompromis",
+   "We found a compromise."
+  ],
+  [
+   "to propose",
+   "navrhnout",
+   "We propose two options."
+  ],
+  [
+   "impact",
+   "dopad",
+   "The change has an impact on the schedule."
+  ],
+  [
+   "to keep the deadline",
+   "dodržet termín",
+   "We can keep the deadline if we get the data."
+  ],
+  [
+   "priority",
+   "priorita",
+   "What is your priority: time or cost?"
+  ],
+  [
+   "to accept",
+   "přijmout",
+   "The client accepted the proposal."
+  ],
+  [
+   "to reject",
+   "odmítnout",
+   "The client rejected option B."
+  ],
+  [
+   "risk",
+   "riziko",
+   "The biggest risk is the permit."
+  ],
+  [
+   "to commit to",
+   "zavázat se k",
+   "We can commit to 30 June."
+  ],
+  [
+   "on behalf of",
+   "jménem (koho)",
+   "I am speaking on behalf of the design team."
+  ],
+  [
+   "to appreciate",
+   "ocenit",
+   "We appreciate your quick answer."
+  ]
+ ],
+ "notes": [
+  "Změna díla = <b>variation<\/b> (UK) nebo <b>change order<\/b> (US).",
+  "<b>propose<\/b> / <b>suggest<\/b> + -ing nebo that: <i>We propose extending the deadline.<\/i>",
+  "Při vyjednávání pomáhá podmínka: <i>We can … if you …<\/i>"
+ ],
+ "match": [
+  [
+   "a change to the contract",
+   "variation"
+  ],
+  [
+   "the effect of a change on time or cost",
+   "impact"
+  ],
+  [
+   "a solution where both sides give something",
+   "compromise"
+  ],
+  [
+   "to say no to a proposal",
+   "to reject"
+  ],
+  [
+   "to promise a date or result",
+   "to commit to"
+  ],
+  [
+   "the most important thing",
+   "priority"
+  ]
+ ],
+ "distract": [
+  "risk",
+  "to accept"
+ ],
+ "voc": [
+  "The change has an {impact} on the schedule and the budget.",
+  "The new kitchen is a {variation} to the contract.",
+  "We can {keep} the deadline if we get your decision this week.",
+  "What is your {priority}: time or cost?",
+  "We {propose} two options for the VIP area.",
+  "We {appreciate} your quick answer."
+ ],
+ "gbox": [
+  [
+   "Explaining and proposing",
+   "Shrnutí kurzu: vysvětlit a navrhnout.",
+   [
+    "The layout <b>has changed<\/b>, so the ducts <b>are<\/b> longer.",
+    "The change <b>was requested<\/b> last week.",
+    "<b>If<\/b> we <b>add<\/b> the kitchen, the cost <b>will be<\/b> higher.",
+    "We <b>propose<\/b> extend<b>ing<\/b> the deadline by two weeks."
+   ],
+   "present perfect · passive · first conditional"
+  ],
+  [
+   "Negotiating politely",
+   "Shrnutí kurzu: jednat zdvořile.",
+   [
+    "<b>Could you<\/b> confirm the decision by Friday?",
+    "<b>I'm afraid<\/b> we <b>can't<\/b> keep the date.",
+    "Option A is <b>cheaper<\/b>, but option B is <b>more flexible<\/b>.",
+    "We <b>have to<\/b> follow the fire regulations."
+   ],
+   "requests · comparatives · obligation"
+  ]
+ ],
+ "gtask": "Souhrnné cvičení: doplňte správný tvar slovesa v závorce nebo vhodné slovo.",
+ "gram": [
+  "The client {has changed|'s changed} the requirements again. (change)",
+  "The new layout {was sent} to us last Friday. (send, passive)",
+  "If we add the kitchen, the price {will be} higher. (be)",
+  "Option A is {cheaper} than option B. (cheap)",
+  "{Could} you confirm your decision by Friday, please?",
+  "We {have to|must} follow the fire safety regulations.",
+  "He said that the budget {was} limited. (be)"
+ ],
+ "reading": {
+  "title": "Before the meeting",
+  "cz": "E-mail klienta před jednáním: požaduje změnu.",
+  "paras": [
+   "Dear Ms Nováková,",
+   "Thank you for the concept design. We appreciate the work of your team. Before our meeting on Thursday, I would like to raise three points.",
+   "First, our board has decided to add a restaurant with a kitchen for 120 guests to the VIP area. Could you tell me what impact this will have on the layout and the building services?",
+   "Second, we have to open the stadium three months earlier than planned. Would it be possible to submit the permit application in May?",
+   "Third, the budget is fixed. If the changes mean additional costs, we will have to save somewhere else. Please propose where.",
+   "I look forward to your proposals on Thursday.",
+   "Kind regards, Mark Collins"
+  ]
+ },
+ "tf": [
+  [
+   "The client is happy with the concept design.",
+   true
+  ],
+  [
+   "The client wants a restaurant for 120 guests.",
+   true
+  ],
+  [
+   "The stadium should open three months later.",
+   false
+  ],
+  [
+   "The budget can be increased.",
+   false
+  ],
+  [
+   "The meeting is on Thursday.",
+   true
+  ]
+ ],
+ "flow": {
+  "title": "Agenda of the final meeting",
+  "cz": "Program závěrečné simulace. Každý bod má svého mluvčího.",
+  "steps": [
+   [
+    "Welcome and agenda",
+    "úvod"
+   ],
+   [
+    "Change: restaurant",
+    "změna"
+   ],
+   [
+    "Impact on design",
+    "dopady"
+   ],
+   [
+    "Schedule",
+    "termíny"
+   ],
+   [
+    "Costs and savings",
+    "náklady"
+   ],
+   [
+    "Decisions and next steps",
+    "závěry"
+   ]
+  ],
+  "q": "Who presents each item? What do we propose? What can we commit to?"
+ },
+ "dialogue": [
+  [
+   "Mark",
+   "So, what {impact} will the restaurant have?"
+  ],
+  [
+   "Jana",
+   "The layout of the VIP area has to change. Tomáš has {prepared} two options."
+  ],
+  [
+   "Pavel",
+   "And we will need a bigger air handling unit {because} of the kitchen."
+  ],
+  [
+   "Mark",
+   "Can you still submit the permit {application} in May?"
+  ],
+  [
+   "Jana",
+   "I'm afraid we can't, {if} the layout changes now. We can commit to 30 June."
+  ],
+  [
+   "Mark",
+   "That is late. What do you {propose}?"
+  ],
+  [
+   "Jana",
+   "If you confirm option A this week, we will {keep} 15 June."
+  ],
+  [
+   "Mark",
+   "All right. That is a good {compromise}."
+  ]
+ ],
+ "speak": {
+  "title": "the final design meeting",
+  "cz": "Závěrečná simulace na 25 minut podle schématu 4.2 a e-mailu klienta. Lektorka nebo jeden student hraje klienta. Každý má svůj bod: vysvětlit dopad změny, navrhnout řešení, dohodnout termín.",
+  "phrases": [
+   "On behalf of the team, I'd like to …",
+   "The change has an impact on …",
+   "We propose … If you agree, we will …",
+   "To sum up, we agreed that …"
+  ],
+  "questions": [
+   "What impact will it have on the schedule?",
+   "What do you propose?",
+   "Can you commit to that date?",
+   "Where can we save money?"
+  ],
+  "cards": [
+   [
+    "Client",
+    "Push for an early date and a fixed budget. Accept a good compromise."
+   ],
+   [
+    "Lead designer",
+    "Open the meeting, lead the agenda, sum up decisions and action items."
+   ],
+   [
+    "Architect",
+    "Present two options of the restaurant and compare them."
+   ],
+   [
+    "Building services engineers",
+    "Explain the impact of the kitchen: ventilation, power, water, drainage."
+   ],
+   [
+    "Structural / fire safety engineer",
+    "Explain what must be checked and what is not allowed."
+   ],
+   [
+    "Permitting engineer / cost estimator",
+    "Explain the new permit schedule and the additional costs. Propose savings."
+   ]
+  ]
+ },
+ "quiz": [
+  [
+   "If we add the kitchen, the price ___ higher.",
+   [
+    "will be",
+    "would",
+    "is being"
+   ],
+   0
+  ],
+  [
+   "The layout ___ to us last Friday.",
+   [
+    "was sent",
+    "has sent",
+    "is send"
+   ],
+   0
+  ],
+  [
+   "„Dopad“ změny je:",
+   [
+    "impact",
+    "fall",
+    "hit effect"
+   ],
+   0
+  ],
+  [
+   "We propose ___ the deadline.",
+   [
+    "extending",
+    "to extending",
+    "extend to"
+   ],
+   0
+  ],
+  [
+   "He said that the budget ___ fixed.",
+   [
+    "is being",
+    "was",
+    "be"
+   ],
+   1
+  ],
+  [
+   "„Změna díla“ ve smlouvě je:",
+   [
+    "variation",
+    "variant",
+    "variety"
+   ],
+   0
+  ]
+ ],
+ "hw": "minutes of the final meeting with action items, and five sentences about what you are going to practise next.",
+ "tnote": "Závěrečná lekce: části 2–4 dejte předem za domácí přípravu a celou hodinu po krátkém kolečku věnujte simulaci (25 minut) a zpětné vazbě. Zeptejte se skupiny, co chtějí v dalším cyklu.",
+ "basics": [
+  [
+   "to build",
+   "stavět"
+  ],
+  [
+   "to finish",
+   "dokončit"
+  ],
+  [
+   "to repair",
+   "opravit"
+  ],
+  [
+   "to deliver",
+   "dodat"
+  ],
+  [
+   "quality",
+   "kvalita"
+  ],
+  [
+   "success",
+   "úspěch"
+  ]
+ ],
+ "comic": {
+  "prop": "stadium",
+  "a": [
+   "C",
+   "Just one small change, please."
+  ],
+  "b": [
+   "E",
+   "No problem. Small changes are our biggest projects."
+  ]
+ },
+ "next": "",
+ "videos": [
+  [
+   "YouTube – hledat: business English negotiation phrases",
+   "https://www.youtube.com/results?search_query=business+English+negotiation+phrases"
+  ],
+  [
+   "YouTube – hledat: construction project meeting client change request",
+   "https://www.youtube.com/results?search_query=construction+project+meeting+client+change+request"
+  ]
+ ]
+};
+</script>
+<script src="assets/motor.js"></script>
+</body>
+</html>
